@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đặt vé - Công viên ABC</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">🎢 Công viên ABC</a>
+    </div>
+  </nav>
+
+  <!-- Form đặt vé -->
+  <div class="container py-5">
+    <h2 class="text-center mb-4">Đặt vé tham quan</h2>
+    <form>
+      <div class="mb-3">
+        <label for="hoTen" class="form-label">Họ tên</label>
+        <input type="text" class="form-control" id="hoTen" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email liên hệ</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="soLuong" class="form-label">Số lượng vé</label>
+        <input type="number" class="form-control" id="soLuong" min="1" max="10" required>
+      </div>
+      <div class="mb-3">
+        <label for="ngay" class="form-label">Ngày tham quan</label>
+        <input type="date" class="form-control" id="ngay" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Xác nhận đặt vé</button>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
