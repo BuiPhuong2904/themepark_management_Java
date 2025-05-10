@@ -20,8 +20,8 @@
       justify-content: center;
       text-align: center;
     }
-    .hero h1 { font-size: 4rem; font-weight: bold; }
-    .hero p { font-size: 2rem; font-weight: bold;}
+    .hero h1 { font-size: 3.5rem; font-weight: bold; }
+    .hero p { font-size: 1.75rem; font-weight: bold; font-style: italic;}
 
     .game-card img { height: 200px; object-fit: cover; }
     .footer { background: #222; color: white; padding: 40px 0; }
@@ -31,6 +31,19 @@
     .navbar {
       font-family: 'Poppins', sans-serif;
       font-size: 1rem;
+    }
+    /* Áp dụng font cho logo */
+    .navbar-brand {
+      font-family: 'Pacifico', cursive; /* Font uốn lượn từ Google Fonts */
+      font-size: 1.25rem; /* Kích thước chữ lớn */
+      color: #4763ff; 
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Tạo hiệu ứng bóng đổ nhẹ */
+      transition: color 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển màu và di chuyển khi hover */
+    }
+    /* Hiệu ứng khi hover */
+    .navbar-brand:hover {
+      color: #ff1493; /* Màu chữ thay đổi khi hover */
+      transform: scale(1.1) rotate(-5deg); /* Phóng to và xoay logo */
     }
     /* Chỉnh phông cho thanh tìm kiếm */
     .navbar form input[type="search"] {
@@ -51,16 +64,27 @@
       font-family: 'Roboto', sans-serif; 
       font-size: 1rem;
     }
+
     /* Tiêu đề lớn ở trang chính */
     .hero h1 {
       font-family: 'Quicksand', sans-serif;
-      font-size: 3.5rem;
     }
     /* Đoạn mô tả dưới tiêu đề */
     .hero p {
       font-family: 'Roboto', sans-serif;
-      font-size: 1.25rem;
     }
+    .hero .btn {
+      border-radius: 50px; /* Bo tròn nút */
+      font-size: 1.25rem; /* Tăng kích thước chữ */
+      padding: 12px 30px; /* Điều chỉnh kích thước nút */
+      transition: transform 0.3s ease, background-color 0.3s ease; /* Hiệu ứng chuyển động khi hover */
+    }
+    /* Khi di chuột vào nút, nút sẽ to hơn và thay đổi màu sắc */
+    .hero .btn:hover {
+      transform: scale(1.1); /* Làm cho nút to hơn khi hover */
+      background-color: #063e7b;
+    }
+
     /* Nội dung thẻ card, mô tả trò chơi, v.v. */
     .card-body, .game-card {
       font-family: 'Roboto', sans-serif;
@@ -78,7 +102,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #ffffff;">
   <div class="container">
-    <a class="navbar-brand text-primary" href="#">The Chill Park</a>
+    <a class="navbar-brand" href="#">The Chill Park</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -130,8 +154,8 @@
 <!-- Hero -->
 <section class="hero">
   <div class="container">
-    <h1>Chào mừng đến với The Chill Park</h1>
-    <p>Khám phá thế giới giải trí sôi động và đầy màu sắc</p>
+    <h1>Chào Mừng Đến Với The Chill Park</h1>
+    <p>Khám phá thế giới trò chơi giải trí sôi động và đầy màu sắc</p>
     <a href="datve.html" class="btn btn-lg btn-primary mt-4">Đặt vé ngay</a>
   </div>
 </section>
