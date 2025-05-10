@@ -17,13 +17,13 @@
 
 /* Navbar */
 .navbar {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
+    font-family: 'Itim', cursive;
+    font-size: 0.95rem;
 }
 /* Áp dụng font cho logo */
 .navbar-brand {
     font-family: 'Pacifico', cursive; /* Font uốn lượn từ Google Fonts */
-    font-size: 1.25rem; /* Kích thước chữ lớn */
+    font-size: 1rem; 
     color: #4763ff; 
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Tạo hiệu ứng bóng đổ nhẹ */
     transition: color 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển màu và di chuyển khi hover */
@@ -33,25 +33,35 @@
     color: #ff1493; /* Màu chữ thay đổi khi hover */
     transform: scale(1.1) rotate(-5deg); /* Phóng to và xoay logo */
 }
+/* Hiển thị dropdown khi hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* Tùy chỉnh để dropdown không bị lệch */
+  }
 /* Chỉnh phông cho thanh tìm kiếm */
 .navbar form input[type="search"] {
-    font-family: 'Roboto', sans-serif;  
-    font-size: 1rem;
+    font-family: 'Itim', sans-serif;  
+    font-size: 0.85rem;
 }
 .navbar form button {
     font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
+    font-size: 0.85rem;
 }
 /* Chỉnh phông cho nút Đăng ký */
 .btn.btn-outline {
-    font-family: 'Roboto', sans-serif; 
-    font-size: 1rem;
+    font-family: 'Itim', sans-serif; 
+    font-size: 0.95rem;
 }
 /* Chỉnh phông cho nút Đăng nhập */
 .btn.btn-primary {
-    font-family: 'Roboto', sans-serif; 
-    font-size: 1rem;
+    font-family: 'Itim', sans-serif; 
+    font-size: 0.95rem;
 }
+/* Viền cho nút đăng ký */
+a[href="dangky.html"]:hover {
+    border: 1px solid #0d6efd;
+}
+
 
 /* Tiêu đề lớn ở trang chính */
 .hero h1 {
@@ -59,7 +69,7 @@
 }
 /* Đoạn mô tả dưới tiêu đề */
 .hero p {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Comfortaa', sans-serif;
 }
 .hero .btn {
     border-radius: 50px; /* Bo tròn nút */
@@ -73,13 +83,114 @@
     background-color: #063e7b;
 }
 
-/* Nội dung thẻ card, mô tả trò chơi, v.v. */
-.card-body, .game-card {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
+/* phần Giới thiệu */
+.gioithieu-title {
+    font-family: 'Quicksand', sans-serif;
+    color: #4763ff; 
+    font-size: 2.5rem;     
+    font-weight: 700;
+    margin-bottom: 1rem;
 }
+.gioithieu-desc {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6; /* giãn dòng dễ đọc */
+}
+/* Nút "XEM THÊM" */
+.gioithieu-btn {
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+.gioithieu-btn:hover {
+    background-color: #0d6efd;
+    color: white;
+    transform: scale(1.05);
+}
+/* Ảnh */
+.carousel-inner img {
+    object-fit: cover;
+    height: 400px;
+}
+  
+/* Phần danh sách trò chơi */
+.trochoinoibat-title {
+    font-family: 'Quicksand', sans-serif;
+    color: #4763ff; 
+    font-size: 2rem;     
+    font-weight: 700;
+}
+/* Nội dung thẻ card, mô tả trò chơi, v.v. */
+.game-card {
+    min-height: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+.game-card img {
+    height: 260px;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+.card-title {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+.card-text {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    color: #555;
+}
+/* Nút "XEM THÊM" */
+.trochoinoibat-btn {
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+.trochoinoibat:hover {
+    background-color: #0d6efd;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Phần sự kiện */
+.skkm-title {
+    font-family: 'Quicksand', sans-serif;
+    color: #4763ff; 
+    font-size: 2rem;     
+    font-weight: 700;
+}
+/* Phần chữ trong carousel */
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 0.5rem;
+    border-radius: 15px;
+}
+/* Phần tiêu đề trong slide */
+.carousel-caption h5 {
+    font-family: 'Nunito', serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+/* Phần mô tả nhỏ */
+  .carousel-caption p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
 /* Footer */
 .footer {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 0.85rem;
 }
+.footer a:hover {
+    color: #ffffff !important;
+    text-decoration: underline;
+}
+  

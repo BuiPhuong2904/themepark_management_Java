@@ -4,9 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trang chủ The Chill Park</title>
+  <title>Trang chủ | THE CHILL PARK</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&family=Quicksand&family=Roboto&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Nunito:wght@400;700&family=Itim&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   
   <link rel="stylesheet" href="style.css">
@@ -14,9 +17,9 @@
 
 <body>
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #ffffff;">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #ffffff;">
   <div class="container">
-    <a class="navbar-brand" href="#">The Chill Park</a>
+    <a class="navbar-brand" href="#">THE CHILL PARK</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -26,25 +29,43 @@
         <!-- icon ngôi nhà trang chủ -->
         <li class="nav-item">
           <a class="nav-link active text-primary" href="#">
-            <i class="bi bi-house-fill"></i> 
+            <i class="bi bi-house-fill fs-5"></i> 
           </a>
         </li>
 
-        <li class="nav-item"><a class="nav-link text-dark" href="gioithieu.html">Giới thiệu</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="gioithieu.html">GIỚI THIỆU</a></li>
 
-        <!-- Dropdown Tin tức -->
+        <!-- Dropdown Sự kiện  -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-dark" href="#" id="tintucDropdown" 
-            role="button" data-bs-toggle="dropdown" aria-expanded="false">Tin tức</a>
-          <ul class="dropdown-menu" aria-labelledby="tintucDropdown">
-            <li><a class="dropdown-item" href="thongbao.html">Thông báo</a></li>
-            <li><a class="dropdown-item" href="khuyenmai.html">Khuyến mãi</a></li>
+          <a class="nav-link dropdown-toggle text-dark" href="#" id="sukienDropdown" 
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">SỰ KIỆN</a>
+          <ul class="dropdown-menu" aria-labelledby="sukienDropdown">
+            <li><a class="dropdown-item" href="thongbao.html">Thông Báo</a></li>
+            <li><a class="dropdown-item" href="khuyenmai.html">Khuyến Mãi</a></li>
           </ul>
         </li>
 
-        <li class="nav-item"><a class="nav-link text-dark" href="trochoi.html">Trò chơi</a></li>
-        <li class="nav-item"><a class="nav-link text-dark" href="#">Bảng giá</a></li>
-        <li class="nav-item"><a class="nav-link text-dark" href="#">Tuyển dụng</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="trochoi.html">TRÒ CHƠI</a></li>
+
+        <!-- Dropdown Bảng giá -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-dark" href="#" id="banggiaDropdown" 
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">BẢNG GIÁ</a>
+          <ul class="dropdown-menu" aria-labelledby="banggiaDropdown">
+            <li><a class="dropdown-item" href="#">Bảng Giá Lẻ</a></li>
+            <li><a class="dropdown-item" href="#">Combo Trò Chơi</a></li>
+          </ul>
+        </li>
+
+        <!-- Dropdown Liên hệ -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-dark" href="#" id="lienheDropdown" 
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">LIÊN HỆ</a>
+          <ul class="dropdown-menu" aria-labelledby="lienheDropdown">
+            <li><a class="dropdown-item" href="#">Tuyển Dụng</a></li>
+            <li><a class="dropdown-item" href="#">Hợp Tác Thương Mại</a></li>
+          </ul>
+        </li>
       </ul>
 
       <!-- Thanh tìm kiếm -->
@@ -56,10 +77,10 @@
       </form>
 
       <!-- Nút đăng ký -->
-      <a class="btn btn-outline ms-3" href="dangky.html">Đăng ký</a>
+      <a class="btn btn-outline ms-3" href="dangky.html">ĐĂNG KÝ</a>
 
       <!-- Nút đăng nhập -->
-      <a class="btn btn-primary ms-3" href="dangnhap.html">Đăng nhập</a>
+      <a class="btn btn-primary ms-3" href="dangnhap.html">ĐĂNG NHẬP</a>
 
     </div>
   </div>
@@ -70,54 +91,101 @@
   <div class="container">
     <h1>Chào Mừng Đến Với The Chill Park</h1>
     <p>Khám phá thế giới trò chơi giải trí sôi động và đầy màu sắc</p>
-    <a href="datve.html" class="btn btn-lg btn-primary mt-4">Đặt vé ngay</a>
+    <a href="datve.html" class="btn btn-lg btn-primary mt-4">ĐẶT VÉ NGAY</a>
   </div>
 </section>
 
 <!-- Giới thiệu -->
 <section class="py-5">
-  <div class="container text-center">
-    <h2>Giới thiệu về công viên</h2>
-    <p>Công viên ABC là thiên đường giải trí với hàng chục trò chơi hấp dẫn, không gian xanh mát và các sự kiện lễ hội quanh năm dành cho mọi lứa tuổi.</p>
-    <iframe width="100%" height="400" src="https://www.youtube.com/embed/tgbNymZ7vqY" title="Giới thiệu công viên" frameborder="0" allowfullscreen></iframe>
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Cột văn bản -->
+      <div class="col-md-6 text-center text-md-start">
+        <h2 class="gioithieu-title">THE CHILL PARK</h2>
+        <p class="gioithieu-desc">
+          The Chill Park là thiên đường giải trí với hàng trăm trò chơi hấp dẫn,
+          không gian xanh mát và các sự kiện lễ hội quanh năm dành cho mọi lứa tuổi.
+        </p>
+        <a href="gioithieu.html" class="btn btn-outline-primary gioithieu-btn mt-3">XEM THÊM</a>
+      </div>
+
+      <!-- Cột video -->
+      <!-- <div class="col-md-6">
+        <div class="ratio ratio-16x9">
+          <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"
+                  title="Giới thiệu công viên"
+                  allowfullscreen></iframe>
+        </div>
+      </div> -->
+
+      <!-- Cột ảnh slideshow -->
+      <div class="col-md-6">
+        <div id="gioithieuCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner rounded-4 shadow">
+            <div class="carousel-item active">
+              <img src="https://i.postimg.cc/Rh9DnkR1/park.jpg" class="d-block w-100" alt="Ảnh 1">
+            </div>
+            <div class="carousel-item">
+              <img src="https://i.postimg.cc/vH47mXR2/2.jpg" class="d-block w-100" alt="Ảnh 2">
+            </div>
+            <div class="carousel-item">
+              <img src="https://i.postimg.cc/9MXZHYtp/3.jpg" class="d-block w-100" alt="Ảnh 3">
+            </div>
+          </div>
+          <!-- Điều hướng trái/phải -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#gioithieuCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#gioithieuCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
 <!-- Trò chơi nổi bật -->
 <section class="py-5 bg-light">
   <div class="container">
-    <h2 class="text-center mb-4">Khu trò chơi nổi bật</h2>
+    <h2 class="text-center mb-4 trochoinoibat-title">TRÒ CHƠI NỔI BẬT</h2>
     <div class="row g-4">
       <!-- Game 1 -->
       <div class="col-md-4">
-        <div class="card game-card">
-          <img src="https://images.unsplash.com/photo-1562599934-e1ef57ccff55" class="card-img-top" alt="Roller Coaster">
-          <div class="card-body">
-            <h5 class="card-title">Tàu lượn siêu tốc</h5>
-            <p class="card-text">Trải nghiệm cảm giác mạnh với tốc độ và độ cao choáng ngợp.</p>
+        <div class="card game-card h-100">
+          <img src="https://i.postimg.cc/zGD2z6Sm/4.jpg" class="card-img-top" alt="Roller Coaster">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Tàu Lượn Siêu Tốc</h5>
+            <p class="card-text flex-grow-1">Trải nghiệm cảm giác mạnh với tốc độ và độ cao choáng ngợp.</p>
           </div>
         </div>
       </div>
       <!-- Game 2 -->
       <div class="col-md-4">
-        <div class="card game-card">
-          <img src="https://images.unsplash.com/photo-1600585153248-6c417ad9b4c4" class="card-img-top" alt="Ferris Wheel">
-          <div class="card-body">
-            <h5 class="card-title">Vòng quay khổng lồ</h5>
-            <p class="card-text">Ngắm toàn cảnh công viên từ độ cao 60m.</p>
+        <div class="card game-card h-100">
+          <img src="https://i.postimg.cc/0ytWbncz/7.jpg" class="card-img-top" alt="Ferris Wheel">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Vòng Quay Khổng Lồ</h5>
+            <p class="card-text flex-grow-1">Ngắm toàn cảnh công viên từ độ cao 60m.</p>
           </div>
         </div>
       </div>
       <!-- Game 3 -->
       <div class="col-md-4">
-        <div class="card game-card">
-          <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde" class="card-img-top" alt="Water Slide">
-          <div class="card-body">
-            <h5 class="card-title">Đường trượt nước</h5>
-            <p class="card-text">Giải nhiệt mùa hè với hệ thống trượt nước hiện đại.</p>
+        <div class="card game-card h-100">
+          <img src="https://i.postimg.cc/TYJHXfbq/5.jpg" class="card-img-top" alt="Water Slide">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Đường Trượt Nước</h5>
+            <p class="card-text flex-grow-1">Giải nhiệt mùa hè với hệ thống trượt nước hiện đại.</p>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Nút Xem Thêm dưới cùng -->
+    <div class="text-center mt-4">
+      <a href="trochoi.html" class="btn btn-outline-primary trochoinoibat-btn px-4 py-2">XEM THÊM</a>
     </div>
   </div>
 </section>
@@ -125,12 +193,12 @@
 <!-- Khuyến mãi/Sự kiện -->
 <section class="py-5">
   <div class="container">
-    <h2 class="text-center mb-4">Sự kiện & Khuyến mãi</h2>
+    <h2 class="text-center mb-4 skkm-title">SỰ KIỆN VÀ KHUYẾN MÃI</h2>
     <div id="promoCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <!-- Slide 1 -->
         <div class="carousel-item active">
-          <img src="https://images.unsplash.com/photo-1521305916504-4a1121188589" class="d-block w-100" alt="Event 1">
+          <img src="https://i.postimg.cc/5tH2Gx0n/9.jpg" class="d-block w-100" alt="Event 1">
           <div class="carousel-caption d-none d-md-block">
             <h5>Giảm 50% vé cuối tuần</h5>
             <p>Áp dụng đến hết tháng này cho nhóm từ 4 người trở lên.</p>
@@ -138,10 +206,10 @@
         </div>
         <!-- Slide 2 -->
         <div class="carousel-item">
-          <img src="https://images.unsplash.com/photo-1562771242-9f4c67da7272" class="d-block w-100" alt="Event 2">
+          <img src="https://i.postimg.cc/7ZtLmCx5/8.jpg" class="d-block w-100" alt="Event 2">
           <div class="carousel-caption d-none d-md-block">
-            <h5>Đêm hội hóa trang</h5>
-            <p>Sự kiện Halloween đặc sắc vào ngày 31/10. Vé giới hạn!</p>
+            <h5>Lễ hội mùa hè</h5>
+            <p>Sự kiện đặc sắc vào ngày 15/6. Vé giới hạn!</p>
           </div>
         </div>
       </div>
@@ -152,50 +220,67 @@
         <span class="carousel-control-next-icon"></span>
       </button>
     </div>
+
+    <!-- Nút Xem Thêm dưới cùng -->
+    <div class="text-center mt-4">
+      <a href="sukien.html" class="btn btn-outline-primary trochoinoibat-btn px-4 py-2">XEM THÊM</a>
+    </div>
   </div>
 </section>
 
 <!-- Footer -->
 <footer class="footer">
   <div class="container text-center">
-    <div class="row">
+    <div class="row gx-2 gy-4 text-start">
 
-      <div class="col-md-4 mb-3">
-        <h5>Về chúng tôi</h5>
-        <a href="gioithieu.html">Giới thiệu</a><br>
-        <a href="#">Tin tức</a><br>
-        <a href="#">Khuyến mãi</a><br>
-        <a href="#">Trò chơi</a><br>
-        <a href="#">Bảng giá</a><br>
-        <a href="#">Tuyển dụng</a><br>
-        <a href="#">Liên hệ</a><br>
+      <div class="col-sm-6 col-md-3">
+        <h5 class="mb-3">VỀ THE CHILL PARK</h5>
+        <p href="gioithieu.html" class="d-block text-white-50 mb-1">Giới thiệu</p>
+        <p href="#" class="d-block text-white-50 mb-1">Tin tức</p>
+        <p href="#" class="d-block text-white-50 mb-1">Khuyến mãi</p>
+        <p href="#" class="d-block text-white-50 mb-1">Trò chơi</p>
+        <p href="#" class="d-block text-white-50 mb-1">Bảng giá</p>
+        <p href="#" class="d-block text-white-50 mb-1">Tuyển dụng</p>
+        <p href="#" class="d-block text-white-50 mb-1">Liên hệ</p>
       </div>
 
-      <div class="col-md-4 mb-3">
-        <h5>Liên hệ ngay</h5>
-        <p>123 Đường Vui Vẻ, TP. HCM<br>Điện thoại: 0123 456 789<br>Email: contact@thechillpark.vn</p>
+      <div class="col-sm-6 col-md-3">
+        <h5 class="mb-3">LIÊN HỆ NGAY</h5>
+        <p class="mb-1 text-white-50">123 Đường Vui Vẻ, TP. HCM</p>
+        <p class="mb-1 text-white-50">Điện thoại: 0123 456 789</p>
+        <p class="mb-1 text-white-50">Email: contact@thechillpark.vn</p>
       </div>
 
-      <div class="col-md-4 mb-3">
-        <h5>Mạng xã hội</h5>
-        <a href="#">Facebook</a><br>
-        <a href="#">Instagram</a><br>
-        <a href="#">YouTube</a><br>
-        <a href="#">Tiktok</a><br>
+      <div class="col-sm-6 col-md-3">
+        <h5 class="mb-3">MẠNG XÃ HỘI</h5>
+        <a href="#" class="d-block text-white-50 mb-1">Facebook</a><br>
+        <a href="#" class="d-block text-white-50 mb-1">Instagram</a><br>
+        <a href="#" class="d-block text-white-50 mb-1">YouTube</a><br>
+        <a href="#" class="d-block text-white-50 mb-1">Tiktok</a><br>
       </div>
 
-      <div class="col-md-4 mb-3">
-        <h5>Điều khoản - Chính sách</h5>
-        <p>123 Đường Vui Vẻ, TP. HCM<br>Điện thoại: 0123 456 789<br>Email: contact@thechillpark.vn</p>
-      </div>
-      
-      <div class="col-md-4 mb-3">
-        <h5>Bản đồ</h5>
-        <iframe width="100%" height="150" src="https://maps.google.com/maps?q=Ho%20Chi%20Minh&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" allowfullscreen></iframe>
+      <div class="col-sm-6 col-md-3">
+        <h5 class="mb-3">ĐIỀU KHOẢN - CHÍNH SÁCH</h5>
+        <p class="d-block text-white-50 mb-1">Chính sách bảo mật</p>
+        <p class="d-block text-white-50 mb-1">Điều khoản sử dụng</p>
+        <p class="d-block text-white-50 mb-1">Hướng dẫn đặt vé</p>
       </div>
     </div>
+
+    <!-- Bản đồ -->
+    <div class="row mt-4">
+      <div class="col-12">
+        <h5 class="text-start">BẢN ĐỒ</h5>
+        <iframe
+          width="100%" height="250"
+          src="https://maps.google.com/maps?q=Ho%20Chi%20Minh&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          frameborder="0" allowfullscreen loading="lazy" style="border:0;">
+        </iframe>
+      </div>
+    </div>
+
     <hr class="bg-light">
-    <p>&copy; 2025 The Chill Park. All rights reserved.</p>
+    <p>&copy; 2025 THE CHILL PARK. ALL RIGHTS RESERVED.</p>
   </div>
 </footer>
 
