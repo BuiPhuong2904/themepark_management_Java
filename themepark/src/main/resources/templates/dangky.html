@@ -87,29 +87,31 @@
 <!-- Form đăng ký -->
 <div class="container d-flex flex-column align-items-center pt-3 mt-5" style="min-height: 120vh;">
   <!-- Tiêu đề ngoài khung -->
-  <h2 class="mb-4" style="font-family: 'Quicksand', sans-serif; color: #4763ff; font-size: 2.5rem; font-weight: 700;">Đăng ký</h2>
+  <h2 class="mb-4" style="font-family: 'Quicksand', sans-serif; color: #4763ff; 
+    font-size: 2.5rem; font-weight: 700;">Đăng ký</h2>
 
   <!-- Khung đăng ký -->
   <div class="card shadow-lg p-4 w-100" style="max-width: 450px; border-radius: 20px;">
     <form>
       <div class="mb-3" style="font-family: 'Nunito', sans-serif; font-size: 1.15rem;">
-        <label for="ten" class="form-label">Tên đăng nhập</label>
+        <label for="ten" class="form-label">Tên đăng nhập *</label>
         <input type="text" class="form-control" id="ten" required>
       </div>
       <div class="mb-3" style="font-family: 'Nunito', sans-serif; font-size: 1.15rem;">
-        <label for="email" class="form-label">Email</label>
+        <label for="email" class="form-label">Email *</label>
         <input type="email" class="form-control" id="email" required>
       </div>
       <div class="mb-3" style="font-family: 'Nunito', sans-serif; font-size: 1.15rem;">
-        <label for="matKhau" class="form-label">Mật khẩu</label>
+        <label for="matKhau" class="form-label">Mật khẩu *</label>
         <input type="password" class="form-control" id="matKhau" required>
       </div>
       <div class="mb-3" style="font-family: 'Nunito', sans-serif; font-size: 1.15rem;">
-        <label for="xacNhan" class="form-label">Xác nhận mật khẩu</label>
+        <label for="xacNhan" class="form-label">Xác nhận mật khẩu *</label>
         <input type="password" class="form-control" id="xacNhan" required>
       </div>
       <div class="d-grid mb-3">
-        <button type="submit" class="btn btn-primary" style="font-family: 'Nunito', sans-serif; font-size: 1rem;">Đăng ký</button>
+        <button type="submit" class="btn btn-primary" 
+          style="font-family: 'Nunito', sans-serif; font-size: 1rem;">Đăng ký</button>
       </div>
 
       <!-- Hoặc đăng ký bằng -->
@@ -187,6 +189,11 @@
   </div>
 </footer>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.body.classList.add("loaded");
+  });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

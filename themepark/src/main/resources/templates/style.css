@@ -1,3 +1,15 @@
+html {
+    scroll-behavior: smooth;
+}
+/* Hiệu ứng fade-in */
+body {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+body.loaded {
+    opacity: 1;
+}
+
 .hero {
     background: linear-gradient(rgba(43, 41, 41, 0.5), rgba(43, 41, 41, 0.5)),
                 url('https://i.postimg.cc/PfzckqXS/1.jpg') no-repeat center center/cover;
@@ -193,4 +205,57 @@ a[href="dangky.html"]:hover {
     color: #ffffff !important;
     text-decoration: underline;
 }
-  
+
+/* form đặt vé */
+.booking-card {
+    max-width: 700px;
+    margin: 100px auto 50px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+/* Thêm combo */
+.combo-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+.combo-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.combo-item.removing {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* thanh toán  */
+.order-box {
+    background-color: #4caf50;
+    color: white;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+.summary-box {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+.total-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff6347;
+}
+.btn-custom {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.15rem;
+}
+.back-button {
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
+}

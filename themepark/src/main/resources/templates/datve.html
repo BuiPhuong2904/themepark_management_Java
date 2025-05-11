@@ -1,42 +1,292 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
-  <title>Đặt vé - Công viên ABC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đăng ký | THE CHILL PARK</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">🎢 Công viên ABC</a>
-    </div>
-  </nav>
 
-  <!-- Form đặt vé -->
-  <div class="container py-5">
-    <h2 class="text-center mb-4">Đặt vé tham quan</h2>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Nunito:wght@400;700&family=Itim&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #ffffff;">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">THE CHILL PARK</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <!-- icon ngôi nhà trang chủ -->
+        <li class="nav-item">
+          <a class="nav-link active text-primary" href="index.html">
+            <i class="bi bi-house-fill fs-5"></i> 
+          </a>
+        </li>
+
+        <li class="nav-item"><a class="nav-link text-dark" href="gioithieu.html">GIỚI THIỆU</a></li>
+
+        <!-- Dropdown Sự kiện  -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-dark" href="#" id="sukienDropdown" 
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">SỰ KIỆN</a>
+          <ul class="dropdown-menu" aria-labelledby="sukienDropdown">
+            <li><a class="dropdown-item" href="thongbao.html">Thông Báo</a></li>
+            <li><a class="dropdown-item" href="khuyenmai.html">Khuyến Mãi</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link text-dark" href="trochoi.html">TRÒ CHƠI</a></li>
+
+        <!-- Dropdown Bảng giá -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-dark" href="#" id="banggiaDropdown" 
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">BẢNG GIÁ</a>
+          <ul class="dropdown-menu" aria-labelledby="banggiaDropdown">
+            <li><a class="dropdown-item" href="#">Bảng Giá Lẻ</a></li>
+            <li><a class="dropdown-item" href="#">Combo Trò Chơi</a></li>
+          </ul>
+        </li>
+
+        <!-- Dropdown Liên hệ -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-dark" href="#" id="lienheDropdown" 
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">LIÊN HỆ</a>
+          <ul class="dropdown-menu" aria-labelledby="lienheDropdown">
+            <li><a class="dropdown-item" href="#">Tuyển Dụng</a></li>
+            <li><a class="dropdown-item" href="#">Hợp Tác Thương Mại</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Thanh tìm kiếm -->
+      <form class="d-flex ms-2" role="search">
+        <input class="form-control me-1" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+
+      <!-- Nút đăng ký -->
+      <a class="btn btn-outline ms-3" href="dangky.html">ĐĂNG KÝ</a>
+
+      <!-- Nút đăng nhập -->
+      <a class="btn btn-primary ms-3" href="dangnhap.html">ĐĂNG NHẬP</a>
+
+    </div>
+  </div>
+</nav>
+
+<!-- Form đặt vé -->
+<div class="container">
+  <div class="booking-card">
+    <h3 class="text-center mb-4" style="font-size: 2rem;">ĐẶT VÉ ONLINE</h3>
     <form>
-      <div class="mb-3">
-        <label for="hoTen" class="form-label">Họ tên</label>
-        <input type="text" class="form-control" id="hoTen" required>
+      <!-- Thông tin đặt vé -->
+      <div class="mt-4">
+        <h5 class="text-uppercase">THÔNG TIN VÉ</h5>
+        <hr style="border-top: 2px dashed #000;">
       </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email liên hệ</label>
+
+      <div class="mb-3" style="font-family: 'Nunito', sans-serif; font-size: 1.15rem;">
+        <label for="ngayThamQuan" class="form-label">Chọn ngày tham quan</label>
+        <input type="date" class="form-control" id="ngayThamQuan" required>
+      </div>
+
+      <div id="comboContainer">
+        <div class="combo-item border rounded p-3 mb-4 shadow-sm position-relative">
+          <h5 class="mb-3 text-primary">Combo 1</h5>
+  
+          <!-- Nút xóa -->
+          <button type="button" class="btn btn-link text-danger position-absolute top-0 end-0 me-2 mt-2 p-0" onclick="xoaCombo(this)">
+            <i class="bi bi-trash3-fill fs-5"></i>
+          </button>
+  
+          <div class="mb-3">
+            <label class="form-label">Chọn loại combo vé</label>
+            <select class="form-select" name="loaiVe[]" required>
+              <option value="">-- Chọn vé --</option>
+              <option value="combo1">COMBO NGÀY HÈ VUI VẺ</option>
+              <option value="combo2">COMBO KHÁM PHÁ ĐẠI DƯƠNG XANH</option>
+              <option value="combo3">COMBO LỰA CHỌN HÀNH TRÌNH RIÊNG</option>
+            </select>
+          </div>
+  
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+              <label class="form-label">Người lớn</label>
+              <small class="text-muted fst-italic">*cao từ 140cm</small>
+            </div>
+            <input type="number" name="soLuongNL[]" class="form-control" min="1" value="1">
+          </div>
+  
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+              <label class="form-label">Trẻ em</label>
+              <small class="text-muted fst-italic">*từ dưới 140cm</small>
+            </div>
+            <input type="number" name="soLuongTE[]" class="form-control" min="1" value="1">
+          </div>
+        </div>
+      </div>
+  
+      <button type="button" class="btn btn-outline-primary mb-4" onclick="themCombo()">+ Thêm combo</button>
+  
+      <!-- Thông tin khách hàng -->
+      <div class="mt-4">
+        <h5 class="text-uppercase">THÔNG TIN KHÁCH HÀNG</h5>
+        <hr style="border-top: 2px dashed #000;">
+      </div>
+
+      <div class="mb-3" style="font-family: 'Nunito', sans-serif; font-size: 1.15rem;">
+        <label for="tenKhach" class="form-label">Họ tên *</label>
+        <input type="text" class="form-control" id="tenKhach" required>
+      </div>
+
+      <div class="mb-3" style="font-family: 'Nunito', sans-serif; font-size: 1.15rem;">
+        <label for="email" class="form-label">Email *</label>
         <input type="email" class="form-control" id="email" required>
       </div>
-      <div class="mb-3">
-        <label for="soLuong" class="form-label">Số lượng vé</label>
-        <input type="number" class="form-control" id="soLuong" min="1" max="10" required>
+
+      <div class="mb-3" style="font-family: 'Nunito', sans-serif; font-size: 1.15rem;">
+        <label for="sdt" class="form-label">Số điện thoại *</label>
+        <input type="tel" class="form-control" id="sdt" required>
       </div>
-      <div class="mb-3">
-        <label for="ngay" class="form-label">Ngày tham quan</label>
-        <input type="date" class="form-control" id="ngay" required>
+
+      <div class="mb-3" style="font-family: 'Nunito', sans-serif; font-size: 1.15rem;">
+        <label for="ghiChu" class="form-label">Ghi chú</label>
+        <textarea class="form-control" id="ghiChu" rows="4" placeholder="Nhập ghi chú tại đây (nếu có)..."></textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Xác nhận đặt vé</button>
+
+      <button type="submit" class="btn btn-success w-100" 
+        style="font-family: 'Nunito', sans-serif; font-size: 1.15rem;">Thanh toán ngay</button>
     </form>
   </div>
+</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Footer -->
+<footer class="footer">
+  <div class="container text-center">
+    <div class="row gx-2 gy-4 text-start">
+
+      <div class="col-sm-6 col-md-3">
+        <h5 class="mb-3">VỀ THE CHILL PARK</h5>
+        <a href="gioithieu.html" class="d-block text-white-50 mb-1">Giới thiệu</a>
+        <a href="#" class="d-block text-white-50 mb-1">Thông báo</a>
+        <a href="#" class="d-block text-white-50 mb-1">Trò chơi</a>
+        <a href="#" class="d-block text-white-50 mb-1">Bảng giá</a>
+        <a href="#" class="d-block text-white-50 mb-1">Khuyến mãi</a>
+        <a href="#" class="d-block text-white-50 mb-1">Tuyển dụng</a>
+        <a href="#" class="d-block text-white-50 mb-1">Liên hệ</a>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <h5 class="mb-3">LIÊN HỆ NGAY</h5>
+        <p class="mb-1 text-white-50">123 Đường Vui Vẻ, TP. HCM</p>
+        <p class="mb-1 text-white-50">Điện thoại: 0123 456 789</p>
+        <p class="mb-1 text-white-50">Email: contact@thechillpark.vn</p>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <h5 class="mb-3">MẠNG XÃ HỘI</h5>
+        <a href="#" class="d-block text-white-50 mb-1">Facebook</a>
+        <a href="#" class="d-block text-white-50 mb-1">Instagram</a>
+        <a href="#" class="d-block text-white-50 mb-1">YouTube</a>
+        <a href="#" class="d-block text-white-50 mb-1">Tiktok</a>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <h5 class="mb-3">ĐIỀU KHOẢN - CHÍNH SÁCH</h5>
+        <a href="#" class="d-block text-white-50 mb-1">Chính sách bảo mật</a>
+        <a href="#" class="d-block text-white-50 mb-1">Chính sách quyền riêng tư</a>
+        <a href="#" class="d-block text-white-50 mb-1">Điều khoản sử dụng</a>
+        <a href="#" class="d-block text-white-50 mb-1">Hướng dẫn đặt vé</a>
+        <a href="#" class="d-block text-white-50 mb-1">Hướng dẫn thanh toán</a>
+      </div>
+    </div>
+
+    <!-- Bản đồ -->
+    <div class="row mt-4">
+      <div class="col-12">
+        <h5 class="text-start">BẢN ĐỒ</h5>
+        <iframe
+          width="100%" height="250"
+          src="https://maps.google.com/maps?q=Ho%20Chi%20Minh&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          frameborder="0" allowfullscreen loading="lazy" style="border:0;">
+        </iframe>
+      </div>
+    </div>
+
+    <hr class="bg-light">
+    <p>&copy; 2025 THE CHILL PARK. ALL RIGHTS RESERVED.</p>
+  </div>
+</footer>
+
+
+// JavaScript để thêm hiệu ứng cho các combo
+<script>
+  function capNhatTieuDeCombo() {
+    const combos = document.querySelectorAll('.combo-item');
+    combos.forEach((combo, index) => {
+      const tieuDe = combo.querySelector('h5');
+      tieuDe.textContent = 'Combo ' + (index + 1);
+    });
+  }
+
+  function themCombo() {
+    const container = document.getElementById('comboContainer');
+    const firstCombo = container.querySelector('.combo-item');
+    const newCombo = firstCombo.cloneNode(true);
+
+    // Reset nội dung input/select
+    newCombo.querySelectorAll('input').forEach(input => input.value = 0);
+    newCombo.querySelector('select').selectedIndex = 0;
+
+    // Thêm class hiệu ứng
+    newCombo.classList.remove('show', 'removing');
+    container.appendChild(newCombo);
+
+    setTimeout(() => {
+      newCombo.classList.add('show');
+      capNhatTieuDeCombo(); // Cập nhật số thứ tự
+    }, 10);
+  }
+
+  function xoaCombo(btn) {
+    const comboItem = btn.closest('.combo-item');
+    const container = document.getElementById('comboContainer');
+    const combos = container.querySelectorAll('.combo-item');
+
+    if (combos.length > 1) {
+      comboItem.classList.add('removing');
+      setTimeout(() => {
+        comboItem.remove();
+        capNhatTieuDeCombo(); // Cập nhật lại số sau khi xóa
+      }, 400); // thời gian khớp với CSS transition
+    } else {
+      alert('Phải có ít nhất một combo!');
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.combo-item').forEach(item => {
+      item.classList.add('show');
+    });
+  });
+</script>
+  
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.body.classList.add("loaded");
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
