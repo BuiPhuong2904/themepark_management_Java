@@ -89,8 +89,8 @@
     <div class="booking-card">
         <form>
             <!-- Đơn hàng -->
-            <div class="order-box text-center">
-                <h4>Đơn hàng</h4>
+            <div class="order-box text-center" style="font-size: 2.5rem;">
+                <h4>ĐƠN HÀNG</h4>
             </div>
 
             <div class="summary-box">
@@ -99,7 +99,7 @@
                   <!-- Mỗi combo sẽ được thêm vào đây thông qua JavaScript -->
                 </div>
               
-                <hr>
+                <hr style="border-top: 1.5px dashed #000;">
               
                 <!-- Mã giảm giá -->
                 <div>
@@ -107,19 +107,20 @@
                   <input type="text" class="form-control mb-3" placeholder="Nhập mã giảm giá" id="discount-code">
                 </div>
               
-                <hr>
+                <hr style="border-top: 1.5px dashed #000;">
               
                 <!-- Phương thức thanh toán -->
                 <div>
-                  <h5>Chọn phương thức thanh toán</h5>
+                  <h5>Phương thức thanh toán</h5>
                   <select class="form-control" id="payment-method">
+                    <option value="">-- Chọn phương thức thanh toán --</option>
                     <option value="ngan-hang">Thanh toán qua ngân hàng</option>
                     <option value="momo">Thanh toán qua MoMo</option>
                     <option value="visa">Thanh toán qua Visa/Mastercard</option>
                   </select>
                 </div>
               
-                <hr>
+                <hr style="border-top: 1.5px dashed #000;">
                 
                 <!-- Thành tiền -->
                 <div class="mt-2">
@@ -133,7 +134,7 @@
 
                 <!-- Tổng tiền cuối cùng -->
                 <div class="mb-3">
-                  <h5 class="total-price">Tổng tiền: <span id="final-total">0</span> VND</h5>
+                  <h5 class="total-price">Tổng thanh toán: <span id="final-total">0</span> VND</h5>
                 </div>
               
                 <!-- Nút xác nhận thanh toán -->
