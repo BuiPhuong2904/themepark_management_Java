@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -17,7 +17,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #ffffff;">
   <div class="container">
-    <a class="navbar-brand" href="/index">THE CHILL PARK</a>
+    <a class="navbar-brand" href="/">THE CHILL PARK</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -26,7 +26,7 @@
       <ul class="navbar-nav ms-auto">
         <!-- icon ngôi nhà trang chủ -->
         <li class="nav-item">
-          <a class="nav-link active text-primary" href="/index">
+          <a class="nav-link active text-primary" href="/">
             <i class="bi bi-house-fill fs-5"></i> 
           </a>
         </li>
@@ -92,14 +92,14 @@
 
   <!-- Khung đăng nhập -->
   <div class="card shadow-lg p-4 w-100" style="max-width: 450px; border-radius: 20px;">
-    <form>
+    <form action="/dangnhap" method="post">
       <div class="mb-3" style="font-family: 'Nunito', sans-serif; font-size: 1.15rem;">
         <label for="email" class="form-label">Email *</label>
-        <input type="email" class="form-control" id="email" required>
+        <input type="email" class="form-control" id="email" name="email" required>
       </div>
       <div class="mb-3" style="font-family: 'Nunito', sans-serif; font-size: 1.15rem;">
         <label for="matKhau" class="form-label">Mật khẩu *</label>
-        <input type="password" class="form-control" id="matKhau" required>
+        <input type="password" class="form-control" id="matkhau" name="matkhau" required>
       </div>
       <div class="d-grid mb-3">
         <button type="submit" class="btn btn-success">Đăng nhập</button>
