@@ -70,7 +70,7 @@ body.loaded {
     font-size: 0.95rem;
 }
 /* Viền cho nút đăng ký */
-a[href="dangky.html"]:hover {
+a[href="/dangky"]:hover {
     border: 1px solid #0d6efd;
 }
 
@@ -207,7 +207,7 @@ a[href="dangky.html"]:hover {
 }
 
 /* form đặt vé */
-.booking-card {
+/* .booking-card {
     max-width: 700px;
     margin: 100px auto 50px;
     padding: 30px;
@@ -216,7 +216,7 @@ a[href="dangky.html"]:hover {
     background-color: #fff;
 }
 /* Thêm combo */
-.combo-item {
+/* .combo-item {
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.4s ease;
@@ -228,10 +228,10 @@ a[href="dangky.html"]:hover {
 .combo-item.removing {
     opacity: 0;
     transform: translateY(-20px);
-}
+} */ 
 
 /* thanh toán  */
-.order-box {
+/* .order-box {
     background-color: #4caf50;
     color: white;
     padding: 20px;
@@ -258,4 +258,169 @@ a[href="dangky.html"]:hover {
     font-size: 1rem;
     color: #007bff;
     text-decoration: none;
+} */
+
+
+/* Phần chọn vé */
+.step-progress {
+  display: flex;
+  justify-content: center;
+  background-color: #4763ff;
+  padding: 10px;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.step-progress div {
+  margin: 0 10px;
+}
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white; /* Màu nền trắng */
+  border: 2px solid white; /* Viền trắng mặc định */
+  border-radius: 50%; /* Bo tròn */
+  width: 36px; /* Kích thước icon (rộng) */
+  height: 36px; /* Kích thước icon (cao) */
+}
+.icon-wrapper i {
+  font-size: 16px; /* Kích thước icon */
+  color: black; /* Màu icon đen */
+}
+.icon-wrapper.active-step {
+  border-color: rgb(232, 184, 11); /* Viền màu vàng cho bước hiện tại */
+  border-width: 4px; /* Tăng độ dày viền */
+}
+header {
+    position: relative;
+}
+
+
+/* Khung combo */
+.combo-card {
+  width: 280px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ẩn phần thừa nếu ảnh tràn ra */
+  display: flex;
+  flex-direction: column;
+  font-family: 'Nunito', sans-serif;
+  margin: 1rem;
+  padding-top: 10px; /* Khoảng cách giữa viền trên khung và ảnh */
+}
+/* Hình ảnh */
+.combo-img {
+  width: 100%; /* Đảm bảo ảnh chiếm toàn bộ chiều rộng */
+  height: 300px; /* Chiều cao chính xác bằng nửa trên khung combo */
+  object-fit: cover; /* Làm đầy khung mà không méo ảnh */
+  border-radius: 12px; /* Bo tròn nhẹ toàn bộ ảnh */
+  margin: 0 auto; /* Đảm bảo ảnh canh giữa */
+  display: block;
+}
+/* Nội dung chi tiết */
+.combo-details {
+  flex: 1; /* Chiếm nửa còn lại */
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+/* Tiêu đề */
+.combo-title {
+  font-size: 1.1rem;
+  color: #2e7d32;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.combo-subtitle {
+  font-size: 0.9rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+/* Giá tiền */
+.combo-price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ff0000;
+  margin-bottom: 10px;
+}
+/* Mô tả */
+.combo-desc {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+/* Khung chọn số lượng */
+.combo-quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+.quantity-input {
+  width: 50px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+}
+/* Nút chi tiết */
+.combo-card .btn-success {
+  border-radius: 30px; /* Bo tròn hơn */
+  padding: 8px 20px;   /* Giảm chiều cao và làm ngắn nút */
+  max-width: 120px;    /* Độ dài tối đa của nút */
+  margin: 0 auto;      /* Căn giữa nút bên trong combo-card */
+  display: block;      /* Để margin auto hoạt động */
+  text-align: center;  /* Canh giữa nội dung trong nút */
+}
+.btn-detail {
+  background-color: #4763ff; /* Màu nền */
+  border-color: #4763ff;     /* Màu viền */
+}
+.btn-detail:hover {
+  background-color: #354bb2; /* Màu nền khi hover */
+  border-color: #354bb2;     /* Màu viền khi hover */
+}
+
+/* Giỏ hàng cố định góc dưới */
+.cart-icon-fixed {
+  position: fixed;
+  bottom: 40px; /* Cách đáy màn hình */
+  right: 20px;  /* Cách phải màn hình */
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+.cart-icon-fixed .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border: 2px solid #4763ff;
+}
+.cart-icon-fixed .btn:active {
+  transform: none;
+}
+.cart-icon-fixed .badge {
+  font-size: 0.75rem;
+  padding: 0.3em 0.4em;
+  transform: translate(-50%, -50%);
+}
+.cart-icon-fixed:hover {
+  transform: scale(1.2); /* Zoom biểu tượng */
+}
+.cart-icon-fixed:active {
+  transform: scale(1.5); /* Zoom to hơn khi nhấn */
 }

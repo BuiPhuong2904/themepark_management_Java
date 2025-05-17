@@ -33,4 +33,9 @@ public class KhachHangService {
             return null; // không tìm thấy
         }
     }
+
+    public static KhachHang findByEmail(String name) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findByEmail'");
+    }
 }

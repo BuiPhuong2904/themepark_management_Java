@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đặt vé online | THE CHILL PARK</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Nunito:wght@400;700&family=Itim&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #ffffff;">
+  <div class="container">
+    <a class="navbar-brand" href="/">THE CHILL PARK</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <!-- icon ngôi nhà trang chủ -->
+        <li class="nav-item">
+          <a class="nav-link active text-primary" href="/">
+            <i class="bi bi-house-fill fs-5"></i> 
+          </a>
+        </li>
+
+        <li class="nav-item"><a class="nav-link text-dark" href="/gioithieu">GIỚI THIỆU</a></li>
+
+        <!-- Dropdown Sự kiện  -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-dark" href="#" id="sukienDropdown" 
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">SỰ KIỆN</a>
+          <ul class="dropdown-menu" aria-labelledby="sukienDropdown">
+            <li><a class="dropdown-item" href="/thongbao">Thông Báo</a></li>
+            <li><a class="dropdown-item" href="/khuyenmai">Khuyến Mãi</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link text-dark" href="/trochoi">TRÒ CHƠI</a></li>
+
+        <!-- Dropdown Bảng giá -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-dark" href="#" id="banggiaDropdown" 
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">BẢNG GIÁ</a>
+          <ul class="dropdown-menu" aria-labelledby="banggiaDropdown">
+            <li><a class="dropdown-item" href="#">Bảng Giá Lẻ</a></li>
+            <li><a class="dropdown-item" href="#">Combo Trò Chơi</a></li>
+          </ul>
+        </li>
+
+        <!-- Dropdown Liên hệ -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-dark" href="#" id="lienheDropdown" 
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">LIÊN HỆ</a>
+          <ul class="dropdown-menu" aria-labelledby="lienheDropdown">
+            <li><a class="dropdown-item" href="#">Tuyển Dụng</a></li>
+            <li><a class="dropdown-item" href="#">Hợp Tác Thương Mại</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Thanh tìm kiếm -->
+      <form class="d-flex ms-2" role="search">
+        <input class="form-control me-1" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+
+      <!-- Nếu KH đã đăng nhập -->
+      <div class="dropdown ms-3" th:if="${khachHang != null}">
+        <a class="btn btn-light dropdown-toggle d-flex align-items-center" href="#" role="button" id="userDropdown"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://i.postimg.cc/fRNrFCSH/ava.jpg" class="rounded-circle me-2" width="32" height="32" alt="Avatar">
+          <span th:text="'Xin chào, ' + ${khachHang.hoten}">Tên KH</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+          <li><a class="dropdown-item" href="/taikhoan">Tài khoản</a></li>
+          <li><a class="dropdown-item" href="/donhang">Đơn hàng</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item text-danger" href="/dangxuat">Đăng xuất</a></li>
+        </ul>
+      </div>
+
+      <!-- Nếu chưa đăng nhập -->
+      <div th:if="${khachHang == null}" class="ms-3">
+        <a class="btn btn-outline ms-2" href="/dangky">ĐĂNG KÝ</a>
+        <a class="btn btn-primary ms-2" href="/dangnhap">ĐĂNG NHẬP</a>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<!-- Form chọn vé -->
+<header style="margin-top: 50px; height: 50vh; 
+              background-image: 
+              radial-gradient(circle, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 80%), 
+              url('https://i.postimg.cc/PfzckqXS/1.jpg'); 
+              background-size: cover; background-position: center; display: flex; 
+              align-items: center; justify-content: center;" 
+              class="text-center">              
+  <h1 style = "font-family: 'Quicksand', sans-serif; color: #4763ff; 
+              font-size: 3rem; font-weight: 700;">ĐẶT VÉ ONLINE</h1>
+
+  <div class="d-flex justify-content-center align-items-center step-progress">
+    <div class="d-flex align-items-center">
+      <span class="icon-wrapper active-step">
+        <i class="fas fa-ticket-alt"></i>
+      </span>
+      <span class="text-white fw-bold ms-2">CHỌN VÉ</span>
+    </div>
+    <span class="text-white mx-3">───</span>
+    <div class="d-flex align-items-center">
+      <span class="icon-wrapper">
+        <i class="fas fa-credit-card"></i>
+      </span>
+      <span class="text-white fw-bold ms-2">THANH TOÁN</span>
+    </div>
+    <span class="text-white mx-3">───</span>
+    <div class="d-flex align-items-center">
+      <span class="icon-wrapper">
+        <i class="fas fa-check-circle"></i>
+      </span>
+      <span class="text-white fw-bold ms-2">HOÀN THÀNH</span>
+    </div>
+  </div>
+</header>
+
+<div class="combo-section container my-5">
+  <h2 class="text-center" style="font-family: 'Quicksand', sans-serif; 
+            color: #4763ff; font-size: 2rem; font-weight: 600; margin-bottom: 30px;">CHỌN COMBO VÉ</h2>
+  <div class="combo-cards row g-4 justify-content-center">
+    <!-- Combo 1 -->
+    <div class="combo-card col-md-4">
+      <img src="https://i.postimg.cc/Rh9DnkR1/park.jpg" alt="Combo Biển Tiên Đông" class="combo-img">
+      <div class="combo-details">
+        <h5 class="combo-title">COMBO BIỂN TIÊN ĐÔNG</h5>
+        <p class="combo-subtitle">WATER PARK COMBO</p>
+        <p class="combo-price">200,000 đ</p>
+        <p class="combo-desc">HSD: 90 ngày tính từ ngày mua</p>
+        <div class="combo-quantity">
+          <button class="btn btn-outline-secondary btn-decrease">-</button>
+          <input type="text" value="0" class="quantity-input">
+          <button class="btn btn-outline-secondary btn-increase">+</button>
+        </div>
+        <button class="btn btn-success btn-detail w-100">Chi tiết</button>
+      </div>
+    </div>
+
+    <!-- Combo 2 -->
+    <div class="combo-card col-md-4">
+      <img src="https://i.postimg.cc/Rh9DnkR1/park.jpg" alt="Combo Happy Family" class="combo-img">
+      <div class="combo-details">
+        <h5 class="combo-title">COMBO HAPPY FAMILY</h5>
+        <p class="combo-subtitle">WATER PARK COMBO</p>
+        <p class="combo-price">250,000 đ</p>
+        <p class="combo-desc">HSD: 90 ngày tính từ ngày mua</p>
+        <div class="combo-quantity">
+          <button class="btn btn-outline-secondary btn-decrease">-</button>
+          <input type="text" value="0" class="quantity-input">
+          <button class="btn btn-outline-secondary btn-increase">+</button>
+        </div>
+        <button class="btn btn-success btn-detail w-100">Chi tiết</button>
+      </div>
+    </div>
+
+    <!-- Combo 3 -->
+    <div class="combo-card col-md-4">
+      <img src="https://i.postimg.cc/Rh9DnkR1/park.jpg" alt="Combo Happy Family" class="combo-img">
+      <div class="combo-details">
+        <h5 class="combo-title">COMBO HAPPY FAMILY</h5>
+        <p class="combo-subtitle">WATER PARK COMBO</p>
+        <p class="combo-price">250,000 đ</p>
+        <p class="combo-desc">HSD: 90 ngày tính từ ngày mua</p>
+        <div class="combo-quantity">
+          <button class="btn btn-outline-secondary btn-decrease">-</button>
+          <input type="text" value="0" class="quantity-input">
+          <button class="btn btn-outline-secondary btn-increase">+</button>
+        </div>
+        <button class="btn btn-success btn-detail w-100">Chi tiết</button>
+      </div>
+    </div>
+
+    <!-- Combo 4 -->
+    <div class="combo-card col-md-4">
+      <img src="https://i.postimg.cc/Rh9DnkR1/park.jpg" alt="Combo Happy Family" class="combo-img">
+      <div class="combo-details">
+        <h5 class="combo-title">COMBO HAPPY FAMILY</h5>
+        <p class="combo-subtitle">WATER PARK COMBO</p>
+        <p class="combo-price">250,000 đ</p>
+        <p class="combo-desc">HSD: 90 ngày tính từ ngày mua</p>
+        <div class="combo-quantity">
+          <button class="btn btn-outline-secondary btn-decrease">-</button>
+          <input type="text" value="0" class="quantity-input">
+          <button class="btn btn-outline-secondary btn-increase">+</button>
+        </div>
+        <button class="btn btn-success btn-detail w-100">Chi tiết</button>
+      </div>
+    </div>
+
+    <!-- Combo 5 -->
+    <div class="combo-card col-md-4">
+      <img src="https://i.postimg.cc/Rh9DnkR1/park.jpg" alt="Combo Happy Family" class="combo-img">
+      <div class="combo-details">
+        <h5 class="combo-title">COMBO HAPPY FAMILY</h5>
+        <p class="combo-subtitle">WATER PARK COMBO</p>
+        <p class="combo-price">250,000 đ</p>
+        <p class="combo-desc">HSD: 90 ngày tính từ ngày mua</p>
+        <div class="combo-quantity">
+          <button class="btn btn-outline-secondary btn-decrease">-</button>
+          <input type="text" value="0" class="quantity-input">
+          <button class="btn btn-outline-secondary btn-increase">+</button>
+        </div>
+        <button class="btn btn-success btn-detail w-100">Chi tiết</button>
+      </div>
+    </div>
+
+    <!-- Combo 6 -->
+    <div class="combo-card col-md-4">
+      <img src="https://i.postimg.cc/Rh9DnkR1/park.jpg" alt="Combo Happy Family" class="combo-img">
+      <div class="combo-details">
+        <h5 class="combo-title">COMBO HAPPY FAMILY</h5>
+        <p class="combo-subtitle">WATER PARK COMBO</p>
+        <p class="combo-price">250,000 đ</p>
+        <p class="combo-desc">HSD: 90 ngày tính từ ngày mua</p>
+        <div class="combo-quantity">
+          <button class="btn btn-outline-secondary btn-decrease">-</button>
+          <input type="text" value="0" class="quantity-input">
+          <button class="btn btn-outline-secondary btn-increase">+</button>
+        </div>
+        <button class="btn btn-success btn-detail w-100">Chi tiết</button>
+      </div>
+    </div>
+
+    <!-- Combo 7 -->
+    <div class="combo-card col-md-4">
+      <img src="https://i.postimg.cc/Rh9DnkR1/park.jpg" alt="Combo Biển Tiên Đông" class="combo-img">
+      <div class="combo-details">
+        <h5 class="combo-title">COMBO BIỂN TIÊN ĐÔNG</h5>
+        <p class="combo-subtitle">WATER PARK COMBO</p>
+        <p class="combo-price">200,000 đ</p>
+        <p class="combo-desc">HSD: 90 ngày tính từ ngày mua</p>
+        <div class="combo-quantity">
+          <button class="btn btn-outline-secondary btn-decrease">-</button>
+          <input type="text" value="0" class="quantity-input">
+          <button class="btn btn-outline-secondary btn-increase">+</button>
+        </div>
+        <button class="btn btn-success btn-detail w-100">Chi tiết</button>
+      </div>
+    </div>
+
+    <!-- Combo 8 -->
+    <div class="combo-card col-md-4">
+      <img src="https://i.postimg.cc/Rh9DnkR1/park.jpg" alt="Combo Happy Family" class="combo-img">
+      <div class="combo-details">
+        <h5 class="combo-title">COMBO HAPPY FAMILY</h5>
+        <p class="combo-subtitle">WATER PARK COMBO</p>
+        <p class="combo-price">250,000 đ</p>
+        <p class="combo-desc">HSD: 90 ngày tính từ ngày mua</p>
+        <div class="combo-quantity">
+          <button class="btn btn-outline-secondary btn-decrease">-</button>
+          <input type="text" value="0" class="quantity-input">
+          <button class="btn btn-outline-secondary btn-increase">+</button>
+        </div>
+        <button class="btn btn-success btn-detail w-100">Chi tiết</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Giỏ hàng (biểu tượng cố định góc dưới) -->
+<div class="cart-icon-fixed position-fixed" onclick="zoomCartIcon()">
+  <a href="/giohang" class="btn btn-light rounded-circle p-2">
+    <i class="bi bi-cart-fill fs-5" style="color: #4763ff;"></i>
+  </a>
+  <span class="badge bg-danger text-white rounded-circle position-absolute top-0 start-100 translate-middle">
+    0
+  </span>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container text-center">
+    <div class="row gx-2 gy-4 text-start">
+
+      <div class="col-sm-6 col-md-3">
+        <h5 class="mb-3">VỀ THE CHILL PARK</h5>
+        <a href="/gioithieu" class="d-block text-white-50 mb-1">Giới thiệu</a>
+        <a href="#" class="d-block text-white-50 mb-1">Thông báo</a>
+        <a href="#" class="d-block text-white-50 mb-1">Trò chơi</a>
+        <a href="#" class="d-block text-white-50 mb-1">Bảng giá</a>
+        <a href="#" class="d-block text-white-50 mb-1">Khuyến mãi</a>
+        <a href="#" class="d-block text-white-50 mb-1">Tuyển dụng</a>
+        <a href="#" class="d-block text-white-50 mb-1">Liên hệ</a>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <h5 class="mb-3">LIÊN HỆ NGAY</h5>
+        <p class="mb-1 text-white-50">123 Đường Vui Vẻ, TP. HCM</p>
+        <p class="mb-1 text-white-50">Điện thoại: 0123 456 789</p>
+        <p class="mb-1 text-white-50">Email: contact@thechillpark.vn</p>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <h5 class="mb-3">MẠNG XÃ HỘI</h5>
+        <a href="#" class="d-block text-white-50 mb-1">Facebook</a>
+        <a href="#" class="d-block text-white-50 mb-1">Instagram</a>
+        <a href="#" class="d-block text-white-50 mb-1">YouTube</a>
+        <a href="#" class="d-block text-white-50 mb-1">Tiktok</a>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <h5 class="mb-3">ĐIỀU KHOẢN - CHÍNH SÁCH</h5>
+        <a href="#" class="d-block text-white-50 mb-1">Chính sách bảo mật</a>
+        <a href="#" class="d-block text-white-50 mb-1">Chính sách quyền riêng tư</a>
+        <a href="#" class="d-block text-white-50 mb-1">Điều khoản sử dụng</a>
+        <a href="#" class="d-block text-white-50 mb-1">Hướng dẫn đặt vé</a>
+        <a href="#" class="d-block text-white-50 mb-1">Hướng dẫn thanh toán</a>
+      </div>
+    </div>
+
+    <!-- Bản đồ -->
+    <div class="row mt-4">
+      <div class="col-12">
+        <h5 class="text-start">BẢN ĐỒ</h5>
+        <iframe
+          width="100%" height="250"
+          src="https://maps.google.com/maps?q=Ho%20Chi%20Minh&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          frameborder="0" allowfullscreen loading="lazy" style="border:0;">
+        </iframe>
+      </div>
+    </div>
+
+    <hr class="bg-light">
+    <p>&copy; 2025 THE CHILL PARK. ALL RIGHTS RESERVED.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/chonve.js"></script>
+</body>
+</html>

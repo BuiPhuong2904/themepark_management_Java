@@ -74,11 +74,26 @@
         </button>
       </form>
 
-      <!-- Nút đăng ký -->
-      <a class="btn btn-outline ms-3" href="/dangky">ĐĂNG KÝ</a>
+      <!-- Nếu KH đã đăng nhập -->
+      <div class="dropdown ms-3" th:if="${khachHang != null}">
+        <a class="btn btn-light dropdown-toggle d-flex align-items-center" href="#" role="button" id="userDropdown"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://i.postimg.cc/fRNrFCSH/ava.jpg" class="rounded-circle me-2" width="32" height="32" alt="Avatar">
+          <span th:text="'Xin chào, ' + ${khachHang.hoten}">Tên KH</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+          <li><a class="dropdown-item" href="/taikhoan">Tài khoản</a></li>
+          <li><a class="dropdown-item" href="/donhang">Đơn hàng</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item text-danger" href="/dangxuat">Đăng xuất</a></li>
+        </ul>
+      </div>
 
-      <!-- Nút đăng nhập -->
-      <a class="btn btn-primary ms-3" href="/dangnhap">ĐĂNG NHẬP</a>
+      <!-- Nếu chưa đăng nhập -->
+      <div th:if="${khachHang == null}" class="ms-3">
+        <a class="btn btn-outline me-2" href="/dangky">ĐĂNG KÝ</a>
+        <a class="btn btn-primary" href="/dangnhap">ĐĂNG NHẬP</a>
+      </div>
 
     </div>
   </div>
