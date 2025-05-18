@@ -52,6 +52,9 @@ document.addEventListener('DOMContentLoaded', function () {
 document.getElementById('confirm-payment').addEventListener('click', function (e) {
     e.preventDefault();
     alert("Xác nhận thanh toán thành công!");
+    setTimeout(function() {
+        window.location.href = "/hoadon";
+    }, 200);
 });
 
 document.addEventListener("DOMContentLoaded", function() {

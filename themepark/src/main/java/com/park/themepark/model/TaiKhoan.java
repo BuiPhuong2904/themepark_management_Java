@@ -13,8 +13,8 @@ public class TaiKhoan {
         this.maTK = maTK;
         this.email = email;
         this.matKhau = matKhau;
-        this.loaiTK = "Customer";
-        this.trangThai = "Active";
+        this.loaiTK = loaiTK;
+        this.trangThai = trangThai;
     }
 
     // Getter + Setter

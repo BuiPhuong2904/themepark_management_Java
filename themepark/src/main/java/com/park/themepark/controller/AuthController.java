@@ -48,7 +48,7 @@ public class AuthController {
         }
 
         // Tạo tài khoản mới
-        TaiKhoan tk = new TaiKhoan(null, email, matkhau, "KHACHHANG", "HOATDONG");
+        TaiKhoan tk = new TaiKhoan(null, email, matkhau, "Customer", null);
         String matk = (String) taiKhoanService.luuTaiKhoan(tk);
 
         // Tạo khách hàng mới
@@ -66,19 +66,32 @@ public class AuthController {
     @PostMapping("/dangnhap")
     public String handleLogin(@RequestParam String email, @RequestParam String matkhau,
                             Model model, HttpSession session) {
+        // Tìm tài khoản theo email
         TaiKhoan taiKhoan = taiKhoanService.timTheoEmail(email);
 
-        if (taiKhoan != null && taiKhoan.getMatKhau().equals(matkhau)) {
-            session.setAttribute("user", taiKhoan); // Lưu phiên đăng nhập
-
-            KhachHang khachHang = khachHangService.timTheoTaiKhoanId(taiKhoan.getMaTK());
-            System.out.println("Login thành công, khachHang: " + khachHang);
-            session.setAttribute("khachHang", khachHang);
-
-            return "redirect:/";
-        } else {
+        // Kiểm tra tài khoản và mật khẩu
+        if (taiKhoan == null || !taiKhoan.getMatKhau().equals(matkhau)) {
             model.addAttribute("error", "Email hoặc mật khẩu không đúng");
             return "dangnhap";
+        }
+
+        // Tìm khách hàng liên kết với tài khoản
+        KhachHang khachHang = khachHangService.timTheoTaiKhoanId(taiKhoan.getMaTK());
+        if (khachHang == null) {
+            model.addAttribute("error", "Tài khoản không liên kết với khách hàng");
+            return "dangnhap";
+        }
+
+        // Lưu vào session
+        session.setAttribute("user", taiKhoan);
+        session.setAttribute("khachHang", khachHang);
+
+        // Chuyển hướng dựa trên vai trò
+        String vaiTro = taiKhoan.getLoaiTK();
+        if ("Customer".equalsIgnoreCase(vaiTro)) {
+            return "redirect:/"; 
+        } else {
+            return "redirect:/admin"; 
         }
     }
 

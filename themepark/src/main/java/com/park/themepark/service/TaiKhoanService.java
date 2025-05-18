@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class TaiKhoanService {
 
-    private final TaiKhoanDAO taiKhoanDAO;
+    private static TaiKhoanDAO taiKhoanDAO;
 
     public TaiKhoanService(TaiKhoanDAO taiKhoanDAO) {
-        this.taiKhoanDAO = taiKhoanDAO;
+        TaiKhoanService.taiKhoanDAO = taiKhoanDAO;
     }
 
     public boolean emailDaTonTai(String email) {
@@ -28,5 +28,9 @@ public class TaiKhoanService {
 
     public boolean dangNhap(String email, String matKhau) {
         return taiKhoanDAO.dangNhap(email, matKhau);
+    }
+
+    public static TaiKhoan timTheoMaTK(String maTK) {
+        return taiKhoanDAO.timTheoMaTK(maTK);
     }
 }

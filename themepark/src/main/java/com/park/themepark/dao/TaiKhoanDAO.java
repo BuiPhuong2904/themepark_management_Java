@@ -58,4 +58,11 @@ public class TaiKhoanDAO {
         Integer count = jdbcTemplate.queryForObject(sql, Integer.class, email, matKhau);
         return count != null && count > 0;
     }
+
+    public TaiKhoan timTheoMaTK(String maTK) {
+        String sql = "SELECT * FROM TAIKHOAN WHERE MATK = ?";
+        List<TaiKhoan> list = jdbcTemplate.query(sql, rowMapper, maTK);
+        return list.isEmpty() ? null : list.get(0);
+    }
+
 }

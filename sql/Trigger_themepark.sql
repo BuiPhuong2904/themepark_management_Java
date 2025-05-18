@@ -1,4 +1,4 @@
-// Bảng Tài khoản
+-- Bảng Tài khoản
 CREATE SEQUENCE seq_taikhoan START WITH 1 INCREMENT BY 1;
 
 CREATE OR REPLACE TRIGGER trg_taikhoan_pk
@@ -8,7 +8,7 @@ BEGIN
     SELECT seq_taikhoan.NEXTVAL INTO :NEW.MATK FROM dual;
 END;
 
-// Bảng Khách hàng 
+-- Bảng Khách hàng 
 CREATE SEQUENCE seq_khachhang START WITH 1 INCREMENT BY 1;
 
 CREATE OR REPLACE TRIGGER trg_khachhang_pk
@@ -16,4 +16,14 @@ BEFORE INSERT ON KHACHHANG
 FOR EACH ROW
 BEGIN
     SELECT seq_khachhang.NEXTVAL INTO :NEW.MAKH FROM dual;
+END;
+
+-- Bảng hóa đơn
+CREATE SEQUENCE seq_hoadon START WITH 1 INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER trg_hoadon_pk
+BEFORE INSERT ON HOADON
+FOR EACH ROW
+BEGIN
+    SELECT 'HD' || LPAD(seq_hoadon.NEXTVAL, 3, '0') INTO :NEW.MAHD FROM dual;
 END;
