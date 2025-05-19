@@ -1,6 +1,12 @@
-// Biến lưu trữ giỏ hàng
+window.addEventListener('load', function () {
+    document.body.classList.add('loaded');
+    updateCartIcon();
+});
+
+// Lấy giỏ hàng từ localStorage hoặc khởi tạo mới
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+// Thêm hoặc cập nhật sản phẩm trong giỏ hàng
 function addToCart(itemName, price) {
     const existingItem = cart.find(item => item.name === itemName);
     if (existingItem) {
@@ -8,57 +14,56 @@ function addToCart(itemName, price) {
     } else {
         cart.push({ name: itemName, price, quantity: 1 });
     }
-    localStorage.setItem("cart", JSON.stringify(cart));
-    updateCart();
+    saveCart();
     updateCartIcon();
+    zoomCartIcon();
 }
 
-function updateCart() {
-    const cartItemsContainer = document.getElementById('cart-items');
-    if (!cartItemsContainer) return;
-    cartItemsContainer.innerHTML = '';
-
-    cart.forEach(item => {
-        const itemDiv = document.createElement('div');
-        itemDiv.className = 'cart-item';
-        itemDiv.innerHTML = `
-            <span>${item.name} x${item.quantity}</span>
-            <span>${(item.price * item.quantity).toLocaleString()}đ</span>
-        `;
-        cartItemsContainer.appendChild(itemDiv);
-    });
+// Lưu giỏ hàng lên localStorage
+function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-function zoomCartIcon() {
-    const cartIcon = document.querySelector('.cart-icon-fixed');
-    if (!cartIcon) return;
-    cartIcon.style.transform = 'scale(1.5)';
-
-    setTimeout(() => {
-        cartIcon.style.transform = 'scale(1)';
-    }, 300);
-}
-
+// Cập nhật số lượng hiển thị trên biểu tượng giỏ hàng
 function updateCartIcon() {
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     const badge = document.querySelector('.cart-icon-fixed .badge');
     if (badge) badge.innerText = totalItems;
 }
 
-window.addEventListener('load', function () {
-    document.body.classList.add('loaded');
-    updateCartIcon();
-});
+// Hiệu ứng zoom icon giỏ hàng khi click
+function zoomCartIcon() {
+    const cartIcon = document.querySelector('.cart-icon-fixed');
+    if (!cartIcon) return;
+    cartIcon.style.transform = 'scale(1.5)';
+    setTimeout(() => {
+        cartIcon.style.transform = 'scale(1)';
+    }, 300);
+}
 
-// Xử lý tăng giảm số lượng
+// Khi DOM load xong
 document.addEventListener("DOMContentLoaded", () => {
     const comboCards = document.querySelectorAll(".combo-card");
+
+    // Khởi tạo giá trị input từ giỏ hàng đã lưu
+    comboCards.forEach((card) => {
+        const comboTitle = card.querySelector(".combo-title").innerText;
+        const quantityInput = card.querySelector(".quantity-input");
+        const cartItem = cart.find(item => item.name === comboTitle);
+        if (cartItem) {
+            quantityInput.value = cartItem.quantity;
+        } else {
+            quantityInput.value = 0;
+        }
+    });
 
     comboCards.forEach((card) => {
         const decreaseBtn = card.querySelector(".btn-decrease");
         const increaseBtn = card.querySelector(".btn-increase");
         const quantityInput = card.querySelector(".quantity-input");
         const comboTitle = card.querySelector(".combo-title").innerText;
+
+        // Lấy giá combo từ data-price (kiểu số)
         const price = parseFloat(card.getAttribute("data-price")) || 0;
 
         // Xử lý giảm số lượng
@@ -67,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (currentValue > 0) {
                 currentValue -= 1;
                 quantityInput.value = currentValue;
-                
+
                 // Cập nhật giỏ hàng
                 const existingItem = cart.find(item => item.name === comboTitle);
                 if (existingItem) {
@@ -76,8 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         cart = cart.filter(item => item.name !== comboTitle);
                     }
                 }
-                localStorage.setItem("cart", JSON.stringify(cart));
-                updateCart();
+                saveCart();
                 updateCartIcon();
             }
         });
@@ -95,17 +99,12 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 cart.push({ name: comboTitle, price, quantity: currentValue });
             }
-            localStorage.setItem("cart", JSON.stringify(cart));
-            updateCart();
+            saveCart();
             updateCartIcon();
+            zoomCartIcon();
         });
     });
 
-    // Khi bấm vào biểu tượng giỏ hàng
-    const cartIcon = document.querySelector('.cart-icon-fixed');
-    if (cartIcon) {
-        cartIcon.addEventListener('click', () => {
-            window.location.href = "/thanhtoan";
-        });
-    }
+    // Cập nhật số lượng badge lúc đầu khi load trang
+    updateCartIcon();
 });

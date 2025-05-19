@@ -1,18 +1,18 @@
-package com.park.themepark.service;
+package com.park.themepark.dao;
 
 import com.park.themepark.model.KhachHang;
 
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
-@Service
-public class KhachHangService {
+@Repository
+public class KhachHangDAO {
 
     private final JdbcTemplate jdbcTemplate;
 
-    public KhachHangService(JdbcTemplate jdbcTemplate) {
+    public KhachHangDAO(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 

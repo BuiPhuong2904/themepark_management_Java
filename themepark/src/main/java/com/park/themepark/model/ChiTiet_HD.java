@@ -1,15 +1,15 @@
 package com.park.themepark.model;
 
-public class CTHD {
+public class ChiTiet_HD {
     private String maHD;
     private String loai;
     private String maLoai;
     private int soLuong;
     private Double thanhTien;
     
-    public CTHD() {}
+    public ChiTiet_HD() {}
 
-    public CTHD(String maHD, String loai, String maLoai, int soLuong, Double thanhTien) {
+    public ChiTiet_HD(String maHD, String loai, String maLoai, int soLuong, Double thanhTien) {
         this.maHD = maHD;
         this.loai = loai;
         this.maLoai = maLoai;

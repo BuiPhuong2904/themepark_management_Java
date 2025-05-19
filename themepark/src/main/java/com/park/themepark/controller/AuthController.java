@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.park.themepark.dao.KhachHangDAO;
 import com.park.themepark.model.KhachHang;
 import com.park.themepark.model.TaiKhoan;
-import com.park.themepark.service.KhachHangService;
 import com.park.themepark.service.TaiKhoanService;
 
 import jakarta.servlet.http.HttpSession;
@@ -17,9 +17,9 @@ import jakarta.servlet.http.HttpSession;
 public class AuthController {
 
     private final TaiKhoanService taiKhoanService;
-    private final KhachHangService khachHangService;
+    private final KhachHangDAO khachHangService;
 
-    public AuthController(TaiKhoanService taiKhoanService, KhachHangService khachHangService) {
+    public AuthController(TaiKhoanService taiKhoanService, KhachHangDAO khachHangService) {
         this.taiKhoanService = taiKhoanService;
         this.khachHangService = khachHangService;
     }

@@ -27,3 +27,26 @@ FOR EACH ROW
 BEGIN
     SELECT 'HD' || LPAD(seq_hoadon.NEXTVAL, 3, '0') INTO :NEW.MAHD FROM dual;
 END;
+
+CREATE OR REPLACE TRIGGER trg_check_maloai
+BEFORE INSERT OR UPDATE ON CHITIET_HD
+FOR EACH ROW
+DECLARE
+    v_count NUMBER;
+BEGIN
+    IF :NEW.LOAI = 'VE' THEN
+        SELECT COUNT(*) INTO v_count FROM VE WHERE MAVE = :NEW.MALOAI;
+        IF v_count = 0 THEN
+            RAISE_APPLICATION_ERROR(-20001, 'Mã VE không tồn tại.');
+        END IF;
+        
+    ELSIF :NEW.LOAI = 'COMBO' THEN
+        SELECT COUNT(*) INTO v_count FROM COMBO_VE WHERE MACB = :NEW.MALOAI;
+        IF v_count = 0 THEN
+            RAISE_APPLICATION_ERROR(-20002, 'Mã COMBO không tồn tại.');
+        END IF;
+        
+    ELSE
+        RAISE_APPLICATION_ERROR(-20003, 'LOAI phải là VE hoặc COMBO.');
+    END IF;
+END;

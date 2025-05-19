@@ -3,6 +3,7 @@ package com.park.themepark.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.park.themepark.model.CTHD;
+import com.park.themepark.dao.Combo_VeDAO;
+import com.park.themepark.model.ChiTiet_HD;
+import com.park.themepark.model.Combo_Ve;
 import com.park.themepark.model.HoaDon;
 import com.park.themepark.model.TaiKhoan;
 import com.park.themepark.service.HoaDonService;
@@ -22,12 +25,20 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class BookingController {
 
+    @Autowired
     private HoaDonService hoaDonService;
+
+    @Autowired
+    private Combo_VeDAO comboVeDAO;
 
     @GetMapping("/chonve")
     public String chonVe(@RequestParam(required = false) String ngay, Model model) {
-        model.addAttribute("ngayThamQuan", ngay); // để render lại nếu cần
-        return "chonve"; 
+        // Gọi findAll() từ instance comboVeDAO
+        List<Combo_Ve> comboList = comboVeDAO.findAll();
+        model.addAttribute("combos", comboList);
+        model.addAttribute("ngayThamQuan", ngay);
+
+        return "chonve";
     }
 
     @GetMapping("/thanhtoan")
@@ -52,9 +63,9 @@ public class BookingController {
                             @RequestParam("thanhTien[]") List<Double> thanhTienList,
                             Model model) {
 
-        List<CTHD> dsCTHD = new ArrayList<>();
+        List<ChiTiet_HD> dsCTHD = new ArrayList<>();
         for (int i = 0; i < loaiList.size(); i++) {
-            CTHD ct = new CTHD();
+            ChiTiet_HD ct = new ChiTiet_HD();
             ct.setLoai(loaiList.get(i));
             ct.setMaLoai(maLoaiList.get(i));
             ct.setSoLuong(soLuongList.get(i));
