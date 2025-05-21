@@ -17,6 +17,12 @@
 </head>
 
 <body>
+<script th:inline="javascript">
+  /*<![CDATA[*/
+  const isLoggedIn = [[${isLoggedIn}]];
+  /*]]>*/
+</script>
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #ffffff;">
   <div class="container">

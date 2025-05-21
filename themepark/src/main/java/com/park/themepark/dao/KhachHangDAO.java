@@ -33,4 +33,13 @@ public class KhachHangDAO {
             return null; // không tìm thấy
         }
     }
+
+    public String findMaKHByMaTK(String maTK) {
+        String sql = "SELECT MAKH FROM KHACHHANG WHERE MATK = ?";
+        try {
+            return jdbcTemplate.queryForObject(sql, String.class, maTK);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
 }

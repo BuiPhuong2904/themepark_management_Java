@@ -2,6 +2,7 @@ package com.park.themepark.service;
 
 import com.park.themepark.dao.ChiTiet_HDDAO;
 import com.park.themepark.dao.HoaDonDAO;
+import com.park.themepark.model.CartItem;
 import com.park.themepark.model.ChiTiet_HD;
 import com.park.themepark.model.HoaDon;
 
@@ -55,5 +56,13 @@ public class HoaDonService {
 
     public String getMaHDCuoiCungTheoKH(String maKH) {
         return hoaDonDAO.getMaHDCuoiCungTheoKH(maKH);
+    }
+
+    public double tinhTongTien(List<CartItem> gioHang) {
+        double tong = 0;
+        for (CartItem item : gioHang) {
+            tong += item.getThanhTien();
+        }
+        return tong;
     }
 }
