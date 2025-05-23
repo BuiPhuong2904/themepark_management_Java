@@ -23,11 +23,24 @@ public class ChiTiet_HDDAO {
         ct.setMaLoai(rs.getString("MALOAI"));
         ct.setSoLuong(rs.getInt("SOLUONG"));
         ct.setThanhTien(rs.getDouble("THANHTIEN"));
+        ct.setTenLoai(rs.getString("TENLOAI"));
         return ct;
     }
 
     public List<ChiTiet_HD> findByMaHD(String maHD) {
-        String sql = "SELECT * FROM CHITIET_HD WHERE MAHD = ?";
+        String sql = """
+            SELECT 
+                ct.MAHD, ct.LOAI, ct.MALOAI, ct.SOLUONG, ct.THANHTIEN,
+                CASE 
+                    WHEN ct.LOAI = 'VE' THEN v.TENVE
+                    WHEN ct.LOAI = 'COMBO' THEN c.TENCB
+                    ELSE NULL
+                END AS TENLOAI
+            FROM CHITIET_HD ct
+            LEFT JOIN VE v ON ct.LOAI = 'VE' AND ct.MALOAI = v.MAVE
+            LEFT JOIN COMBO_VE c ON ct.LOAI = 'COMBO' AND ct.MALOAI = c.MACB
+            WHERE ct.MAHD = ?
+        """;
         return jdbcTemplate.query(sql, this::mapRow, maHD);
     }
 

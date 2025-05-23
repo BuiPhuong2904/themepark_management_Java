@@ -83,8 +83,16 @@ public class AuthController {
         }
 
         // Lưu vào session
+        session.setAttribute("maTK", taiKhoan.getMaTK());
         session.setAttribute("user", taiKhoan);
         session.setAttribute("khachHang", khachHang);
+        session.setAttribute("taiKhoan", taiKhoan);
+
+        String backTo = (String) session.getAttribute("backTo");
+        if (backTo != null) {
+            session.removeAttribute("backTo"); // Xóa khỏi session sau khi dùng
+            return "redirect:" + backTo;
+        }
 
         // Chuyển hướng dựa trên vai trò
         String vaiTro = taiKhoan.getLoaiTK();

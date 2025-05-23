@@ -14,6 +14,8 @@ public class HoaDon {
     private String maNV;
     private String maKM;
 
+    private KhachHang khachHang;
+
     private List<ChiTiet_HD> CTHDList;
 
     public HoaDon() {}
@@ -63,5 +65,13 @@ public class HoaDon {
 
     public List<ChiTiet_HD> getCTHDList() { return CTHDList;}
     public void setCTHDList(List<ChiTiet_HD> CTHDList) { this.CTHDList = CTHDList; }
+
+    
+    public KhachHang getKhachHang() {
+        return khachHang;
+    }
+    public void setKhachHang(KhachHang khachHang) {
+        this.khachHang = khachHang;
+    }
 
 }

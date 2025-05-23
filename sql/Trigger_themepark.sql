@@ -5,7 +5,7 @@ CREATE OR REPLACE TRIGGER trg_taikhoan_pk
 BEFORE INSERT ON TAIKHOAN
 FOR EACH ROW
 BEGIN
-    SELECT seq_taikhoan.NEXTVAL INTO :NEW.MATK FROM dual;
+    SELECT 'TK' || LPAD(seq_taikhoan.NEXTVAL, 3, '0') INTO :NEW.MATK FROM dual;
 END;
 
 -- Bảng Khách hàng 
@@ -15,7 +15,7 @@ CREATE OR REPLACE TRIGGER trg_khachhang_pk
 BEFORE INSERT ON KHACHHANG
 FOR EACH ROW
 BEGIN
-    SELECT seq_khachhang.NEXTVAL INTO :NEW.MAKH FROM dual;
+    SELECT 'KH' || LPAD(seq_khachhang.NEXTVAL, 3, '0') INTO :NEW.MAKH FROM dual;
 END;
 
 -- Bảng hóa đơn

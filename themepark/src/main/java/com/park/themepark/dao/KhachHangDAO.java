@@ -42,4 +42,14 @@ public class KhachHangDAO {
             return null;
         }
     }
+
+    public KhachHang timTheoMaKH(String maKH) {
+        String sql = "SELECT * FROM KHACHHANG WHERE MAKH = ?";
+        try {
+            return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(KhachHang.class), maKH);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
 }

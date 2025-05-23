@@ -48,8 +48,11 @@ public class TaiKhoanDAO {
         String sql = "INSERT INTO TAIKHOAN (EMAIL, MATKHAU, LOAITK, TRANGTHAI) VALUES (?, ?, ?, ?)";
         jdbcTemplate.update(sql, tk.getEmail(), tk.getMatKhau(), tk.getLoaiTK(), tk.getTrangThai());
 
-        // Lấy lại MATK vừa mới sinh ra bằng cách lấy CURRVAL của sequence
-        String matk = jdbcTemplate.queryForObject("SELECT seq_taikhoan.CURRVAL FROM dual", String.class);
+        String matk = jdbcTemplate.queryForObject(
+            "SELECT MATK FROM TAIKHOAN WHERE EMAIL = ?",
+            new Object[]{tk.getEmail()},
+            String.class
+        );
         return matk;
     }
 

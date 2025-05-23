@@ -424,3 +424,16 @@ header {
 .cart-icon-fixed:active {
   transform: scale(1.5); /* Zoom to hơn khi nhấn */
 }
+
+
+/* Phần hóa đơn */
+.invoice-box {
+  border: 1.5px solid #ccc;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(224, 221, 221, 0.2);
+  max-width: 600px;
+  margin-top: 20px; /* Đảm bảo cách navbar đủ xa */
+  margin-bottom: 50px;
+  padding: 20px; /* padding trong khung */
+}

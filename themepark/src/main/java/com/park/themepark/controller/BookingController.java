@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.park.themepark.dao.ChiTiet_HDDAO;
 import com.park.themepark.dao.Combo_VeDAO;
+import com.park.themepark.dao.HoaDonDAO;
 import com.park.themepark.dao.KhachHangDAO;
 import com.park.themepark.dao.KhuyenMaiDAO;
 import com.park.themepark.model.CartItem;
@@ -23,7 +25,6 @@ import com.park.themepark.model.KhachHang;
 import com.park.themepark.model.KhuyenMai;
 import com.park.themepark.model.TaiKhoan;
 import com.park.themepark.service.HoaDonService;
-import com.park.themepark.service.TaiKhoanService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -42,16 +43,15 @@ public class BookingController {
     @Autowired
     private KhuyenMaiDAO khuyenMaiDAO;
 
+    @Autowired
+    private HoaDonDAO hoaDonDAO;
+
+    @Autowired
+    private ChiTiet_HDDAO chiTietHDDAO;
+
     @GetMapping("/chonve")
     public String chonVe(@RequestParam(required = false) String ngay, HttpSession session, Model model) {
         String maTK = (String) session.getAttribute("maTK");
-
-        if (maTK == null) {
-            System.out.println("Chưa đăng nhập, reset giỏ hàng");
-            session.removeAttribute("gioHang");
-        } else {
-            System.out.println("Đã đăng nhập, giữ giỏ hàng");
-        }
 
         model.addAttribute("isLoggedIn", maTK != null);
 
@@ -61,7 +61,6 @@ public class BookingController {
 
         return "chonve";
     }
-
 
     @PostMapping("/themvaogio")
     public String themVaoGio(@RequestParam("maCB") String maCB,
@@ -99,18 +98,37 @@ public class BookingController {
         return "redirect:/chonve"; // hoặc /thanhtoan nếu muốn chuyển thẳng tới trang thanh toán
     }
 
+    @GetMapping("/giohang")
+    public String xemGioHang(HttpSession session, Model model) {
+        List<CartItem> gioHang = (List<CartItem>) session.getAttribute("gioHang");
+        if (gioHang == null) {
+            gioHang = new ArrayList<>();
+            session.setAttribute("gioHang", gioHang);
+        }
+        model.addAttribute("gioHang", gioHang);
+        return "giohang"; 
+    }
+
+
     @GetMapping("/thanhtoan")
     public String thanhToan(HttpSession session, Model model) {
-        String maTK = (String) session.getAttribute("maTK");
-        if (maTK != null) {
-            TaiKhoan taiKhoan = TaiKhoanService.timTheoMaTK(maTK);
-            model.addAttribute("taiKhoan", taiKhoan);
+        TaiKhoan taiKhoan = (TaiKhoan) session.getAttribute("user");
+
+        if (taiKhoan == null) {
+            session.setAttribute("backTo", "/thanhtoan");
+            return "redirect:/dangnhap";
         }
+
+        model.addAttribute("taiKhoan", taiKhoan);
 
         List<CartItem> gioHang = (List<CartItem>) session.getAttribute("gioHang");
         if (gioHang == null) {
             gioHang = new ArrayList<>();
         }
+
+        // System.out.println("Giỏ hàng trong session:");
+        // gioHang.forEach(item -> System.out.println(item.getCombo().getTenCB() + " x" + item.getSoLuong()));
+
         model.addAttribute("gioHang", gioHang);
 
         KhachHang khachHang = (KhachHang) session.getAttribute("khachHang");
@@ -129,9 +147,12 @@ public class BookingController {
         return "thanhtoan";
     }
 
-
     @PostMapping("/thanhtoan")
-    public String xuLyThanhToan(@RequestParam("hinhThucTT") String hinhThucTT,
+    public String xuLyThanhToan(@RequestParam("tenKhach") String tenKhach,
+                                @RequestParam("email") String email,
+                                @RequestParam("sdt") String sdt,
+                                @RequestParam(value = "ghiChu", required = false) String ghiChu,
+                                @RequestParam("hinhThucTT") String hinhThucTT,
                                 @RequestParam(value = "maGiamGia", required = false) String maGiamGia,
                                 HttpSession session, Model model) {
 
@@ -231,7 +252,7 @@ public class BookingController {
         model.addAttribute("tienGiamGia", tienGiamGia);
         model.addAttribute("tongTienSau", tongTienSau);
 
-        return "thanhtoan";
+        return "redirect:/hoadon/" + maHDMoi;
     }
 
     private boolean checkDieuKien(String dieuKien, double tongTien, int tongSoLuong) {
@@ -278,9 +299,25 @@ public class BookingController {
     }
 
     @GetMapping("/hoadon/{maHD}")
-    public String chiTietHoaDon(@PathVariable String maHD, Model model) {
-        HoaDon hoaDon = hoaDonService.getHoaDonChiTiet(maHD);
+    public String hienThiHoaDon(@PathVariable("maHD") String maHD, Model model, HttpSession session) {
+
+        HoaDon hoaDon = hoaDonDAO.getHoaDonById(maHD);  // gọi hàm mới lấy luôn KhachHang
+        if (hoaDon == null) {
+            System.out.println("Không tìm thấy hóa đơn với mã: " + maHD);
+            return "redirect:/loi";
+        }
+
+        List<ChiTiet_HD> chiTietList = chiTietHDDAO.findByMaHD(maHD);
+
+        TaiKhoan taiKhoan = (TaiKhoan) session.getAttribute("user");
+        System.out.println("User trong session: " + taiKhoan);
+
         model.addAttribute("hoaDon", hoaDon);
+        model.addAttribute("chiTietList", chiTietList);
+        model.addAttribute("khachHang", hoaDon.getKhachHang());  // lấy trực tiếp từ hoaDon
+        model.addAttribute("user", taiKhoan);
+
         return "hoadon";
     }
+
 }

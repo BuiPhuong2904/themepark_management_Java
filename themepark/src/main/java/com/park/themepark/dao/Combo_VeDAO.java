@@ -57,4 +57,12 @@ public class Combo_VeDAO {
         String sql = "DELETE FROM COMBO_VE WHERE MACB = ?";
         return jdbcTemplate.update(sql, maCB);
     }
+
+    public Combo_Ve findByTenCB(String tenCB) {
+        String sql = "SELECT * FROM COMBO_VE WHERE TENCB = ?";
+        List<Combo_Ve> list = jdbcTemplate.query(sql, this::mapRow, tenCB);
+        System.out.println("Tìm combo theo tên: '" + tenCB + "'");
+        return list.isEmpty() ? null : list.get(0);
+    }
+
 }

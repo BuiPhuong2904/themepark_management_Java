@@ -107,29 +107,105 @@
 </nav>
 
 <!-- Form hóa đơn -->
-<div class="container mt-5">
-  <h2 class="mb-4">HÓA ĐƠN THANH TOÁN</h2>
+<!-- Thêm một khoảng trống để tránh bị navbar che -->
+<div style="height: 20px;"></div>
+<div class="invoice-box container mt-5 pt-5 p-4">
 
-  <h5>Thông tin khách hàng:</h5>
-  <ul class="list-group mb-3">
-    <li class="list-group-item">Họ tên: <span id="hoTen"></span></li>
-    <li class="list-group-item">Email: <span id="email"></span></li>
-    <li class="list-group-item">SĐT: <span id="sdt"></span></li>
-    <li class="list-group-item">Ghi chú: <span id="ghiChu"></span></li>
-    <li class="list-group-item">Phương thức thanh toán: <span id="phuongThuc"></span></li>
-  </ul>
+  <h2 class="mb-4 text-center">THE CHILL PARK </h2>
 
-  <h5>Chi tiết đơn hàng:</h5>
-  <ul class="list-group mb-3" id="comboList"></ul>
+  <div class="text-center">
+    <p class="text-muted">Điện thoại: 0123 456 789</p>
+    <p class="text-muted">Email: contact@thechillpark.vn</p>
+    <p class="text-muted">Địa chỉ: 123 Đường Vui Vẻ, TP. HCM</p>
+  </div>
 
-  <h5 class="mt-3">Tổng kết:</h5>
-  <ul class="list-group">
-    <li class="list-group-item">Thành tiền: <span id="thanhTien"></span></li>
-    <li class="list-group-item">Tiền giảm giá: <span id="giamGia"></span></li>
-    <li class="list-group-item fw-bold">Tổng thanh toán: <span id="tongThanhToan"></span></li>
-  </ul>
+  <h4 class="mb-4 text-center">HÓA ĐƠN THANH TOÁN</h4>
+  <hr style="border-top: 2px dashed #6c6a6a;">
+
+  <h5>Thông Tin Hóa Đơn</h5>
+    <div class="d-flex justify-content-between">
+      <p class="mb-1">Mã hóa đơn:</p>
+      <p class="mb-1"><strong th:text="${hoaDon.maHD}">HD123</strong></p>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <p class="mb-1">Ngày lập:</p>
+      <p class="mb-1"><strong th:text="${#dates.format(hoaDon.ngayLap, 'dd/MM/yyyy HH:mm')}">01/01/2025</strong></p>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <p class="mb-1">Phương thức thanh toán:</p>
+      <p class="mb-1"><strong th:text="${hoaDon.hinhThucTT}">Tiền mặt</strong></p>
+    </div>
+  <hr style="border-top: 2px dashed #6c6a6a;">
+
+  <div class="mb-4">
+      <h5>Thông Tin Khách Hàng</h5>
+        <div class="d-flex justify-content-between">
+          <p class="mb-1">Họ tên:</p>
+          <p class="mb-1">
+            <strong th:text="${hoaDon.khachHang != null ? hoaDon.khachHang.hoten : 'Khách lẻ'}">Khách lẻ</strong>
+          </p>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <p class="mb-1">ID:</p>
+          <p class="mb-1">
+            <strong th:text="${hoaDon.khachHang != null ? hoaDon.khachHang.makh : 'Không có'}">Không có</strong>
+          </p>
+        </div>
+  </div>
+
+  <hr style="border-top: 2px dashed #6c6a6a;">
+
+  <div class="mb-4">
+      <h5 class="text-center">Danh Sách Combo</h5>
+      <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between fw-bold">
+              <span>Tên Combo</span>
+              <span>SL - Giá</span>
+          </li>
+          <li th:each="ct : ${chiTietList}" class="list-group-item d-flex justify-content-between">
+              <span th:text="${ct.tenLoai}">Combo A</span>
+              <span th:text="${ct.soLuong} + ' x ' + ${#numbers.formatDecimal(ct.thanhTien / ct.soLuong, 0, 'COMMA', 0, 'POINT')} + ' đ'">2 x 100.000 đ</span>
+          </li>
+      </ul>
+  </div>
+
+  <div class="mt-4">
+    <div class="d-flex justify-content-between">
+        <p class="mb-1">Tổng tiền:</p>
+        <p class="mb-1">
+          <strong th:text="${#numbers.formatDecimal(hoaDon.tongTienTruoc, 0, 'COMMA', 0, 'POINT')} + ' đ'">200.000 đ</strong>
+        </p>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <p class="mb-1">Giảm giá:</p>
+        <p class="mb-1">
+          <strong th:text="${#numbers.formatDecimal(hoaDon.tienGiamGia, 0, 'COMMA', 0, 'POINT')} + ' đ'">20.000 đ</strong>
+        </p>
+      </div>
+
+      <div class="d-flex justify-content-between fs-5">
+        <p class="mb-1"><strong>Tổng thanh toán:</strong></p>
+        <p class="mb-1">
+          <strong th:text="${#numbers.formatDecimal(hoaDon.tongTienSau, 0, 'COMMA', 0, 'POINT')} + ' đ'">180.000 đ</strong>
+        </p>
+      </div>
+  </div>
+
+  <hr style="border-top: 2px dashed #6c6a6a;">
+  <p class="text-muted">Nếu có bất kỳ thắc mắc nào, vui lòng liên hệ với chúng tôi qua thông tin liên hệ ở trên.</p>
+  <p class="text-muted">Cảm ơn bạn đã đặt vé. Chúc bạn có một ngày vui vẻ tại The Chill Park!</p>
+
 </div>
 
+<div class="d-flex justify-content-center align-items-center my-5">
+  <a href="/" class="btn btn-primary btn-lg px-5">Về Trang Chủ</a>
+</div>
+
+</body>
 
 <!-- Footer -->
 <footer class="footer">

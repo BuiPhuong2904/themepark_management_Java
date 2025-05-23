@@ -1,7 +1,20 @@
-window.addEventListener('load', function () {
+
+window.addEventListener('load', async function () {
     document.body.classList.add('loaded');
-    updateCartIcon();
+
+    if (isLoggedIn) {
+        await syncCartFromBackend();
+    } else {
+        // Nếu chưa đăng nhập thì xóa giỏ hàng trên localStorage
+        localStorage.removeItem("cart");
+        cart = [];
+        updateCartIcon();
+    }
 });
+
+if (!isLoggedIn) {
+    localStorage.removeItem("cart");
+}
 
 // Lấy giỏ hàng từ localStorage hoặc khởi tạo mới
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -47,7 +60,12 @@ function updateCartItem(name, price, quantity) {
     }
     saveCart();
     updateCartIcon();
+
+    // Gọi API đồng bộ backend luôn
+    console.log('updateCartItem called:', { name, price, quantity, cart });
+    updateCartToBackend();
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const comboCards = document.querySelectorAll(".combo-card");
@@ -106,3 +124,45 @@ document.addEventListener("DOMContentLoaded", () => {
     // Cập nhật số lượng badge lúc đầu khi load trang
     updateCartIcon();
 });
+
+async function updateCartToBackend() {
+    console.log('Gửi POST lên /api/cart/update', cart);
+    try {
+        const res = await fetch('/api/cart/update', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(cart)
+        });
+        if (!res.ok) throw new Error('Không thể cập nhật giỏ hàng lên server');
+        const msg = await res.text();
+        console.log('Server phản hồi:', msg);
+    } catch (error) {
+        console.error('Lỗi khi cập nhật giỏ hàng:', error);
+    }
+}
+
+async function syncCartFromBackend() {
+    try {
+        const res = await fetch('/api/cart');
+        if (!res.ok) throw new Error('Không thể lấy giỏ hàng từ server');
+        const serverCart = await res.json();
+
+        // Cập nhật cart ở client và lưu vào localStorage
+        cart = serverCart || [];
+        saveCart();
+        updateCartIcon();
+
+        // Cập nhật input số lượng tương ứng trên UI
+        const comboCards = document.querySelectorAll(".combo-card");
+        comboCards.forEach(card => {
+            const comboTitle = card.querySelector(".combo-title").innerText.trim();
+            const quantityInput = card.querySelector(".quantity-input");
+            const cartItem = cart.find(item => item.name === comboTitle);
+            quantityInput.value = cartItem ? cartItem.quantity : 0;
+        });
+
+    } catch (error) {
+        console.error('Lỗi khi đồng bộ giỏ hàng:', error);
+    }
+}
+
