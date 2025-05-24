@@ -48,7 +48,7 @@ public class AuthController {
         }
 
         // Tạo tài khoản mới
-        TaiKhoan tk = new TaiKhoan(null, email, matkhau, "Customer", null);
+        TaiKhoan tk = new TaiKhoan(null, email, matkhau, "Customer", "Active");
         String matk = (String) taiKhoanService.luuTaiKhoan(tk);
 
         // Tạo khách hàng mới

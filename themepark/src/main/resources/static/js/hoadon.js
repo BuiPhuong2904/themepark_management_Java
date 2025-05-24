@@ -39,3 +39,4 @@
     document.getElementById("giamGia").innerText = parseFloat(giamGia).toLocaleString() + " đ";
     document.getElementById("tongThanhToan").innerText = tongThanhToan.toLocaleString() + " đ";
 });
+
