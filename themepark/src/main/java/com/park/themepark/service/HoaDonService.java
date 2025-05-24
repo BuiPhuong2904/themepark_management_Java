@@ -1,8 +1,9 @@
 package com.park.themepark.service;
 
-import com.park.themepark.dao.CTHDDAO;
+import com.park.themepark.dao.ChiTiet_HDDAO;
 import com.park.themepark.dao.HoaDonDAO;
-import com.park.themepark.model.CTHD;
+import com.park.themepark.model.CartItem;
+import com.park.themepark.model.ChiTiet_HD;
 import com.park.themepark.model.HoaDon;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,12 @@ public class HoaDonService {
     private HoaDonDAO hoaDonDAO;
 
     @Autowired
-    private CTHDDAO cthdDAO;
+    private ChiTiet_HDDAO cthdDAO;
 
     public HoaDon getHoaDonChiTiet(String maHD) {
         HoaDon hd = hoaDonDAO.findById(maHD);
         if (hd != null) {
-            List<CTHD> ctList = cthdDAO.findByMaHD(maHD);
+            List<ChiTiet_HD> ctList = cthdDAO.findByMaHD(maHD);
             hd.setCTHDList(ctList);
         }
         return hd;
@@ -31,7 +32,7 @@ public class HoaDonService {
     /**
      * Thêm hóa đơn + danh sách chi tiết, xử lý mã hóa đơn tự sinh từ trigger
      */
-    public boolean themHoaDonVaChiTiet(HoaDon hd, List<CTHD> dsCTHD) {
+    public boolean themHoaDonVaChiTiet(HoaDon hd, List<ChiTiet_HD> dsCTHD) {
         // Insert hóa đơn (MAHD được trigger sinh)
         int inserted = hoaDonDAO.insert(hd);
         if (inserted <= 0) return false;
@@ -41,7 +42,7 @@ public class HoaDonService {
         if (maHDMoi == null) return false;
 
         // Gán MAHD cho từng chi tiết, rồi insert
-        for (CTHD ct : dsCTHD) {
+        for (ChiTiet_HD ct : dsCTHD) {
             ct.setMaHD(maHDMoi);
             int row = cthdDAO.insert(ct);
             if (row <= 0) {
@@ -55,5 +56,13 @@ public class HoaDonService {
 
     public String getMaHDCuoiCungTheoKH(String maKH) {
         return hoaDonDAO.getMaHDCuoiCungTheoKH(maKH);
+    }
+
+    public double tinhTongTien(List<CartItem> gioHang) {
+        double tong = 0;
+        for (CartItem item : gioHang) {
+            tong += item.getThanhTien();
+        }
+        return tong;
     }
 }

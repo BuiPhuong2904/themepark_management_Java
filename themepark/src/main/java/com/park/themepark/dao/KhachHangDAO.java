@@ -1,18 +1,18 @@
-package com.park.themepark.service;
+package com.park.themepark.dao;
 
 import com.park.themepark.model.KhachHang;
 
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
-@Service
-public class KhachHangService {
+@Repository
+public class KhachHangDAO {
 
     private final JdbcTemplate jdbcTemplate;
 
-    public KhachHangService(JdbcTemplate jdbcTemplate) {
+    public KhachHangDAO(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
@@ -33,4 +33,23 @@ public class KhachHangService {
             return null; // không tìm thấy
         }
     }
+
+    public String findMaKHByMaTK(String maTK) {
+        String sql = "SELECT MAKH FROM KHACHHANG WHERE MATK = ?";
+        try {
+            return jdbcTemplate.queryForObject(sql, String.class, maTK);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    public KhachHang timTheoMaKH(String maKH) {
+        String sql = "SELECT * FROM KHACHHANG WHERE MAKH = ?";
+        try {
+            return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(KhachHang.class), maKH);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
 }

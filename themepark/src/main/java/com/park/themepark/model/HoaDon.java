@@ -14,13 +14,15 @@ public class HoaDon {
     private String maNV;
     private String maKM;
 
-    private List<CTHD> CTHDList;
+    private KhachHang khachHang;
+
+    private List<ChiTiet_HD> CTHDList;
 
     public HoaDon() {}
 
     public HoaDon(String maHD, Double tongTienTruoc, Double tienGiamGia, Double tongTienSau, 
                   String hinhThucTT, Date ngayLap, String maKH, String maNV, String maKM, 
-                  List<CTHD> CTHDList) {
+                  List<ChiTiet_HD> CTHDList) {
         this.maHD = maHD;
         this.tongTienTruoc = tongTienTruoc;
         this.tienGiamGia = tienGiamGia;
@@ -61,7 +63,15 @@ public class HoaDon {
     public String getMaKM() { return maKM; }
     public void setMaKM(String maKM) { this.maKM = maKM; }
 
-    public List<CTHD> getCTHDList() { return CTHDList;}
-    public void setCTHDList(List<CTHD> CTHDList) { this.CTHDList = CTHDList; }
+    public List<ChiTiet_HD> getCTHDList() { return CTHDList;}
+    public void setCTHDList(List<ChiTiet_HD> CTHDList) { this.CTHDList = CTHDList; }
+
+    
+    public KhachHang getKhachHang() {
+        return khachHang;
+    }
+    public void setKhachHang(KhachHang khachHang) {
+        this.khachHang = khachHang;
+    }
 
 }

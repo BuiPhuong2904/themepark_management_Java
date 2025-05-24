@@ -17,6 +17,12 @@
 </head>
 
 <body>
+<script th:inline="javascript">
+/*<![CDATA[*/
+  const isLoggedIn = /*[[${isLoggedIn}]]*/ false;
+/*]]>*/
+</script>
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #ffffff;">
   <div class="container">
@@ -140,140 +146,22 @@
 <div class="combo-section container my-5">
   <h2 class="text-center" style="font-family: 'Quicksand', sans-serif; 
             color: #4763ff; font-size: 2rem; font-weight: 600; margin-bottom: 30px;">CHỌN COMBO VÉ</h2>
-  <div class="combo-cards row g-4 justify-content-center">
-    <!-- Combo 1 -->
-    <div class="combo-card col-md-4">
-      <img src="https://i.postimg.cc/Rh9DnkR1/park.jpg" alt="Combo Biển Tiên Đông" class="combo-img">
-      <div class="combo-details">
-        <h5 class="combo-title">COMBO BIỂN TIÊN ĐÔNG</h5>
-        <p class="combo-subtitle">WATER PARK COMBO</p>
-        <p class="combo-price">200,000 đ</p>
-        <p class="combo-desc">HSD: 90 ngày tính từ ngày mua</p>
-        <div class="combo-quantity">
-          <button class="btn btn-outline-secondary btn-decrease">-</button>
-          <input type="text" value="0" class="quantity-input">
-          <button class="btn btn-outline-secondary btn-increase">+</button>
+    <div class="combo-cards row g-4 justify-content-center">
+      <div class="combo-card col-md-4" th:each="combo : ${combos}" 
+          th:attr="data-price=${combo.giaCB}">
+        <img th:src="${combo.hinhAnh}" alt="Combo Image" class="combo-img" />
+        <div class="combo-details">
+          <h5 class="combo-title" th:text="${combo.tenCB}"></h5>
+          <p class="combo-subtitle" th:text="${combo.loaiCB}"></p>
+          <p class="combo-price" th:text="${#numbers.formatDecimal(combo.giaCB, 0, 'COMMA', 2, 'POINT')} + ' đ'"></p>
+          <p class="combo-desc" th:text="${combo.moTa}"></p>
+          <div class="combo-quantity">
+            <button class="btn btn-outline-secondary btn-decrease">-</button>
+            <input type="text" value="0" class="quantity-input" />
+            <button class="btn btn-outline-secondary btn-increase">+</button>
+          </div>
+          <button class="btn btn-success btn-detail w-100">Chi tiết</button>
         </div>
-        <button class="btn btn-success btn-detail w-100">Chi tiết</button>
-      </div>
-    </div>
-
-    <!-- Combo 2 -->
-    <div class="combo-card col-md-4">
-      <img src="https://i.postimg.cc/Rh9DnkR1/park.jpg" alt="Combo Happy Family" class="combo-img">
-      <div class="combo-details">
-        <h5 class="combo-title">COMBO HAPPY FAMILY</h5>
-        <p class="combo-subtitle">WATER PARK COMBO</p>
-        <p class="combo-price">250,000 đ</p>
-        <p class="combo-desc">HSD: 90 ngày tính từ ngày mua</p>
-        <div class="combo-quantity">
-          <button class="btn btn-outline-secondary btn-decrease">-</button>
-          <input type="text" value="0" class="quantity-input">
-          <button class="btn btn-outline-secondary btn-increase">+</button>
-        </div>
-        <button class="btn btn-success btn-detail w-100">Chi tiết</button>
-      </div>
-    </div>
-
-    <!-- Combo 3 -->
-    <div class="combo-card col-md-4">
-      <img src="https://i.postimg.cc/Rh9DnkR1/park.jpg" alt="Combo Happy Family" class="combo-img">
-      <div class="combo-details">
-        <h5 class="combo-title">COMBO HAPPY FAMILY</h5>
-        <p class="combo-subtitle">WATER PARK COMBO</p>
-        <p class="combo-price">250,000 đ</p>
-        <p class="combo-desc">HSD: 90 ngày tính từ ngày mua</p>
-        <div class="combo-quantity">
-          <button class="btn btn-outline-secondary btn-decrease">-</button>
-          <input type="text" value="0" class="quantity-input">
-          <button class="btn btn-outline-secondary btn-increase">+</button>
-        </div>
-        <button class="btn btn-success btn-detail w-100">Chi tiết</button>
-      </div>
-    </div>
-
-    <!-- Combo 4 -->
-    <div class="combo-card col-md-4">
-      <img src="https://i.postimg.cc/Rh9DnkR1/park.jpg" alt="Combo Happy Family" class="combo-img">
-      <div class="combo-details">
-        <h5 class="combo-title">COMBO HAPPY FAMILY</h5>
-        <p class="combo-subtitle">WATER PARK COMBO</p>
-        <p class="combo-price">250,000 đ</p>
-        <p class="combo-desc">HSD: 90 ngày tính từ ngày mua</p>
-        <div class="combo-quantity">
-          <button class="btn btn-outline-secondary btn-decrease">-</button>
-          <input type="text" value="0" class="quantity-input">
-          <button class="btn btn-outline-secondary btn-increase">+</button>
-        </div>
-        <button class="btn btn-success btn-detail w-100">Chi tiết</button>
-      </div>
-    </div>
-
-    <!-- Combo 5 -->
-    <div class="combo-card col-md-4">
-      <img src="https://i.postimg.cc/Rh9DnkR1/park.jpg" alt="Combo Happy Family" class="combo-img">
-      <div class="combo-details">
-        <h5 class="combo-title">COMBO HAPPY FAMILY</h5>
-        <p class="combo-subtitle">WATER PARK COMBO</p>
-        <p class="combo-price">250,000 đ</p>
-        <p class="combo-desc">HSD: 90 ngày tính từ ngày mua</p>
-        <div class="combo-quantity">
-          <button class="btn btn-outline-secondary btn-decrease">-</button>
-          <input type="text" value="0" class="quantity-input">
-          <button class="btn btn-outline-secondary btn-increase">+</button>
-        </div>
-        <button class="btn btn-success btn-detail w-100">Chi tiết</button>
-      </div>
-    </div>
-
-    <!-- Combo 6 -->
-    <div class="combo-card col-md-4">
-      <img src="https://i.postimg.cc/Rh9DnkR1/park.jpg" alt="Combo Happy Family" class="combo-img">
-      <div class="combo-details">
-        <h5 class="combo-title">COMBO HAPPY FAMILY</h5>
-        <p class="combo-subtitle">WATER PARK COMBO</p>
-        <p class="combo-price">250,000 đ</p>
-        <p class="combo-desc">HSD: 90 ngày tính từ ngày mua</p>
-        <div class="combo-quantity">
-          <button class="btn btn-outline-secondary btn-decrease">-</button>
-          <input type="text" value="0" class="quantity-input">
-          <button class="btn btn-outline-secondary btn-increase">+</button>
-        </div>
-        <button class="btn btn-success btn-detail w-100">Chi tiết</button>
-      </div>
-    </div>
-
-    <!-- Combo 7 -->
-    <div class="combo-card col-md-4">
-      <img src="https://i.postimg.cc/Rh9DnkR1/park.jpg" alt="Combo Biển Tiên Đông" class="combo-img">
-      <div class="combo-details">
-        <h5 class="combo-title">COMBO BIỂN TIÊN ĐÔNG</h5>
-        <p class="combo-subtitle">WATER PARK COMBO</p>
-        <p class="combo-price">200,000 đ</p>
-        <p class="combo-desc">HSD: 90 ngày tính từ ngày mua</p>
-        <div class="combo-quantity">
-          <button class="btn btn-outline-secondary btn-decrease">-</button>
-          <input type="text" value="0" class="quantity-input">
-          <button class="btn btn-outline-secondary btn-increase">+</button>
-        </div>
-        <button class="btn btn-success btn-detail w-100">Chi tiết</button>
-      </div>
-    </div>
-
-    <!-- Combo 8 -->
-    <div class="combo-card col-md-4">
-      <img src="https://i.postimg.cc/Rh9DnkR1/park.jpg" alt="Combo Happy Family" class="combo-img">
-      <div class="combo-details">
-        <h5 class="combo-title">COMBO HAPPY FAMILY</h5>
-        <p class="combo-subtitle">WATER PARK COMBO</p>
-        <p class="combo-price">250,000 đ</p>
-        <p class="combo-desc">HSD: 90 ngày tính từ ngày mua</p>
-        <div class="combo-quantity">
-          <button class="btn btn-outline-secondary btn-decrease">-</button>
-          <input type="text" value="0" class="quantity-input">
-          <button class="btn btn-outline-secondary btn-increase">+</button>
-        </div>
-        <button class="btn btn-success btn-detail w-100">Chi tiết</button>
       </div>
     </div>
 
@@ -282,7 +170,7 @@
 
 <!-- Giỏ hàng (biểu tượng cố định góc dưới) -->
 <div class="cart-icon-fixed position-fixed" onclick="zoomCartIcon()">
-  <a href="/giohang" class="btn btn-light rounded-circle p-2">
+  <a href="/thanhtoan" class="btn btn-light rounded-circle p-2">
     <i class="bi bi-cart-fill fs-5" style="color: #4763ff;"></i>
   </a>
   <span class="badge bg-danger text-white rounded-circle position-absolute top-0 start-100 translate-middle">

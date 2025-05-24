@@ -1,20 +1,22 @@
 package com.park.themepark.model;
 
-public class CTHD {
+public class ChiTiet_HD {
     private String maHD;
     private String loai;
     private String maLoai;
     private int soLuong;
     private Double thanhTien;
+    private String tenLoai;  // Tên combo hoặc vé
     
-    public CTHD() {}
+    public ChiTiet_HD() {}
 
-    public CTHD(String maHD, String loai, String maLoai, int soLuong, Double thanhTien) {
+    public ChiTiet_HD(String maHD, String loai, String maLoai, int soLuong, Double thanhTien, String tenLoai) {
         this.maHD = maHD;
         this.loai = loai;
         this.maLoai = maLoai;
         this.soLuong = soLuong;
         this.thanhTien = thanhTien;
+        this.tenLoai = tenLoai;
     }
 
     // Getters and Setters
@@ -32,4 +34,7 @@ public class CTHD {
     
     public Double getThanhTien() { return thanhTien; }
     public void setThanhTien(Double thanhTien) { this.thanhTien = thanhTien; }
+
+    public String getTenLoai() { return tenLoai; }
+    public void setTenLoai(String tenLoai) { this.tenLoai = tenLoai; }
 }

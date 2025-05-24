@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.park.themepark.model.HoaDon;
+import com.park.themepark.model.KhachHang;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -46,7 +47,7 @@ public class HoaDonDAO {
                      "VALUES (?, ?, ?, ?, SYSDATE, ?, ?, ?)";
         return jdbcTemplate.update(sql,
                 hd.getTongTienTruoc(), hd.getTienGiamGia(), hd.getTongTienSau(),
-                hd.getHinhThucTT(), hd.getNgayLap(), hd.getMaKH(), hd.getMaNV(), hd.getMaKM());
+                hd.getHinhThucTT(), hd.getMaKH(), hd.getMaNV(), hd.getMaKM());
     }
 
     public String getLatestMaHDByCustomer(String maKH) {
@@ -63,6 +64,39 @@ public class HoaDonDAO {
         }
     }
 
-
     // Thêm update, delete nếu cần
+    public HoaDon getHoaDonById(String maHD) {
+        String sql = "SELECT hd.MAHD, hd.TONGTIENTRUOC, hd.TIENGIAMGIA, hd.TONGTIENSAU, hd.HINHTHUCTT, hd.NGAYLAP, " +
+                    "hd.MAKH, hd.MANV, hd.MAKM, " +
+                    "kh.HOTEN, kh.NGAYSINH, kh.GIOITINH, kh.SDT, kh.MATK " +
+                    "FROM HOADON hd " +
+                    "LEFT JOIN KHACHHANG kh ON hd.MAKH = kh.MAKH " +
+                    "WHERE hd.MAHD = ?";
+
+        return jdbcTemplate.queryForObject(sql, (rs, rowNum) -> {
+            HoaDon hd = new HoaDon();
+            hd.setMaHD(rs.getString("MAHD"));
+            hd.setTongTienTruoc(rs.getDouble("TONGTIENTRUOC"));
+            hd.setTienGiamGia(rs.getDouble("TIENGIAMGIA"));
+            hd.setTongTienSau(rs.getDouble("TONGTIENSAU"));
+            hd.setHinhThucTT(rs.getString("HINHTHUCTT"));
+            hd.setNgayLap(rs.getDate("NGAYLAP"));
+            hd.setMaKH(rs.getString("MAKH"));
+            hd.setMaNV(rs.getString("MANV"));
+            hd.setMaKM(rs.getString("MAKM"));
+
+            // Tạo đối tượng KhachHang gắn vào HoaDon
+            KhachHang kh = new KhachHang();
+            kh.setMakh(rs.getString("MAKH"));
+            kh.setHoten(rs.getString("HOTEN"));
+            kh.setNgaysinh(rs.getDate("NGAYSINH"));
+            kh.setGioitinh(rs.getString("GIOITINH"));
+            kh.setSdt(rs.getString("SDT"));
+            kh.setMatk(rs.getString("MATK"));
+
+            hd.setKhachHang(kh);  // giả sử HoaDon có thuộc tính KhachHang và setter tương ứng
+
+            return hd;
+        }, maHD);
+    }
 }
