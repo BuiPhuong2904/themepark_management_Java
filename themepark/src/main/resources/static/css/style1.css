@@ -1,0 +1,234 @@
+html {
+    scroll-behavior: smooth;
+}
+/* Hiệu ứng fade-in */
+body {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+body.loaded {
+    opacity: 1;
+}
+
+/* Navbar */
+.navbar {
+    font-family: 'Itim', cursive;
+    font-size: 0.95rem;
+}
+/* Áp dụng font cho logo */
+.navbar-brand {
+    font-family: 'Pacifico', cursive; /* Font uốn lượn từ Google Fonts */
+    font-size: 1rem; 
+    color: #4763ff; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Tạo hiệu ứng bóng đổ nhẹ */
+    transition: color 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển màu và di chuyển khi hover */
+}
+/* Hiệu ứng khi hover */
+.navbar-brand:hover {
+    color: #ff1493; /* Màu chữ thay đổi khi hover */
+    transform: scale(1.1) rotate(-5deg); /* Phóng to và xoay logo */
+}
+/* Hiển thị dropdown khi hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* Tùy chỉnh để dropdown không bị lệch */
+  }
+/* Chỉnh phông cho thanh tìm kiếm */
+.navbar form input[type="search"] {
+    font-family: 'Itim', sans-serif;  
+    font-size: 0.85rem;
+}
+.navbar form button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.85rem;
+}
+/* Chỉnh phông cho nút Đăng ký */
+.btn.btn-outline {
+    font-family: 'Itim', sans-serif; 
+    font-size: 0.95rem;
+}
+/* Chỉnh phông cho nút Đăng nhập */
+.btn.btn-primary {
+    font-family: 'Itim', sans-serif; 
+    font-size: 0.95rem;
+}
+/* Viền cho nút đăng ký */
+a[href="/dangky"]:hover {
+    border: 1px solid #0d6efd;
+}
+
+/*------------------------------------------------------------------------------------*/
+/* dashboard */
+/* Reset và font */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 56px; /* Để dưới navbar cố định */
+  left: 0;
+  width: 250px;
+  height: calc(100vh - 56px); /* Chiều cao trừ navbar */
+  background-color: #f8f9fa;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+  padding: 1rem 0.5rem;
+  z-index: 1000;
+}
+
+/* Sidebar links */
+.sidebar .nav-link {
+  color: #333;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #e2e6ea;
+  border-radius: 5px;
+}
+
+.sidebar .nav-link.collapsed {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Submenu trong sidebar */
+.submenu {
+  padding-left: 1rem;
+}
+
+.submenu .nav-link {
+  font-weight: 400;
+  padding-left: 2rem;
+}
+
+/* Icon toggle */
+.toggle-icon {
+  float: right;
+}
+
+.rotate-icon {
+  transition: transform 0.3s ease;
+}
+
+.rotate-icon.rotate {
+  transform: rotate(180deg);
+}
+
+/* Main content bên phải */
+.main-content {
+  margin-left: 250px; /* bằng width sidebar */
+  padding: 2rem;
+  margin-top: 56px; /* bằng chiều cao navbar */
+  /* height: calc(100vh - 56px); */
+  overflow-y: auto;
+  background-color: #fdfdfd;
+  min-height: calc(100vh - 56px); /* Đảm bảo chiếm toàn bộ màn hình, nhưng vẫn co giãn nếu cao hơn */
+}
+
+.footer {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
+  background-color: #242323;     /* Màu nền đen */
+  color: #fff;                /* Màu chữ trắng */
+  text-align: center;
+  padding: 1rem 0;
+  position: relative;         /* Quan trọng: để có thể kiểm soát z-index */
+  z-index: 1000;
+  width: 100%;         
+}
+
+/*-----------------------------------------------------------------------------*/
+/*hồ sơ NHÂN VIÊN*/
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 20px;
+}
+
+.profile-container {
+  max-width: 1000px;
+  margin-left: 250px; /* Căn lề trái để tránh che bởi sidebar */
+  margin-top: 56px; /* Căn lề trên để tránh che bởi navbar */
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.profile-header {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+}
+
+.profile-image img {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 25px;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  gap: 20px;
+}
+
+.info-item {
+  flex: 1;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  padding: 10px 14px;
+  border-radius: 6px;
+  position: relative;
+  font-size: 15px;
+}
+
+.info-item span {
+  font-weight: bold;
+  margin-left: 6px;
+}
+
+.edit-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: #007bff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.section-title {
+  color: #ff9900;
+  margin: 25px 0 10px;
+  font-size: 18px;
+}
+
+.profile-extra {
+  background-color: #fffbe6;
+  padding: 20px;
+  border: 1px solid #ffc107;
+  border-radius: 6px;
+}
+
+/*-----------------------------------------------------------------------------*/
