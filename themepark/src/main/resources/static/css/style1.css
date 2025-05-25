@@ -202,45 +202,47 @@ body {
   display: none;
 }
 
-.profile-info, .profile-extra {
+.two-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.info-column {
   flex: 1;
+  min-width: 300px;
 }
 
 .info-row {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .info-row label {
   display: block;
-  margin-bottom: 6px;
   font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .info-field {
-  display: flex;
-  align-items: center;
   position: relative;
 }
 
 .info-field input {
   width: 100%;
-  padding: 10px 35px 10px 10px;
+  padding: 8px 30px 8px 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
 .edit-icon {
   position: absolute;
-  right: 10px;
-  color: #888;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
-  font-size: 18px;
+  font-style: normal;
+  color: #555;
 }
 
-.section-title {
-  margin-top: 40px;
-  font-size: 20px;
-  border-bottom: 2px solid #ccc;
-  padding-bottom: 10px;
-}
 /*-----------------------------------------------------------------------------*/

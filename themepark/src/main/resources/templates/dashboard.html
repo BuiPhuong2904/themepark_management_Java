@@ -64,10 +64,6 @@
     <!-- Sidebar chiếm 2/12 -->
     <div class="sidebar col-12 col-md-3">
       <ul class="nav flex-column" id="accordionSidebar">
-        <!-- Trang chủ -->
-        <li class="nav-item">
-          <a class="nav-link" href="#" data-page="trang-chu"><i class="bi bi-house-door me-2"></i>Trang chủ</a>
-        </li>
 
         <!-- Quản lý vé -->
         <li class="nav-item">
@@ -75,20 +71,19 @@
           <div class="collapse submenu" id="veMenu" data-bs-parent="#accordionSidebar">
             <a class="nav-link" href="#" data-page="ban-ve">Bán vé</a>
             <a class="nav-link" href="#" data-page="kiem-tra-ve">Kiểm tra vé</a>
-            <a class="nav-link" href="#" data-page="lich-su-giao-dich">Lịch sử giao dịch</a>
+            <a class="nav-link" href="#" data-page="quan-ly-ve">Quản lý vé</a>
+            <a class="nav-link" href="#" data-page="quan-ly-combo">Quản lý combo</a>
           </div>
+        </li>
+
+        <!-- Quản lý hóa đơn -->
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-page="quan-ly-hoa-don"><i class="bi bi-house-door me-2"></i>Quản lý hóa đơn</a>
         </li>
 
         <!-- Quản lý khách hàng -->
         <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#khachHangMenu" role="button" aria-expanded="false" aria-controls="khachHangMenu">
-            <i class="bi bi-people-fill me-2"></i>Quản lý khách hàng <i class="bi bi-chevron-down toggle-icon"></i>
-          </a>
-          <div class="collapse submenu" id="khachHangMenu" data-bs-parent="#accordionSidebar">
-            <a class="nav-link" href="#" data-page="danh-sach-khach-hang">Danh sách khách hàng</a>
-            <a class="nav-link" href="#" data-page="them-khach-hang">Thêm khách hàng</a>
-            <a class="nav-link" href="#" data-page="ghi-chu-khach-hang">Ghi chú khách hàng</a>
-          </div>
+          <a class="nav-link" href="#" data-page="quan-ly-khach-hang"><i class="bi bi-chevron-down toggle-icon"></i>Quản lý khách hàng</a>
         </li>
 
         <!-- Quản lý trò chơi -->
@@ -99,7 +94,6 @@
           <div class="collapse submenu" id="troChoiMenu" data-bs-parent="#accordionSidebar">
             <a class="nav-link" href="#" data-page="danh-sach-tro-choi">Danh sách trò chơi</a>
             <a class="nav-link" href="#" data-page="trang-thai-hoat-dong">Trạng thái hoạt động</a>
-            <a class="nav-link" href="#" data-page="them-tro-choi">Thêm trò chơi</a>
           </div>
         </li>
 
@@ -111,7 +105,7 @@
           <div class="collapse submenu" id="suKienMenu" data-bs-parent="#accordionSidebar">
             <a class="nav-link" href="#" data-page="danh-sach-su-kien">Danh sách sự kiện</a>
             <a class="nav-link" href="#" data-page="lich-su-kien">Lịch sự kiện</a>
-            <a class="nav-link" href="#" data-page="them-su-kien">Thêm sự kiện</a>
+            <a class="nav-link" href="#" data-page="tao-bai-viet">Tạo bài viết</a>
           </div>
         </li>
 
@@ -137,6 +131,17 @@
             <a class="nav-link" href="#" data-page="cham-cong">Chấm công</a>
           </div>
         </li>
+
+        <!-- Quản lý vé khu vực -->
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="collapse" href="#khuVucMenu" role="button" aria-expanded="false" aria-controls="khuVucMenu">
+            <i class="bi bi-map-fill me-2"></i>Quản lý khu vực <i class="bi bi-chevron-down toggle-icon"></i>
+          </a>
+          <div class="collapse submenu" id="khuVucMenu" data-bs-parent="#accordionSidebar">
+            <a class="nav-link" href="#" data-page="danh-sach-khu-vuc">Danh sách khu vực</a>
+            <a class="nav-link" href="#" data-page="quan-ly-hop-dong">Quản lý hợp đồng</a>
+          </div>
+        </li> 
 
         <!-- Quản lý báo cáo -->
         <li class="nav-item">
