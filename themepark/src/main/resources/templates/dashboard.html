@@ -63,10 +63,15 @@
     <!-- Sidebar chiếm 2/12 -->
     <div class="sidebar col-12 col-md-3">
       <ul class="nav flex-column" id="accordionSidebar">
-
+        
         <!-- Quản lý vé -->
         <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#veMenu"><i class="bi bi-ticket-perforated me-2"></i>Quản lý vé <i class="bi bi-chevron-down toggle-icon"></i></a>
+          <a class="nav-link" data-bs-toggle="collapse" href="#veMenu">
+            <span class="menu-label">
+              <i class="bi bi-ticket-perforated me-2"></i> Quản lý vé
+            </span>
+            <i class="bi bi-chevron-down toggle-icon"></i>
+          </a>
           <div class="collapse submenu" id="veMenu" data-bs-parent="#accordionSidebar">
             <a class="nav-link" href="#" data-page="ban-ve">Bán vé</a>
             <a class="nav-link" href="#" data-page="kiem-tra-ve">Kiểm tra vé</a>
@@ -77,18 +82,31 @@
 
         <!-- Quản lý hóa đơn -->
         <li class="nav-item">
-          <a class="nav-link" href="#" data-page="quan-ly-hoa-don"><i class="bi bi-receipt-cutoff me-2"></i>Quản lý hóa đơn</a>
+          <a class="nav-link" href="#" data-page="quan-ly-hoa-don">
+            <span class="menu-label">
+              <i class="bi bi-receipt-cutoff me-2"></i> Quản lý hóa đơn
+            </span>
+            <span class="toggle-icon"></span>
+          </a>
         </li>
 
         <!-- Quản lý khách hàng -->
         <li class="nav-item">
-          <a class="nav-link" href="#" data-page="quan-ly-khach-hang"><i class="bi bi-people-fill me-2"></i>Quản lý khách hàng</a>
+          <a class="nav-link" href="#" data-page="quan-ly-khach-hang">
+            <span class="menu-label">
+              <i class="bi bi-people-fill me-2"></i> Quản lý khách hàng
+            </span>
+            <span class="toggle-icon"></span>
+          </a>
         </li>
 
         <!-- Quản lý trò chơi -->
         <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#troChoiMenu" role="button" aria-expanded="false" aria-controls="troChoiMenu">
-            <i class="bi bi-controller me-2"></i>Quản lý trò chơi <i class="bi bi-chevron-down toggle-icon"></i>
+          <a class="nav-link" data-bs-toggle="collapse" href="#troChoiMenu">
+            <span class="menu-label">
+              <i class="bi bi-controller me-2"></i> Quản lý trò chơi
+            </span>
+            <i class="bi bi-chevron-down toggle-icon"></i>
           </a>
           <div class="collapse submenu" id="troChoiMenu" data-bs-parent="#accordionSidebar">
             <a class="nav-link" href="#" data-page="danh-sach-tro-choi">Danh sách trò chơi</a>
@@ -96,10 +114,13 @@
           </div>
         </li>
 
-        <!-- Quản lý sự kiện -->  
+        <!-- Quản lý sự kiện -->
         <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#suKienMenu" role="button" aria-expanded="false" aria-controls="suKienMenu">
-            <i class="bi bi-calendar-event me-2"></i>Quản lý sự kiện <i class="bi bi-chevron-down toggle-icon"></i>
+          <a class="nav-link" data-bs-toggle="collapse" href="#suKienMenu">
+            <span class="menu-label">
+              <i class="bi bi-calendar-event me-2"></i> Quản lý sự kiện
+            </span>
+            <i class="bi bi-chevron-down toggle-icon"></i>
           </a>
           <div class="collapse submenu" id="suKienMenu" data-bs-parent="#accordionSidebar">
             <a class="nav-link" href="#" data-page="danh-sach-su-kien">Danh sách sự kiện</a>
@@ -109,14 +130,22 @@
         </li>
 
         <!-- Quản lý khuyến mãi -->
-         <li class="nav-item">
-          <a class="nav-link" href="#" data-page="quan-ly-khach-hang"><i class="bi bi-gift-fill me-2"></i>Quản lý khuyến mãi</a>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-page="quan-ly-khuyen-mai">
+            <span class="menu-label">
+              <i class="bi bi-gift-fill me-2"></i> Quản lý khuyến mãi
+            </span>
+            <span class="toggle-icon"></span>
+          </a>
         </li>
 
         <!-- Quản lý nhân sự -->
         <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#nhanSuMenu" role="button" aria-expanded="false" aria-controls="nhanSuMenu">
-            <i class="bi bi-person-fill me-2"></i>Quản lý nhân sự <i class="bi bi-chevron-down toggle-icon"></i>
+          <a class="nav-link" data-bs-toggle="collapse" href="#nhanSuMenu">
+            <span class="menu-label">
+              <i class="bi bi-person-fill me-2"></i> Quản lý nhân sự
+            </span>
+            <i class="bi bi-chevron-down toggle-icon"></i>
           </a>
           <div class="collapse submenu" id="nhanSuMenu" data-bs-parent="#accordionSidebar">
             <a class="nav-link" href="#" data-page="danh-sach-nhan-su">Danh sách nhân sự</a>
@@ -125,21 +154,27 @@
           </div>
         </li>
 
-        <!-- Quản lý vé khu vực -->
+        <!-- Quản lý khu vực -->
         <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#khuVucMenu" role="button" aria-expanded="false" aria-controls="khuVucMenu">
-            <i class="bi bi-map-fill me-2"></i>Quản lý khu vực <i class="bi bi-chevron-down toggle-icon"></i>
+          <a class="nav-link" data-bs-toggle="collapse" href="#khuVucMenu">
+            <span class="menu-label">
+              <i class="bi bi-map-fill me-2"></i> Quản lý khu vực
+            </span>
+            <i class="bi bi-chevron-down toggle-icon"></i>
           </a>
           <div class="collapse submenu" id="khuVucMenu" data-bs-parent="#accordionSidebar">
             <a class="nav-link" href="#" data-page="danh-sach-khu-vuc">Danh sách khu vực</a>
             <a class="nav-link" href="#" data-page="quan-ly-hop-dong">Quản lý hợp đồng</a>
           </div>
-        </li> 
+        </li>
 
-        <!-- Quản lý báo cáo -->
+        <!-- Báo cáo -->
         <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#baoCaoMenu" role="button" aria-expanded="false" aria-controls="baoCaoMenu">
-            <i class="bi bi-bar-chart-fill me-2"></i>Báo cáo, Thống kê<i class="bi bi-chevron-down toggle-icon"></i>
+          <a class="nav-link" data-bs-toggle="collapse" href="#baoCaoMenu">
+            <span class="menu-label">
+              <i class="bi bi-bar-chart-fill me-2"></i> Báo cáo, Thống kê
+            </span>
+            <i class="bi bi-chevron-down toggle-icon"></i>
           </a>
           <div class="collapse submenu" id="baoCaoMenu" data-bs-parent="#accordionSidebar">
             <a class="nav-link" href="#" data-page="doanh-thu">Doanh thu</a>
@@ -148,10 +183,13 @@
           </div>
         </li>
 
-        <!-- Cài đặt hệ thống -->
+        <!-- Cài đặt -->
         <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#caiDatMenu" role="button" aria-expanded="false" aria-controls="caiDatMenu">
-            <i class="bi bi-gear-fill me-2"></i>Cài đặt<i class="bi bi-chevron-down toggle-icon"></i>
+          <a class="nav-link" data-bs-toggle="collapse" href="#caiDatMenu">
+            <span class="menu-label">
+              <i class="bi bi-gear-fill me-2"></i> Cài đặt
+            </span>
+            <i class="bi bi-chevron-down toggle-icon"></i>
           </a>
           <div class="collapse submenu" id="caiDatMenu" data-bs-parent="#accordionSidebar">
             <a class="nav-link" href="#" data-page="duong-link">Đường link</a>
@@ -161,12 +199,14 @@
         <!-- Hồ sơ -->
         <li class="nav-item">
           <a class="nav-link" href="/ho_so">
-            <i class="bi bi-person-circle me-2"></i> Hồ sơ
+            <span class="menu-label">
+              <i class="bi bi-person-circle me-2"></i> Hồ sơ
+            </span>
+            <span class="toggle-icon"></span>
           </a>
-          <!-- <a class="nav-link" href="#" data-page="ho-so"><i class="bi bi-person-circle me-2"></i>Hồ sơ</a> -->
-          <!-- <a href="#" class="nav-link" data-page="e_ho_so.html">Hồ sơ</a> -->
         </li>
       </ul>
+
     </div>
 
     <!-- Main content chiếm 10/12 -->
