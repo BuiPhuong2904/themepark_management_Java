@@ -150,6 +150,23 @@ html, body {
   z-index: 1000;
   width: 100%;         
 }
+.nav-link {
+  display: flex;
+  justify-content: space-between; /* đẩy 2 bên */
+  align-items: center; /* căn giữa theo chiều dọc */
+  font-weight: 600; /* in đậm vừa phải */
+  text-align: left;
+  padding: 0.75rem 1rem;
+}
+.menu-label {
+  display: flex;
+  align-items: center;
+}
+.toggle-icon {
+  margin-left: auto; /* Đẩy icon sang phải */
+  transition: transform 0.3s ease;
+  min-width: 1rem;
+}
 
 /*-----------------------------------------------------------------------------*/
 /*hồ sơ NHÂN VIÊN*/
