@@ -182,21 +182,21 @@ body {
 }
 
 .avatar-box {
-  width: 180px;
   text-align: center;
+  flex: 0 0 150px;
 }
 
 .avatar-box img {
-  width: 160px;
-  height: 160px;
-  border-radius: 10px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
   object-fit: cover;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
 }
 
 .upload-btn {
-  margin-top: 10px;
   display: inline-block;
+  margin-top: 10px;
   padding: 6px 12px;
   background-color: #007bff;
   color: white;
@@ -208,16 +208,11 @@ body {
   display: none;
 }
 
-.two-columns {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  margin-top: 20px;
-}
-
-.info-column {
+.profile-info {
   flex: 1;
-  min-width: 300px;
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
 }
 
 .info-row {
@@ -226,29 +221,29 @@ body {
 
 .info-row label {
   display: block;
-  font-weight: bold;
+  width: 200px;
   margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .info-field {
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .info-field input {
-  width: 100%;
-  padding: 8px 30px 8px 10px;
+  /* flex: 1; */
+  width: 500px;
+  padding: 6px 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 .edit-icon {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
   cursor: pointer;
-  font-style: normal;
-  color: #555;
+  color: #007bff;
 }
+
 
 /*-----------------------------------------------------------------------------*/
