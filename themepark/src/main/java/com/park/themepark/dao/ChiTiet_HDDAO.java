@@ -66,10 +66,22 @@ public class ChiTiet_HDDAO {
         String sql = "INSERT INTO CHITIET_HD (MAHD, LOAI, MALOAI, SOLUONG, THANHTIEN) VALUES (?, ?, ?, ?, ?)";
         return jdbcTemplate.update(sql, ct.getMaHD(), ct.getLoai(), ct.getMaLoai(), ct.getSoLuong(), ct.getThanhTien());
     }
-    // Update / Delete nếu cần
-
+    
     public List<ChiTiet_HD> findAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+        String sql = """
+            SELECT 
+                ct.MAHD, ct.LOAI, ct.MALOAI, ct.SOLUONG, ct.THANHTIEN,
+                CASE 
+                    WHEN ct.LOAI = 'VE' THEN v.TENVE
+                    WHEN ct.LOAI = 'COMBO' THEN c.TENCB
+                    ELSE NULL
+                END AS TENLOAI
+            FROM CHITIET_HD ct
+            LEFT JOIN VE v ON ct.LOAI = 'VE' AND ct.MALOAI = v.MAVE
+            LEFT JOIN COMBO_VE c ON ct.LOAI = 'COMBO' AND ct.MALOAI = c.MACB
+        """;
+
+        return jdbcTemplate.query(sql, this::mapRow);
     }
+
 }
