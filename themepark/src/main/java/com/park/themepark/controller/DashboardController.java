@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.park.themepark.dao.Combo_VeDAO;
 import com.park.themepark.dao.KhuTroChoiDAO;
 import com.park.themepark.dao.VeDAO;
+import com.park.themepark.model.Combo_Ve;
 import com.park.themepark.model.KhuTroChoi;
 import com.park.themepark.model.Ve;
 
@@ -20,6 +22,9 @@ public class DashboardController {
 
     @Autowired
     private VeDAO veDAO;
+
+    @Autowired
+    private Combo_VeDAO comboVeDAO;
 
     @GetMapping("/ho_so")
     public String hienThiHoSo() {
@@ -38,5 +43,12 @@ public class DashboardController {
         List<Ve> list = veDAO.findAll();
         model.addAttribute("danhSachVe", list);
         return "e_ql_ve"; 
+    }
+
+    @GetMapping("/ql_combo")
+    public String hienThiQLCombo(Model model) {
+        List<Combo_Ve> list = comboVeDAO.findAll();
+        model.addAttribute("danhSachCombo", list);
+        return "e_ql_combo"; 
     }
 }
