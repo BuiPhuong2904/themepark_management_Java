@@ -41,11 +41,11 @@ public class DashboardController {
         return "e_ho_so"; 
     }
 
-    @GetMapping("/ds_khach_hang")
+    @GetMapping("/ql_khachhang")
     public String hienThiDSKhachHang(Model model) {
         List<KhachHang> list = khachHangDAO.findAll();
         model.addAttribute("danhSachKH", list);
-        return "e_ds_khachhang"; 
+        return "e_ql_khachhang"; 
     }
 
     @GetMapping("/ds_tro_choi")
