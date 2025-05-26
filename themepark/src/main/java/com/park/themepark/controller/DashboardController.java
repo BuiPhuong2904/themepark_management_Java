@@ -61,6 +61,7 @@ public class DashboardController {
     public String hienThiQLKhuyenMai(Model model) {
         List<KhuyenMai> list = khuyenMaiDAO.findAll();
         model.addAttribute("danhSachKhuyenMai", list);
+        System.out.println("Số khuyến mãi lấy được: " + list.size());
         return "e_ql_khuyenmai"; 
     }
 }
