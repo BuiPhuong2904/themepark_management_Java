@@ -222,35 +222,34 @@
         <!-- Thanh tìm kiếm -->
         <input type="text" class="form-control my-3" placeholder="Tìm kiếm theo mã hóa đơn...">
 
-        <!-- Bảng danh sách khuyến mãi -->
+        <!-- Bảng danh sách hóa đơn-->
         <table class="table table-bordered table-hover rounded-table">
             <thead class="table-light">
             <tr>
                 <th>ID</th>
-                <th>Tên KM</th>
-                <th>Loại KM</th>
-                <th>Giá trị</th>
-                <th>Điều kiện</th>
-                <th>Ngày BD</th>
-                <th>Ngày KT</th>
-                <th>Trạng thái</th>
+                <th>Tổng tiền trước</th>
+                <th>Tiền giảm giá</th>
+                <th>Tổng tiền sau</th>
+                <th>HT thanh toán</th>
+                <th>Ngày lập</th>
+                <th>Mã KM</th>
+                <th>Mã KH</th>
+                <th>Mã NV</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
-                <tr th:each="km : ${danhSachKhuyenMai}">
-                    <td th:text="${km.maKM}"></td>
-                    <td th:text="${km.tenKM}"></td>
-                    <td th:text="${km.loaiKM}"></td>
-                    <td th:text="${km.giaTriGiam}"></td>
-                    <td th:text="${km.dieuKien}"></td>
-                    <td th:text="${#dates.format(km.ngayBD, 'dd/MM/yyyy')}"></td>
-                    <td th:text="${#dates.format(km.ngayKT, 'dd/MM/yyyy')}"></td>
-                    <td>
-                        <span class="badge" th:classappend="${km.trangThai == 'Available'} ? 'bg-success' : 'bg-secondary'"
-                            th:text="${km.trangThai}"></span>
-                    </td>
-                    <td class="text-end">
+                <tr th:each="hd  : ${danhSachHoaDon}">
+                    <td th:text="${hd.maHD}"></td>
+                    <td th:text="${hd.tongTienTruoc}"></td>
+                    <td th:text="${hd.tienGiamGia}"></td>
+                    <td th:text="${hd.tongTienSau}"></td>
+                    <td th:text="${hd.hinhThucTT}"></td>
+                    <td th:text="${#dates.format(hd.ngayLap, 'dd/MM/yyyy')}"></td>
+                    <td th:text="${hd.maKM}"></td>
+                    <td th:text="${hd.maKH}"></td>
+                    <td th:text="${hd.maNV}"></td>
+                    <td class="text-center">
                         <a href="#" class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil-square"></i></a>
                         <a href="#" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash3"></i></a>
                     </td>
