@@ -22,6 +22,8 @@ import com.park.themepark.dao.NhanVienDAO;
 import com.park.themepark.model.KhuTroChoi;
 import com.park.themepark.model.KhuyenMai;
 import com.park.themepark.model.NhanVien;
+import com.park.themepark.dao.SuKienDAO;
+import com.park.themepark.model.SuKien;
 import com.park.themepark.model.Ve;
 
 @Controller
@@ -46,6 +48,9 @@ public class DashboardController {
     private NhanVienDAO nhanVienDAO;
 
     @Autowired
+    private SuKienDAO suKienDAO;
+
+    @Autowired
     private HoaDonDAO hoaDonDAO;
 
     @Autowired
@@ -68,6 +73,13 @@ public class DashboardController {
         List<NhanVien> list = nhanVienDAO.findAll();
         model.addAttribute("danhSachNV", list);
         return "e_ql_nhanvien"; 
+    }
+
+    @GetMapping("/ql_sukien")
+    public String hienThiDSSuKien(Model model) {
+        List<SuKien> list = suKienDAO.findAll();
+        model.addAttribute("danhSachSK", list);
+        return "e_ql_sukien";
     }
 
     @GetMapping("/ds_tro_choi")
