@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   
   <link rel="stylesheet" href="/css/style1.css">
+  <link rel="stylesheet" href="/css/style2.css">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -32,24 +33,6 @@
           <i class="bi bi-search"></i>
         </button>
       </form>
-
-      <!-- Nếu đã đăng nhập
-      <div class="dropdown ms-3" th:if="${khachHang != null}">
-        <a class="btn btn-light dropdown-toggle d-flex align-items-center" href="#" role="button" id="userDropdown"
-          data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://i.postimg.cc/fRNrFCSH/ava.jpg" class="rounded-circle me-2" width="32" height="32" alt="Avatar">
-          <span th:text="'Xin chào, ' + ${khachHang.hoten}">Tên KH</span>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-          <li><a class="dropdown-item text-danger" href="/dangxuat">Đăng xuất</a></li>
-        </ul>
-      </div>
-
-       Nếu chưa đăng nhập 
-      <div th:if="${khachHang == null}" class="ms-3">
-        <a class="btn btn-outline ms-2" href="/dangky">ĐĂNG KÝ</a>
-        <a class="btn btn-primary ms-2" href="/dangnhap">ĐĂNG NHẬP</a>
-      </div> -->
 
       <a class="btn btn-outline-danger ms-3" href="/dangxuat">Đăng xuất</a>
 
@@ -225,10 +208,50 @@
 
     <!-- Main content chiếm 10/12 -->
     <div class="main-content col-12 col-md-9">
-      <h5 style="font-weight: 600; font-family: 'Quicksand', sans-serif; color: #4763ff; 
-                font-size: 2rem; ">Quản lý khu trò chơi</h5>
-      <p style="font-size: 1rem; color: #505367; font-family: 'Nunito';">Quản lý thông tin khu trò chơi của The Chill Park</p>
-      <p>Nội dung </p>
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h5 style="font-weight: 600; font-family: 'Quicksand', sans-serif; color: #4763ff; 
+                            font-size: 2rem; ">Quản lý khu trò chơi</h5>
+                <p style="font-size: 1rem; color: #505367; font-family: 'Nunito';">Quản lý thông tin khu trò chơi của The Chill Park</p>
+            </div>
+
+            <button class="btn btn-primary" style="font-size: 1rem; font-weight: 500; font-family: 'Itim', sans-serif;">
+                <i class="bi bi-plus-circle me-1"></i> Thêm khu trò chơi
+            </button>
+        </div>
+
+        <!-- Thanh tìm kiếm -->
+        <input type="text" class="form-control my-3" placeholder="Tìm kiếm theo tên trò chơi...">
+
+        <!-- Bảng danh sách khu trò chơi -->
+        <table class="table table-bordered table-hover rounded-table">
+            <thead class="table-light">
+            <tr>
+                <th>Mã trò chơi</th>
+                <th>Tên trò chơi</th>
+                <th>Mô tả</th>
+                <th>Trạng thái</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>GAME001</td>
+                <td>Đu quay mặt trời</td>
+                <td>Mạo hiểm</td>
+                <td><span class="badge bg-success">Đang hoạt động</span></td>
+                <td>
+                <a href="#" class="btn btn-sm btn-outline-primary">
+                    <i class="bi bi-pencil-square"></i>
+                </a>
+                <a href="#" class="btn btn-sm btn-outline-danger">
+                    <i class="bi bi-trash3"></i>
+                </a>
+                </td>
+            </tr>
+            <!-- Thêm các dòng khác ở đây -->
+            </tbody>
+        </table>
       
     </div>
 
