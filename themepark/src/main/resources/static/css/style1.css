@@ -130,7 +130,7 @@ html, body {
 /* Main content bên phải */
 .main-content {
   margin-left: 250px; /* bằng width sidebar */
-  margin-top: 56px;   /* bằng chiều cao navbar */
+  margin-top: 40px;   /* bằng chiều cao navbar */
   padding: 2rem;
   min-height: calc(100vh - 56px);
   overflow-y: auto;
@@ -139,17 +139,6 @@ html, body {
   box-sizing: border-box;    /* Đảm bảo padding không làm tăng width */
 }
 
-.footer {
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.85rem;
-  background-color: #242323;     /* Màu nền đen */
-  color: #fff;                /* Màu chữ trắng */
-  text-align: center;
-  padding: 1rem 0;
-  position: relative;         /* Quan trọng: để có thể kiểm soát z-index */
-  z-index: 1000;
-  width: 100%;         
-}
 .nav-link {
   display: flex;
   justify-content: space-between; /* đẩy 2 bên */

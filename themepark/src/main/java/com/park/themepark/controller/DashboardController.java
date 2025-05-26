@@ -9,4 +9,9 @@ public class DashboardController {
     public String hienThiHoSo() {
         return "e_ho_so"; 
     }
+
+    @GetMapping("/ds_tro_choi")
+    public String hienThiDSTroChoi() {
+        return "e_ds_trochoi"; 
+    }
 }
