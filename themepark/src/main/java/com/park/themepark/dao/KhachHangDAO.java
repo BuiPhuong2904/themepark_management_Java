@@ -79,4 +79,5 @@ public class KhachHangDAO {
                 kh.getGioitinh(), kh.getSdt(), kh.getMatk());
     }
 
+
 }
