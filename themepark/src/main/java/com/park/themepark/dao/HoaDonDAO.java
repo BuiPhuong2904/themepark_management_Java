@@ -51,8 +51,20 @@ public class HoaDonDAO {
     }
 
     public String getLatestMaHDByCustomer(String maKH) {
-        String sql = "SELECT MAHD FROM HOADON WHERE MAKH = ? ORDER BY NGAYLAP DESC FETCH FIRST 1 ROWS ONLY";
-        return jdbcTemplate.queryForObject(sql, String.class, maKH);
+        try {
+            String sql;
+            Object[] params;
+            if (maKH == null) {
+                sql = "SELECT MAHD FROM HOADON WHERE MAKH IS NULL ORDER BY NGAYLAP DESC FETCH FIRST 1 ROWS ONLY";
+                params = new Object[]{};
+            } else {
+                sql = "SELECT MAHD FROM HOADON WHERE MAKH = ? ORDER BY NGAYLAP DESC FETCH FIRST 1 ROWS ONLY";
+                params = new Object[]{maKH};
+            }
+            return jdbcTemplate.queryForObject(sql, params, String.class);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 
     public String getMaHDCuoiCungTheoKH(String maKH) {

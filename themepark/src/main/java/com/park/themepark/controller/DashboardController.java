@@ -43,6 +43,16 @@ public class DashboardController {
         return "e_ds_trochoi"; 
     }
 
+    @GetMapping("/ban_ve")
+    public String hienThiBanVe(Model model) {
+        List<Combo_Ve> list = comboVeDAO.findAll();
+        model.addAttribute("danhSachCombo", list);
+
+        List<Ve> dsVe = veDAO.findAll();
+        model.addAttribute("danhSachVe", dsVe);
+        return "e_banve"; 
+    }
+
     @GetMapping("/ql_ve")
     public String hienThiQLVe(Model model) {
         List<Ve> list = veDAO.findAll();

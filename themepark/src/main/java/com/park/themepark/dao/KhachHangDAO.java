@@ -52,4 +52,17 @@ public class KhachHangDAO {
         }
     }
 
+    public String findMaKHByTenKhachHang(String tenKH) {
+        if (tenKH == null || tenKH.trim().isEmpty()) {
+            return null;  // Tên rỗng thì không cần tìm
+        }
+
+        String sql = "SELECT MAKH FROM KHACHHANG WHERE HOTEN = ?";
+        try {
+            return jdbcTemplate.queryForObject(sql, String.class, tenKH);
+        } catch (EmptyResultDataAccessException e) {
+            return null;  // Không tìm thấy => trả null
+        }
+    }
+
 }

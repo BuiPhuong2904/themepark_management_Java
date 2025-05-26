@@ -9,7 +9,6 @@ public class Ve {
     private String moTa;
     private String hinhAnh;
     private Double giaVe;
-    // private Date ngaySuDung;
     private String trangThai;
     private String maKTC;
 

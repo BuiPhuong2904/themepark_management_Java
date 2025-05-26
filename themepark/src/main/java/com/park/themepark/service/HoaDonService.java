@@ -2,6 +2,7 @@ package com.park.themepark.service;
 
 import com.park.themepark.dao.ChiTiet_HDDAO;
 import com.park.themepark.dao.HoaDonDAO;
+import com.park.themepark.dao.KhachHangDAO;
 import com.park.themepark.model.CartItem;
 import com.park.themepark.model.ChiTiet_HD;
 import com.park.themepark.model.HoaDon;
@@ -19,6 +20,9 @@ public class HoaDonService {
 
     @Autowired
     private ChiTiet_HDDAO cthdDAO;
+
+    @Autowired
+    private KhachHangDAO khachHangDAO;
 
     public HoaDon getHoaDonChiTiet(String maHD) {
         HoaDon hd = hoaDonDAO.findById(maHD);
@@ -64,5 +68,27 @@ public class HoaDonService {
             tong += item.getThanhTien();
         }
         return tong;
+    }
+
+    public boolean themHoaDonVaChiTietTheoTenKH(String tenKhachHang, HoaDon hd, List<ChiTiet_HD> dsCTHD) {
+        // Tìm mã khách hàng theo tên
+        String maKH = khachHangDAO.findMaKHByTenKhachHang(tenKhachHang);
+        hd.setMaKH(maKH); // có thể null nếu không tìm thấy
+
+        int inserted = hoaDonDAO.insert(hd);
+        if (inserted <= 0) return false;
+
+        String maHDMoi = hoaDonDAO.getLatestMaHDByCustomer(maKH);
+        if (maHDMoi == null) return false;
+
+        for (ChiTiet_HD ct : dsCTHD) {
+            ct.setMaHD(maHDMoi);
+            int row = cthdDAO.insert(ct);
+            if (row <= 0) {
+                // rollback thủ công nếu cần
+                return false;
+            }
+        }
+        return true;
     }
 }
