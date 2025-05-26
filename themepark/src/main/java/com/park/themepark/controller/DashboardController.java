@@ -130,4 +130,49 @@ public class DashboardController {
         System.out.println("Số khuyến mãi lấy được: " + list.size());
         return "e_ql_khuyenmai"; 
     }
+
+    @GetMapping("/bao_tri")
+    public String hienThiDSBaoTri(Model model) {
+        return "e_baotri"; 
+    }
+
+    @GetMapping("/cham_cong")
+    public String hienThiDSChamCong(Model model) {
+        return "e_chamcong"; 
+    }
+
+    @GetMapping("/doanh_thu")
+    public String hienThiDSDoanhThu(Model model) {
+        return "e_doanhthu"; 
+    }
+
+    @GetMapping("/ds_khu_vuc")
+    public String hienThiDSKhuVuc(Model model) {
+        return "e_ds_khu_vuc"; 
+    }
+
+    @GetMapping("/ds_san_pham")
+    public String hienThiDSSanPham(Model model) {
+        return "e_ds_san_pham"; 
+    }
+
+    @GetMapping("/luot_kh")
+    public String hienThiDSLuotKH(Model model) {
+        return "e_luot_kh"; 
+    }
+
+    @GetMapping("/ql_hop_dong")
+    public String hienThiDSQLHopDong(Model model) {
+        return "e_ql_hop_dong"; 
+    }
+
+    @GetMapping("/ql_nhap")
+    public String hienThiDSQLNhap(Model model) {
+        return "e_ql_nhap"; 
+    }
+
+    @GetMapping("/ql_xuat")
+    public String hienThiDSQLXuat(Model model) {
+        return "e_ql_xuat"; 
+    }
 }
