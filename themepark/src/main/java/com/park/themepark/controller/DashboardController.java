@@ -51,7 +51,6 @@ public class DashboardController {
     @Autowired
     private ChiTiet_HDDAO ct_HDDAO;
 
-
     @GetMapping("/ho_so")
     public String hienThiHoSo() {
         return "e_ho_so"; 
