@@ -67,4 +67,9 @@ public class ChiTiet_HDDAO {
         return jdbcTemplate.update(sql, ct.getMaHD(), ct.getLoai(), ct.getMaLoai(), ct.getSoLuong(), ct.getThanhTien());
     }
     // Update / Delete nếu cần
+
+    public List<ChiTiet_HD> findAll() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+    }
 }

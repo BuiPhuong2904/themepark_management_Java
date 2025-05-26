@@ -7,12 +7,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.park.themepark.dao.ChiTiet_HDDAO;
 import com.park.themepark.dao.Combo_VeDAO;
+import com.park.themepark.dao.HoaDonDAO;
 import com.park.themepark.dao.KhuTroChoiDAO;
 import com.park.themepark.dao.KhuyenMaiDAO;
 import com.park.themepark.dao.VeDAO;
 import com.park.themepark.dao.KhachHangDAO;
+import com.park.themepark.model.ChiTiet_HD;
 import com.park.themepark.model.Combo_Ve;
+import com.park.themepark.model.HoaDon;
 import com.park.themepark.model.KhachHang;
 import com.park.themepark.dao.NhanVienDAO;
 import com.park.themepark.model.KhuTroChoi;
@@ -40,6 +44,12 @@ public class DashboardController {
 
     @Autowired
     private NhanVienDAO nhanVienDAO;
+
+    @Autowired
+    private HoaDonDAO hoaDonDAO;
+
+    @Autowired
+    private ChiTiet_HDDAO ct_HDDAO;
 
     @GetMapping("/ho_so")
     public String hienThiHoSo() {
@@ -89,6 +99,16 @@ public class DashboardController {
         List<Combo_Ve> list = comboVeDAO.findAll();
         model.addAttribute("danhSachCombo", list);
         return "e_ql_combo"; 
+    }
+
+    @GetMapping("/ql_hoadon")
+    public String hienThiQLHoaDon(Model model) {
+        List<HoaDon> list = hoaDonDAO.findAll();
+        model.addAttribute("danhSachHoaDon", list);
+
+        List<ChiTiet_HD> ctHD = ct_HDDAO.findAll();
+        model.addAttribute("danhSachCTHD", ctHD);
+        return "e_ql_hoadon"; 
     }
 
     @GetMapping("/ql_khuyenmai")
