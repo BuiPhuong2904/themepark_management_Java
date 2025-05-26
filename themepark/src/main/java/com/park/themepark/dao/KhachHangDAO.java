@@ -59,6 +59,7 @@ public class KhachHangDAO {
         }
     }
 
+<<<<<<< Updated upstream
     public String findMaKHByTenKhachHang(String tenKH) {
         if (tenKH == null || tenKH.trim().isEmpty()) {
             return null;  // Tên rỗng thì không cần tìm
@@ -72,4 +73,14 @@ public class KhachHangDAO {
         }
     }
 
+=======
+    public int insert(KhachHang kh) {
+        String sql = "INSERT INTO KHACHHANG (MAKH, HOTEN, NGAYSINH, GIOITINH, SDT, MATK) VALUES (?, ?, ?, ?, ?, ?)";
+        return jdbcTemplate.update(sql,
+                kh.getMakh(), kh.getHoten(), kh.getNgaysinh(),
+                kh.getGioitinh(), kh.getSdt(), kh.getMatk());
+    }
+
+
+>>>>>>> Stashed changes
 }

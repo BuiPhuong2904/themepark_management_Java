@@ -14,8 +14,10 @@ import com.park.themepark.dao.VeDAO;
 import com.park.themepark.dao.KhachHangDAO;
 import com.park.themepark.model.Combo_Ve;
 import com.park.themepark.model.KhachHang;
+import com.park.themepark.dao.NhanVienDAO;
 import com.park.themepark.model.KhuTroChoi;
 import com.park.themepark.model.KhuyenMai;
+import com.park.themepark.model.NhanVien;
 import com.park.themepark.model.Ve;
 
 @Controller
@@ -36,6 +38,9 @@ public class DashboardController {
     @Autowired
     private KhachHangDAO khachHangDAO;
 
+    @Autowired
+    private NhanVienDAO nhanVienDAO;
+
     @GetMapping("/ho_so")
     public String hienThiHoSo() {
         return "e_ho_so"; 
@@ -46,6 +51,13 @@ public class DashboardController {
         List<KhachHang> list = khachHangDAO.findAll();
         model.addAttribute("danhSachKH", list);
         return "e_ql_khachhang"; 
+    }
+
+    @GetMapping("/ql_nhanvien")
+    public String hienThiDSNhanVien(Model model) {
+        List<NhanVien> list = nhanVienDAO.findAll();
+        model.addAttribute("danhSachNV", list);
+        return "e_ql_nhanvien"; 
     }
 
     @GetMapping("/ds_tro_choi")
