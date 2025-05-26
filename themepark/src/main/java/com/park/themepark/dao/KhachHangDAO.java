@@ -2,6 +2,8 @@ package com.park.themepark.dao;
 
 import com.park.themepark.model.KhachHang;
 
+import java.util.List;
+
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -14,6 +16,11 @@ public class KhachHangDAO {
 
     public KhachHangDAO(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
+    }
+
+    public List<KhachHang> findAll() {
+        String sql = "SELECT * FROM KHACHHANG";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(KhachHang.class));
     }
 
     public void luuKhachHang(KhachHang kh) {

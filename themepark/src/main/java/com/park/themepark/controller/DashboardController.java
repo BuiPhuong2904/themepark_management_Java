@@ -11,7 +11,9 @@ import com.park.themepark.dao.Combo_VeDAO;
 import com.park.themepark.dao.KhuTroChoiDAO;
 import com.park.themepark.dao.KhuyenMaiDAO;
 import com.park.themepark.dao.VeDAO;
+import com.park.themepark.dao.KhachHangDAO;
 import com.park.themepark.model.Combo_Ve;
+import com.park.themepark.model.KhachHang;
 import com.park.themepark.model.KhuTroChoi;
 import com.park.themepark.model.KhuyenMai;
 import com.park.themepark.model.Ve;
@@ -31,9 +33,19 @@ public class DashboardController {
     @Autowired
     private KhuyenMaiDAO khuyenMaiDAO;
 
+    @Autowired
+    private KhachHangDAO khachHangDAO;
+
     @GetMapping("/ho_so")
     public String hienThiHoSo() {
         return "e_ho_so"; 
+    }
+
+    @GetMapping("/ql_khachhang")
+    public String hienThiDSKhachHang(Model model) {
+        List<KhachHang> list = khachHangDAO.findAll();
+        model.addAttribute("danhSachKH", list);
+        return "e_ql_khachhang"; 
     }
 
     @GetMapping("/ds_tro_choi")

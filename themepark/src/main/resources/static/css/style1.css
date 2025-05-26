@@ -234,7 +234,7 @@ body {
 
 .info-field input {
   /* flex: 1; */
-  width: 500px;
+  width: 600px;
   padding: 6px 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
