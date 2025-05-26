@@ -55,6 +55,37 @@ VALUES ('NV004', 'Phạm Thị Duyên', TO_DATE('1995-10-10', 'YYYY-MM-DD'), 'N�
 INSERT INTO NHANVIEN (MANV, HOTEN, NGSINH, GIOITINH, SDT, NGAYVL, CHUCVU, LUONG, MAQL, MATK)
 VALUES ('NV005', 'Hoàng Văn Em', TO_DATE('1991-04-25', 'YYYY-MM-DD'), 'Nam', '0901000005', TO_DATE('2022-11-12', 'YYYY-MM-DD'), 'Nhân viên vận hành trò chơi', 9000000, 'NV001', 'TK093');
 
+-- Bảng SUKIEN
+INSERT INTO SUKIEN (MASK, TENSK, LOAISK, NGAYBD, NGAYKT, MOTA, MANV)
+VALUES ('SK001', 'Lễ hội mùa xuân', 'Giải trí', TO_DATE('2025-03-01', 'YYYY-MM-DD'), TO_DATE('2025-03-07', 'YYYY-MM-DD'), 'Sự kiện khai xuân với nhiều hoạt động truyền thống.', 'NV001');
+
+INSERT INTO SUKIEN (MASK, TENSK, LOAISK, NGAYBD, NGAYKT, MOTA, MANV)
+VALUES ('SK002', 'Ngày hội thiếu nhi', 'Gia đình', TO_DATE('2025-06-01', 'YYYY-MM-DD'), TO_DATE('2025-06-01', 'YYYY-MM-DD'), 'Chương trình dành cho trẻ em với trò chơi và quà tặng.', 'NV002');
+
+INSERT INTO SUKIEN (MASK, TENSK, LOAISK, NGAYBD, NGAYKT, MOTA, MANV)
+VALUES ('SK003', 'Tuần lễ ẩm thực', 'Ẩm thực', TO_DATE('2025-07-15', 'YYYY-MM-DD'), TO_DATE('2025-07-21', 'YYYY-MM-DD'), 'Giới thiệu các món ăn đặc sản ba miền.', 'NV003');
+
+INSERT INTO SUKIEN (MASK, TENSK, LOAISK, NGAYBD, NGAYKT, MOTA, MANV)
+VALUES ('SK004', 'Đêm nhạc DJ', 'Âm nhạc', TO_DATE('2025-05-10', 'YYYY-MM-DD'), TO_DATE('2025-05-10', 'YYYY-MM-DD'), 'Biểu diễn DJ sôi động tại sân khấu trung tâm.', 'NV004');
+
+INSERT INTO SUKIEN (MASK, TENSK, LOAISK, NGAYBD, NGAYKT, MOTA, MANV)
+VALUES ('SK005', 'Trò chơi dân gian', 'Giải trí', TO_DATE('2025-08-20', 'YYYY-MM-DD'), TO_DATE('2025-08-22', 'YYYY-MM-DD'), 'Khách tham quan được trải nghiệm trò chơi dân gian Việt Nam.', 'NV005');
+
+INSERT INTO SUKIEN (MASK, TENSK, LOAISK, NGAYBD, NGAYKT, MOTA, MANV)
+VALUES ('SK006', 'Ngày hội cosplay', 'Giải trí', TO_DATE('2025-09-05', 'YYYY-MM-DD'), TO_DATE('2025-09-05', 'YYYY-MM-DD'), 'Cuộc thi hóa trang theo nhân vật hoạt hình/anime.', 'NV002');
+
+INSERT INTO SUKIEN (MASK, TENSK, LOAISK, NGAYBD, NGAYKT, MOTA, MANV)
+VALUES ('SK007', 'Ngày hội khuyến mãi', 'Khuyến mãi', TO_DATE('2025-10-01', 'YYYY-MM-DD'), TO_DATE('2025-10-07', 'YYYY-MM-DD'), 'Giảm giá đặc biệt cho vé vào cửa và dịch vụ.', 'NV001');
+
+INSERT INTO SUKIEN (MASK, TENSK, LOAISK, NGAYBD, NGAYKT, MOTA, MANV)
+VALUES ('SK008', 'Tuần lễ Halloween', 'Giải trí', TO_DATE('2025-10-25', 'YYYY-MM-DD'), TO_DATE('2025-10-31', 'YYYY-MM-DD'), 'Trang trí kinh dị và các hoạt động hóa trang.', 'NV004');
+
+INSERT INTO SUKIEN (MASK, TENSK, LOAISK, NGAYBD, NGAYKT, MOTA, MANV)
+VALUES ('SK009', 'Săn trứng Phục Sinh', 'Gia đình', TO_DATE('2025-04-20', 'YYYY-MM-DD'), TO_DATE('2025-04-20', 'YYYY-MM-DD'), 'Trò chơi tìm trứng Phục Sinh cho trẻ em.', 'NV003');
+
+INSERT INTO SUKIEN (MASK, TENSK, LOAISK, NGAYBD, NGAYKT, MOTA, MANV)
+VALUES ('SK010', 'Lễ hội ánh sáng', 'Văn hóa', TO_DATE('2025-12-20', 'YYYY-MM-DD'), TO_DATE('2025-12-31', 'YYYY-MM-DD'), 'Trình diễn ánh sáng nghệ thuật và pháo hoa.', 'NV005');
+commit;
 
 -- Bảng KHUTROCHOI
 INSERT INTO KHUTROCHOI (MAKTC, TENKTC) VALUES ('KTC001', 'Vòng Quay Mặt Trời');
