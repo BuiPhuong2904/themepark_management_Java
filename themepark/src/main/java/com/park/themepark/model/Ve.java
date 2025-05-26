@@ -8,14 +8,14 @@ public class Ve {
     private String loaiVe;
     private String moTa;
     private String hinhAnh;
-    private double giaVe;
+    private Double giaVe;
     // private Date ngaySuDung;
     private String trangThai;
     private String maKTC;
 
     public Ve() {}
 
-    public Ve(String maVe, String tenVe, String loaiVe, String moTa, String hinhAnh, double giaVe, String trangThai, String maKTC) {
+    public Ve(String maVe, String tenVe, String loaiVe, String moTa, String hinhAnh, Double giaVe, String trangThai, String maKTC) {
         this.maVe = maVe;
         this.tenVe = tenVe;
         this.loaiVe = loaiVe;
@@ -43,8 +43,8 @@ public class Ve {
     public String getHinhAnh() { return hinhAnh; }
     public void setHinhAnh(String hinhAnh) { this.hinhAnh = hinhAnh; }
 
-    public double getGiaVe() { return giaVe; }
-    public void setGiaVe(double giaVe) { this.giaVe = giaVe; }
+    public Double getGiaVe() { return giaVe; }
+    public void setGiaVe(Double giaVe) { this.giaVe = giaVe; }
 
     // public Date getNgaySuDung() { return ngaySuDung; }
     // public void setNgaySuDung(Date ngaySuDung) { this.ngaySuDung = ngaySuDung; }
