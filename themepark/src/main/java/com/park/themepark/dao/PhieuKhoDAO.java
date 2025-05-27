@@ -3,7 +3,6 @@ package com.park.themepark.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -36,4 +35,10 @@ public class PhieuKhoDAO {
             pk.getMaPhieu(), pk.getNgayGiaoDich(), pk.getLoaiPhieu(),
             pk.getMaNV(), pk.getGhiChu());
     }
+
+    public PhieuKho findById(String maPhieu) {
+        String sql = "SELECT * FROM PHIEUKHO WHERE MAPHIEU = ?";
+        return jdbcTemplate.queryForObject(sql, this::mapRow, maPhieu);
+    }
+
 }

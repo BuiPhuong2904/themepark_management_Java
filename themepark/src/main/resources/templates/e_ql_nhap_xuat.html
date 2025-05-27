@@ -242,11 +242,49 @@
                     <td class="text-center">
                         <a href="#" class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil-square"></i></a>
                         <a href="#" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash3"></i></a>
+                        <button class="btn btn-sm btn-outline-info"
+                                th:attr="data-maPhieu=${pk.maPhieu}"
+                                onclick="xemChiTietPhieuFromButton(this)">
+                            <i class="bi bi-info-circle"></i>
+                        </button>
                     </td>
                 </tr>
             </tbody>
         </table>
       
+    </div>
+
+    
+    <div class="modal fade" id="chiTietPhieuModal" tabindex="-1" aria-labelledby="chiTietPhieuModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="chiTietPhieuModalLabel">Chi tiết phiếu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+          </div>
+          <div class="modal-body">
+            <p><strong>Mã phiếu:</strong> <span id="maPhieuModal"></span></p>
+            <p><strong>Loại phiếu:</strong> <span id="loaiPhieuModal"></span></p>
+            <p><strong>Ngày giao dịch:</strong> <span id="ngayGiaoDichModal"></span></p>
+            <p><strong>Nhân viên:</strong> <span id="maNVModal"></span></p>
+            <p><strong>Ghi chú:</strong> <span id="ghiChuModal"></span></p>
+
+            <h6 class="mt-3">Danh sách sản phẩm trong phiếu:</h6>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Mã SP</th>
+                  <th>Số lượng</th>
+                  <th>Đơn giá</th>
+                </tr>
+              </thead>
+              <tbody id="danhSachSanPhamTable">
+                <!-- JS sẽ thêm ở đây -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -263,6 +301,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="/js/slidebar.js"></script>
+<script src="/js/e_ql_nhap_xuat.js"></script>
 </body>
 </html>
