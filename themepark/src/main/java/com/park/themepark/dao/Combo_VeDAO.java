@@ -46,7 +46,7 @@ public class Combo_VeDAO {
                 cb.getGiaCB(), cb.getMoTa(), cb.getTrangThai());
     }
 
-        public int update(Combo_Ve cb) {
+    public int update(Combo_Ve cb) {
         String sql = "UPDATE COMBO_VE SET TENCB = ?, LOAICB = ?, HINHANH = ?, GIACB = ?, MOTA = ?, TRANGTHAI = ? WHERE MACB = ?";
         return jdbcTemplate.update(sql,
                 cb.getTenCB(), cb.getLoaiCB(), cb.getHinhAnh(),
