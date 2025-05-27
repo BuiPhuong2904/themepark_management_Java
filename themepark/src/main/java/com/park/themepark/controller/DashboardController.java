@@ -16,11 +16,13 @@ import com.park.themepark.dao.KhuyenMaiDAO;
 import com.park.themepark.dao.VeDAO;
 import com.park.themepark.dao.KhachHangDAO;
 import com.park.themepark.model.BaoTri;
+import com.park.themepark.model.ChamCong;
 import com.park.themepark.model.ChiTiet_HD;
 import com.park.themepark.model.Combo_Ve;
 import com.park.themepark.model.HoaDon;
 import com.park.themepark.model.KhachHang;
 import com.park.themepark.dao.NhanVienDAO;
+import com.park.themepark.dao.ChamCongDAO;
 import com.park.themepark.dao.PhieuKhoDAO;
 import com.park.themepark.dao.SanPhamDAO;
 import com.park.themepark.dao.KhuVucDAO;
@@ -57,6 +59,9 @@ public class DashboardController {
 
     @Autowired
     private NhanVienDAO nhanVienDAO;
+
+    @Autowired
+    private ChamCongDAO chamCongDAO;
 
     @Autowired
     private SuKienDAO suKienDAO;
@@ -159,8 +164,11 @@ public class DashboardController {
 
     @GetMapping("/cham_cong")
     public String hienThiDSChamCong(Model model) {
+        List<ChamCong> list = chamCongDAO.findAll();
+        model.addAttribute("danhSachChamCong", list);
         return "e_chamcong"; 
     }
+
 
     @GetMapping("/doanh_thu")
     public String hienThiDSDoanhThu(Model model) {
