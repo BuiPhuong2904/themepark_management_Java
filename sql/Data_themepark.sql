@@ -122,16 +122,16 @@ INSERT INTO KHUVUC (MAKV, TENKV, MOTA, GIATHUE, TRANGTHAI) VALUES ('KV015', 'Khu
 COMMIT;
 
 -- Bảng HOPDONG
-INSERT INTO HOPDONG VALUES ('HD001', 'Hợp đồng khu hội chợ', TO_DATE('2024-01-01','YYYY-MM-DD'), TO_DATE('2024-06-30','YYYY-MM-DD'), 1500000, 'KH042', 'NV001', 'KV001', 'Thuê tổ chức hội chợ');
-INSERT INTO HOPDONG VALUES ('HD002', 'Hợp đồng khu trò chơi nước', TO_DATE('2024-03-01','YYYY-MM-DD'), TO_DATE('2024-09-01','YYYY-MM-DD'), 2000000, 'KH043', 'NV002', 'KV002', 'Thuê tổ chức team building');
-INSERT INTO HOPDONG VALUES ('HD003', 'Hợp đồng khu tổ chức sự kiện', TO_DATE('2024-02-15','YYYY-MM-DD'), TO_DATE('2024-12-15','YYYY-MM-DD'), 1800000, 'KH044', 'NV003', 'KV003', 'Thuê tổ chức hội nghị ngoài trời');
-INSERT INTO HOPDONG VALUES ('HD004', 'Hợp đồng gian hàng', TO_DATE('2024-05-01','YYYY-MM-DD'), TO_DATE('2024-10-01','YYYY-MM-DD'), 800000, 'KH045', 'NV004', 'KV004', 'Thuê gian bán đồ ăn nhanh');
-INSERT INTO HOPDONG VALUES ('HD005', 'Hợp đồng gian hàng', TO_DATE('2024-04-01','YYYY-MM-DD'), TO_DATE('2024-07-01','YYYY-MM-DD'), 600000, 'KH046', 'NV005', 'KV005', 'Thuê bán đồ lưu niệm, quà tặng');
-INSERT INTO HOPDONG VALUES ('HD006', 'Hợp đồng triển lãm', TO_DATE('2024-03-10','YYYY-MM-DD'), TO_DATE('2024-06-10','YYYY-MM-DD'), 1700000, 'KH047', 'NV001', 'KV006', 'Thuê trưng bày nghệ thuật');
-INSERT INTO HOPDONG VALUES ('HD007', 'Hợp đồng gian hàng', TO_DATE('2024-02-20','YYYY-MM-DD'), TO_DATE('2024-08-20','YYYY-MM-DD'), 950000, 'KH048', 'NV002', 'KV007', 'Thuê gian bán đồ ăn nhanh');
-INSERT INTO HOPDONG VALUES ('HD008', 'Hợp đồng thu khu cắm trại', TO_DATE('2024-01-15','YYYY-MM-DD'), TO_DATE('2024-05-15','YYYY-MM-DD'), 1200000, 'KH049', 'NV003', 'KV008', 'Thuê cắm trại');
-INSERT INTO HOPDONG VALUES ('HD009', 'Hợp đồng khu tổ chức sự kiện', TO_DATE('2024-04-05','YYYY-MM-DD'), TO_DATE('2024-10-05','YYYY-MM-DD'), 1600000, 'KH050', 'NV004', 'KV009', 'Thuê tổ chức sự kiện thiếu nhi');
-INSERT INTO HOPDONG VALUES ('HD010', 'Hợp đồng khu tổ chức sự kiện', TO_DATE('2024-05-20','YYYY-MM-DD'), TO_DATE('2024-06-20','YYYY-MM-DD'), 1900000, 'KH051', 'NV005', 'KV010', 'Tổ chức chương trình');
+INSERT INTO HOPDONG VALUES ('HD001', 'Hợp đồng khu hội chợ', TO_DATE('2024-01-01','YYYY-MM-DD'), TO_DATE('2024-06-30','YYYY-MM-DD'), 1500000, 'KH051', 'NV001', 'KV001', 'Thuê tổ chức hội chợ');
+INSERT INTO HOPDONG VALUES ('HD002', 'Hợp đồng khu trò chơi nước', TO_DATE('2024-03-01','YYYY-MM-DD'), TO_DATE('2024-09-01','YYYY-MM-DD'), 2000000, 'KH053', 'NV002', 'KV002', 'Thuê tổ chức team building');
+INSERT INTO HOPDONG VALUES ('HD003', 'Hợp đồng khu tổ chức sự kiện', TO_DATE('2024-02-15','YYYY-MM-DD'), TO_DATE('2024-12-15','YYYY-MM-DD'), 1800000, 'KH054', 'NV003', 'KV003', 'Thuê tổ chức hội nghị ngoài trời');
+INSERT INTO HOPDONG VALUES ('HD004', 'Hợp đồng gian hàng', TO_DATE('2024-05-01','YYYY-MM-DD'), TO_DATE('2024-10-01','YYYY-MM-DD'), 800000, 'KH055', 'NV004', 'KV004', 'Thuê gian bán đồ ăn nhanh');
+INSERT INTO HOPDONG VALUES ('HD005', 'Hợp đồng gian hàng', TO_DATE('2024-04-01','YYYY-MM-DD'), TO_DATE('2024-07-01','YYYY-MM-DD'), 600000, 'KH056', 'NV005', 'KV005', 'Thuê bán đồ lưu niệm, quà tặng');
+INSERT INTO HOPDONG VALUES ('HD006', 'Hợp đồng triển lãm', TO_DATE('2024-03-10','YYYY-MM-DD'), TO_DATE('2024-06-10','YYYY-MM-DD'), 1700000, 'KH057', 'NV001', 'KV006', 'Thuê trưng bày nghệ thuật');
+INSERT INTO HOPDONG VALUES ('HD007', 'Hợp đồng gian hàng', TO_DATE('2024-02-20','YYYY-MM-DD'), TO_DATE('2024-08-20','YYYY-MM-DD'), 950000, 'KH058', 'NV002', 'KV007', 'Thuê gian bán đồ ăn nhanh');
+INSERT INTO HOPDONG VALUES ('HD008', 'Hợp đồng thu khu cắm trại', TO_DATE('2024-01-15','YYYY-MM-DD'), TO_DATE('2024-05-15','YYYY-MM-DD'), 1200000, 'KH059', 'NV003', 'KV008', 'Thuê cắm trại');
+INSERT INTO HOPDONG VALUES ('HD009', 'Hợp đồng khu tổ chức sự kiện', TO_DATE('2024-04-05','YYYY-MM-DD'), TO_DATE('2024-10-05','YYYY-MM-DD'), 1600000, 'KH060', 'NV004', 'KV009', 'Thuê tổ chức sự kiện thiếu nhi');
+INSERT INTO HOPDONG VALUES ('HD010', 'Hợp đồng khu tổ chức sự kiện', TO_DATE('2024-05-20','YYYY-MM-DD'), TO_DATE('2024-06-20','YYYY-MM-DD'), 1900000, 'KH061', 'NV005', 'KV010', 'Tổ chức chương trình');
 commit;
 
 -- Bảng VE

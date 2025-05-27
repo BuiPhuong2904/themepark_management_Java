@@ -212,9 +212,10 @@
                 <p style="font-size: 1rem; color: #505367; font-family: 'Nunito';">Quản lý thông tin combo vé của The Chill Park</p>
             </div>
 
-            <button class="btn btn-primary" style="font-size: 1rem; font-weight: 500; font-family: 'Itim', sans-serif;">
-                <i class="bi bi-plus-circle me-1"></i> Thêm combo vé
-            </button>
+          <!-- Nút thêm combo -->
+          <button class="btn btn-primary" style="font-size: 1rem; font-weight: 500; font-family: 'Itim', sans-serif;" data-bs-toggle="modal" data-bs-target="#addComboModal">
+              <i class="bi bi-plus-circle me-1"></i> Thêm combo vé
+          </button>
         </div>
 
         <!-- Thanh tìm kiếm -->
@@ -293,6 +294,38 @@
             </table>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Modal Thêm Combo -->
+    <div class="modal fade" id="addComboModal" tabindex="-1" aria-labelledby="addComboModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <form id="comboForm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addComboModalLabel">Thêm Combo Vé</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="tenCombo" class="form-label">Tên combo</label>
+                <input type="text" class="form-control" id="tenCombo" name="tenCombo" required>
+              </div>
+              <div class="mb-3">
+                <label for="moTa" class="form-label">Mô tả</label>
+                <textarea class="form-control" id="moTa" name="moTa" required></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="gia" class="form-label">Giá</label>
+                <input type="number" class="form-control" id="gia" name="gia" required>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+              <button type="submit" class="btn btn-success">Lưu combo</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
 
