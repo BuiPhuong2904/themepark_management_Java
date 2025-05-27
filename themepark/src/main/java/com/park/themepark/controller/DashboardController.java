@@ -19,7 +19,9 @@ import com.park.themepark.model.Combo_Ve;
 import com.park.themepark.model.HoaDon;
 import com.park.themepark.model.KhachHang;
 import com.park.themepark.dao.NhanVienDAO;
+import com.park.themepark.dao.KhuVucDAO;
 import com.park.themepark.model.KhuTroChoi;
+import com.park.themepark.model.KhuVuc;
 import com.park.themepark.model.KhuyenMai;
 import com.park.themepark.model.NhanVien;
 import com.park.themepark.dao.SuKienDAO;
@@ -49,6 +51,9 @@ public class DashboardController {
 
     @Autowired
     private SuKienDAO suKienDAO;
+
+    @Autowired
+    private KhuVucDAO khuVucDAO;
 
     @Autowired
     private HoaDonDAO hoaDonDAO;
@@ -148,7 +153,9 @@ public class DashboardController {
 
     @GetMapping("/ds_khu_vuc")
     public String hienThiDSKhuVuc(Model model) {
-        return "e_ds_khu_vuc"; 
+        List<KhuVuc> list = khuVucDAO.findAll();
+        model.addAttribute("danhSachKV", list);
+        return "e_ds_khuvuc"; 
     }
 
     @GetMapping("/ds_san_pham")
