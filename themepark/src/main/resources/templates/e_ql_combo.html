@@ -247,11 +247,53 @@
                     <td class="text-center">
                         <a href="#" class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil-square"></i></a>
                         <a href="#" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash3"></i></a>
+                        <button class="btn btn-sm btn-outline-info"
+                                th:attr="data-maCB=${cb.maCB}"
+                                onclick="xemChiTietComboFromButton(this)">
+                            <i class="bi bi-info-circle"></i>
+                        </button>
                     </td>
                 </tr>
             </tbody>
         </table>
       
+    </div>
+
+    <!-- Modal xem chi tiết combo -->
+    <div class="modal fade" id="chiTietComboModal" tabindex="-1" aria-labelledby="chiTietComboModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="chiTietComboModalLabel">Chi tiết combo vé</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+          </div>
+          <div class="modal-body">
+            <p><strong>Mã combo:</strong> <span id="maCB"></span></p>
+            <p><strong>Tên combo:</strong> <span id="tenCB"></span></p>
+            <p><strong>Loại combo:</strong> <span id="loaiCB"></span></p>
+            <p><strong>Giá combo:</strong> <span id="giaCB"></span></p>
+            <p><strong>Mô tả:</strong> <span id="moTa"></span></p>
+            <p><strong>Trạng thái:</strong> <span id="trangThai"></span></p>
+
+            <h6 class="mt-3">Danh sách vé trong combo:</h6>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Mã vé</th>
+                  <th>Tên vé</th>
+                  <th>Loại vé</th>
+                  <th>Mô tả</th>
+                  <th>Giá vé</th>
+                  <th>Trạng thái</th>
+                </tr>
+              </thead>
+              <tbody id="danhSachVeTable">
+                <!-- JS sẽ thêm nội dung ở đây -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -268,6 +310,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="/js/slidebar.js"></script>
+<script src="/js/e_ql_combo.js"></script>
 </body>
 </html>
