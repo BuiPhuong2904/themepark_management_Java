@@ -243,7 +243,7 @@
                     <td th:text="${hd.tenHDong}"></td>
                     <td th:text="${#dates.format(hd.ngayBD, 'dd/MM/yyyy')}"></td>
                     <td th:text="${#dates.format(hd.ngayKT, 'dd/MM/yyyy')}"></td>
-                    <td th:text="${#numbers.formatDecimal(hd.tongTien, 1, 'COMMA', 2, 'POINT')} + ' ₫'"></td>
+                    <td th:text="${#numbers.formatDecimal(hd.tongTien, 1, 'COMMA', 2, 'POINT')}"></td>
                     <td th:text="${hd.maKH}"></td>
                     <td th:text="${hd.maNV}"></td>
                     <td th:text="${hd.maKV}"></td>
