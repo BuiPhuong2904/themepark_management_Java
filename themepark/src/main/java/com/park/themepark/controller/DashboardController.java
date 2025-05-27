@@ -20,6 +20,7 @@ import com.park.themepark.model.ChamCong;
 import com.park.themepark.model.ChiTiet_HD;
 import com.park.themepark.model.Combo_Ve;
 import com.park.themepark.model.HoaDon;
+import com.park.themepark.model.HopDong;
 import com.park.themepark.model.KhachHang;
 import com.park.themepark.dao.NhanVienDAO;
 import com.park.themepark.dao.ChamCongDAO;
@@ -28,6 +29,7 @@ import com.park.themepark.dao.SanPhamDAO;
 import com.park.themepark.dao.KhuVucDAO;
 import com.park.themepark.model.KhuTroChoi;
 import com.park.themepark.model.KhuVuc;
+import com.park.themepark.dao.HopDongDao;
 import com.park.themepark.model.KhuyenMai;
 import com.park.themepark.model.NhanVien;
 import com.park.themepark.model.PhieuKho;
@@ -68,6 +70,9 @@ public class DashboardController {
 
     @Autowired
     private KhuVucDAO khuVucDAO;
+
+    @Autowired
+    private HopDongDao hopDongDao;
 
     @Autowired
     private SanPhamDAO sanPhamDAO;
@@ -196,7 +201,9 @@ public class DashboardController {
 
     @GetMapping("/ql_hop_dong")
     public String hienThiDSQLHopDong(Model model) {
-        return "e_ql_hop_dong"; 
+        List<HopDong> list = hopDongDao.findAll();
+        model.addAttribute("danhSachHDong", list);
+        return "e_ql_hopdong"; 
     }
 
     @GetMapping("/ql_nhap_xuat")
