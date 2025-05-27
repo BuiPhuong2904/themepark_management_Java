@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.park.themepark.dao.BaoTriDAO;
 import com.park.themepark.dao.ChiTiet_HDDAO;
 import com.park.themepark.dao.Combo_VeDAO;
 import com.park.themepark.dao.HoaDonDAO;
@@ -14,6 +15,7 @@ import com.park.themepark.dao.KhuTroChoiDAO;
 import com.park.themepark.dao.KhuyenMaiDAO;
 import com.park.themepark.dao.VeDAO;
 import com.park.themepark.dao.KhachHangDAO;
+import com.park.themepark.model.BaoTri;
 import com.park.themepark.model.ChiTiet_HD;
 import com.park.themepark.model.Combo_Ve;
 import com.park.themepark.model.HoaDon;
@@ -37,6 +39,9 @@ public class DashboardController {
 
     @Autowired
     private KhuTroChoiDAO khuTroChoiDAO;
+
+    @Autowired
+    private BaoTriDAO baoTriDAO;
 
     @Autowired
     private VeDAO veDAO;
@@ -147,6 +152,8 @@ public class DashboardController {
 
     @GetMapping("/bao_tri")
     public String hienThiDSBaoTri(Model model) {
+        List<BaoTri> list = baoTriDAO.findAll();
+        model.addAttribute("danhSachBaoTri", list);
         return "e_baotri"; 
     }
 

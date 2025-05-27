@@ -130,13 +130,14 @@ CREATE TABLE KHUTROCHOI (
 );
 
 CREATE TABLE LICH_BAOTRI (
-    MABAOTRI VARCHAR2(10) PRIMARY KEY, 
+    MABT VARCHAR2(10) PRIMARY KEY, 
     MAKTC VARCHAR2(10) NOT NULL, 
-    NGAYBAOTRI DATE NOT NULL,                       -- Ngày thực hiện bảo trì
-    NGUOIPT VARCHAR2(100),                    -- Người thực hiện
-    NOIDUNG VARCHAR2(255),                    -- Nội dung công việc bảo trì
+    NGAYBT DATE NOT NULL,                 -- Ngày thực hiện bảo trì
+    NGUOIPT VARCHAR2(100),                -- Người thực hiện
+    NOIDUNG VARCHAR2(255),                -- Nội dung công việc bảo trì
+    CHIPHI NUMBER(12,2),
     TRANGTHAI VARCHAR2(20) DEFAULT 'Đã lên lịch',  -- Trạng thái: Đã lên lịch, Đang thực hiện, Đã hoàn thành, Hủy
-    GHICHU VARCHAR2(255),                           -- Ghi chú thêm
+    GHICHU VARCHAR2(255),
 
     CONSTRAINT FK_BAOTRI_KTC FOREIGN KEY (MAKTC) REFERENCES KHUTROCHOI(MAKTC),
     CONSTRAINT FK_BAOTRI_NGUOIPT FOREIGN KEY (NGUOIPT) REFERENCES NHANVIEN(MANV)

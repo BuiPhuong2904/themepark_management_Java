@@ -135,3 +135,26 @@ INSERT INTO CT_PHIEUKHO VALUES ('PK015', 'SP016', 2, 2200000.00);
 INSERT INTO CT_PHIEUKHO VALUES ('PK016', 'SP011', 30, 800000.00);
 INSERT INTO CT_PHIEUKHO VALUES ('PK017', 'SP010', 30, 120000.00);
 INSERT INTO CT_PHIEUKHO VALUES ('PK018', 'SP013', 20, 300000.00);
+
+---Bảng LICH_BAOTRI
+INSERT INTO LICH_BAOTRI VALUES ('BT001', 'KTC001', TO_DATE('2024-01-10', 'YYYY-MM-DD'), 'NV003', 'Kiểm tra hệ thống quay', 200000, 'Đã hoàn thành', NULL);
+INSERT INTO LICH_BAOTRI VALUES ('BT002', 'KTC002', TO_DATE('2024-02-15', 'YYYY-MM-DD'), 'NV005', 'Bảo dưỡng ray tàu', 350000, 'Đã hoàn thành', 'Hoạt động ổn định');
+INSERT INTO LICH_BAOTRI VALUES ('BT003', 'KTC003', TO_DATE('2024-03-05', 'YYYY-MM-DD'), 'NV003', 'Thay bóng đèn trong nhà ma', 100000, 'Đã lên lịch', NULL);
+INSERT INTO LICH_BAOTRI VALUES ('BT004', 'KTC004', TO_DATE('2024-03-28', 'YYYY-MM-DD'), 'NV005', 'Vệ sinh bể cá', 50000, 'Đang thực hiện', NULL);
+INSERT INTO LICH_BAOTRI VALUES ('BT005', 'KTC005', TO_DATE('2024-04-18', 'YYYY-MM-DD'), 'NV003', 'Bảo trì hệ thống lọc nước', 400000, 'Đã hoàn thành', 'Đã thay bộ lọc');
+INSERT INTO LICH_BAOTRI VALUES ('BT006', 'KTC006', TO_DATE('2024-05-25', 'YYYY-MM-DD'), 'NV005', 'Cập nhật phần mềm trình chiếu', 150000, 'Hủy', 'Chờ thiết bị mới');
+INSERT INTO LICH_BAOTRI VALUES ('BT007', 'KTC007', TO_DATE('2024-06-10', 'YYYY-MM-DD'), 'NV003', 'Bảo trì pin xe điện', 180000, 'Đã lên lịch', NULL);
+INSERT INTO LICH_BAOTRI VALUES ('BT008', 'KTC008', TO_DATE('2024-07-12', 'YYYY-MM-DD'), 'NV005', 'Sơn lại tường bên ngoài lâu đài', 300000, 'Đang thực hiện', NULL);
+INSERT INTO LICH_BAOTRI VALUES ('BT009', 'KTC009', TO_DATE('2024-08-03', 'YYYY-MM-DD'), 'NV003', 'Vệ sinh toàn khu trò chơi', 120000, 'Đã hoàn thành', NULL);
+INSERT INTO LICH_BAOTRI VALUES ('BT010', 'KTC010', TO_DATE('2024-09-17', 'YYYY-MM-DD'), 'NV005', 'Thay dây kéo du thuyền', 250000, 'Đã hoàn thành', 'Đảm bảo an toàn');
+
+INSERT INTO LICH_BAOTRI VALUES ('BT011', 'KTC011', TO_DATE('2024-10-09', 'YYYY-MM-DD'), 'NV003', 'Kiểm tra động cơ tháp', 320000, 'Đã lên lịch', NULL);
+INSERT INTO LICH_BAOTRI VALUES ('BT012', 'KTC012', TO_DATE('2024-11-22', 'YYYY-MM-DD'), 'NV005', 'Siết chặt dây đu', 90000, 'Đang thực hiện', NULL);
+INSERT INTO LICH_BAOTRI VALUES ('BT013', 'KTC013', TO_DATE('2024-12-15', 'YYYY-MM-DD'), 'NV003', 'Bảo trì trục quay', 270000, 'Hủy', 'Lý do: thời tiết');
+INSERT INTO LICH_BAOTRI VALUES ('BT014', 'KTC014', TO_DATE('2025-01-10', 'YYYY-MM-DD'), 'NV005', 'Sửa bảng điều khiển', 350000, 'Đã hoàn thành', NULL);
+INSERT INTO LICH_BAOTRI VALUES ('BT015', 'KTC015', TO_DATE('2025-02-14', 'YYYY-MM-DD'), 'NV003', 'Vệ sinh rừng mô phỏng', 130000, 'Đang thực hiện', NULL);
+INSERT INTO LICH_BAOTRI VALUES ('BT016', 'KTC016', TO_DATE('2025-03-07', 'YYYY-MM-DD'), 'NV005', 'Thay phông nền', 100000, 'Đã hoàn thành', NULL);
+INSERT INTO LICH_BAOTRI VALUES ('BT017', 'KTC017', TO_DATE('2025-04-19', 'YYYY-MM-DD'), 'NV003', 'Vệ sinh kính thủy cung', 160000, 'Đã lên lịch', NULL);
+INSERT INTO LICH_BAOTRI VALUES ('BT018', 'KTC018', TO_DATE('2025-05-10', 'YYYY-MM-DD'), 'NV005', 'Bảo trì hệ chiếu vũ trụ', 290000, 'Hủy', 'Thiếu linh kiện');
+INSERT INTO LICH_BAOTRI VALUES ('BT019', 'KTC019', TO_DATE('2025-06-01', 'YYYY-MM-DD'), 'NV003', 'Tiêm phòng cho thú mini', 210000, 'Đã hoàn thành', NULL);
+INSERT INTO LICH_BAOTRI VALUES ('BT020', 'KTC020', TO_DATE('2025-06-20', 'YYYY-MM-DD'), 'NV005', 'Lắp lại pha lê trang trí', 300000, 'Đang thực hiện', 'Đã hoàn tất 50%');
