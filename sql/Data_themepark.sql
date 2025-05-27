@@ -109,6 +109,23 @@ INSERT INTO KHUTROCHOI (MAKTC, TENKTC) VALUES ('KTC018', 'Khám Phá Vũ Trụ H
 INSERT INTO KHUTROCHOI (MAKTC, TENKTC) VALUES ('KTC019', 'Vườn Thú Mini');
 INSERT INTO KHUTROCHOI (MAKTC, TENKTC) VALUES ('KTC020', 'Lâu Đài Pha Lê');
 
+-- Bảng KHUVUC
+INSERT INTO KHUVUC (MAKV, TENKV, MOTA, GIATHUE, TRANGTHAI) VALUES ('KV001', 'Khu hội chợ A', 'Khu vực rộng rãi phù hợp tổ chức hội chợ', 1500000, 'Available');
+INSERT INTO KHUVUC (MAKV, TENKV, MOTA, GIATHUE, TRANGTHAI) VALUES ('KV002', 'Khu trò chơi nước', 'Khu có hệ thống máng trượt và hồ bơi nhỏ', 2000000, 'Unavailable');
+INSERT INTO KHUVUC (MAKV, TENKV, MOTA, GIATHUE, TRANGTHAI) VALUES ('KV003', 'Khu tổ chức sự kiện B', 'Phù hợp tổ chức hội nghị ngoài trời', 1800000, 'Available');
+INSERT INTO KHUVUC (MAKV, TENKV, MOTA, GIATHUE, TRANGTHAI) VALUES ('KV004', 'Gian hàng ăn uống số 1', 'Khu vực đặt các xe bán đồ ăn nhanh', 800000, 'Available');
+INSERT INTO KHUVUC (MAKV, TENKV, MOTA, GIATHUE, TRANGTHAI) VALUES ('KV005', 'Gian hàng lưu niệm A', 'Chuyên bán đồ lưu niệm, quà tặng', 600000, 'Unavailable');
+INSERT INTO KHUVUC (MAKV, TENKV, MOTA, GIATHUE, TRANGTHAI) VALUES ('KV006', 'Khu triển lãm ngoài trời', 'Dành cho các hoạt động trưng bày nghệ thuật', 1700000, 'Available');
+INSERT INTO KHUVUC (MAKV, TENKV, MOTA, GIATHUE, TRANGTHAI) VALUES ('KV007', 'Gian hàng ăn uống số 2', 'Vị trí gần khu trung tâm, đông người qua lại', 950000, 'Available');
+INSERT INTO KHUVUC (MAKV, TENKV, MOTA, GIATHUE, TRANGTHAI) VALUES ('KV008', 'Khu cắm trại 1', 'Khu có chỗ dựng lều và hệ thống chiếu sáng', 1200000, 'Unavailable');
+INSERT INTO KHUVUC (MAKV, TENKV, MOTA, GIATHUE, TRANGTHAI) VALUES ('KV009', 'Khu trò chơi thiếu nhi', 'Dành riêng cho trẻ em từ 3 đến 10 tuổi', 1600000, 'Available');
+INSERT INTO KHUVUC (MAKV, TENKV, MOTA, GIATHUE, TRANGTHAI) VALUES ('KV010', 'Khu hoạt náo tổng hợp', 'Dùng cho biểu diễn văn nghệ, hoạt động cộng đồng', 1900000, 'Available');
+INSERT INTO KHUVUC (MAKV, TENKV, MOTA, GIATHUE, TRANGTHAI) VALUES ('KV011', 'Gian hàng lưu niệm B', 'Gian hàng góc phải, ít nắng, gần lối ra', 550000, 'Unavailable');
+INSERT INTO KHUVUC (MAKV, TENKV, MOTA, GIATHUE, TRANGTHAI) VALUES ('KV012', 'Khu vẽ tranh nghệ thuật', 'Khu dành cho trẻ em tô tượng, vẽ tranh cát', 900000, 'Available');
+INSERT INTO KHUVUC (MAKV, TENKV, MOTA, GIATHUE, TRANGTHAI) VALUES ('KV013', 'Khu tiệc BBQ', 'Có bếp nướng và khu vực ngồi ăn nhóm lớn', 1300000, 'Unavailable');
+INSERT INTO KHUVUC (MAKV, TENKV, MOTA, GIATHUE, TRANGTHAI) VALUES ('KV014', 'Khu sinh hoạt nhóm', 'Không gian mở cho các buổi sinh hoạt câu lạc bộ', 1100000, 'Available');
+INSERT INTO KHUVUC (MAKV, TENKV, MOTA, GIATHUE, TRANGTHAI) VALUES ('KV015', 'Khu trình diễn thời trang', 'Sân khấu nhỏ và đường catwalk sẵn có', 1750000, 'Available');
+COMMIT;
 
 -- Bảng VE
 INSERT INTO VE (MAVE, TENVE, LOAIVE, HINHANH, GIAVE, MAKTC) VALUES ('VE001', 'Vé Vào Cổng Người Lớn', 'Người lớn', 'https://i.postimg.cc/Rh9DnkR1/park.jpg', 200000, 'KTC001');
