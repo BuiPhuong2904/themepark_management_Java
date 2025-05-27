@@ -87,6 +87,9 @@ INSERT INTO SANPHAM VALUES ('SP014', 'Màn hình LCD giám sát', 'Thiết bị 
 INSERT INTO SANPHAM VALUES ('SP015', 'Máy đo tốc độ gió', 'Thiết bị đo lường', 10, 'cái', 1500000.00, NULL, 'Còn hàng');
 INSERT INTO SANPHAM VALUES ('SP016', 'Máy lọc nước mini', 'Thiết bị tiện ích', 15, 'cái', 2200000.00, NULL, 'Còn hàng');
 
+INSERT INTO SANPHAM VALUES ('SP017', 'Dây treo an toàn dự phòng', 'Thiết bị an toàn', 0, 'cái', 100000.00, NULL, 'Hết hàng');
+
+COMMIT;
 
 --Bảng PHIEUKHO
 INSERT INTO PHIEUKHO VALUES ('PK001', TO_DATE('2025-01-05','YYYY-MM-DD'), 'NHAP', 'NV001', 'Nhập hàng đợt 1');
@@ -103,7 +106,7 @@ INSERT INTO PHIEUKHO VALUES ('PK011', TO_DATE('2025-04-01','YYYY-MM-DD'), 'NHAP'
 INSERT INTO PHIEUKHO VALUES ('PK012', TO_DATE('2025-04-05','YYYY-MM-DD'), 'XUAT', 'NV003', 'Xuất hàng cho bảo trì định kỳ');
 INSERT INTO PHIEUKHO VALUES ('PK013', TO_DATE('2025-04-10','YYYY-MM-DD'), 'NHAP', 'NV004', 'Dụng cụ và thiết bị đo lường');
 INSERT INTO PHIEUKHO VALUES ('PK014', TO_DATE('2025-04-20','YYYY-MM-DD'), 'XUAT', 'NV005', 'Xuất thiết bị khu biểu diễn');
-INSERT INTO PHIEUKHO VALUES ('PK015', TO_DATE('2025-04-25','YYYY-MM-DD'), 'NHAP', 'NV001', 'Máy lọc nước & vật tư tiện ích');
+INSERT INTO PHIEUKHO VALUES ('PK015', TO_DATE('2025-04-25','YYYY-MM-DD'), 'NHAP', 'NV001', 'Máy lọc nước và vật tư tiện ích');
 INSERT INTO PHIEUKHO VALUES ('PK016', TO_DATE('2025-05-01','YYYY-MM-DD'), 'NHAP', 'NV003', 'Trang thiết bị an toàn');
 INSERT INTO PHIEUKHO VALUES ('PK017', TO_DATE('2025-05-05','YYYY-MM-DD'), 'XUAT', 'NV002', 'Xuất thiết bị bảo hộ');
 INSERT INTO PHIEUKHO VALUES ('PK018', TO_DATE('2025-05-10','YYYY-MM-DD'), 'XUAT', 'NV001', 'Xuất cho sự kiện ngoài trời');

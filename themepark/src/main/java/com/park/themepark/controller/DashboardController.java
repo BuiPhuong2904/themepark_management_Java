@@ -19,11 +19,15 @@ import com.park.themepark.model.Combo_Ve;
 import com.park.themepark.model.HoaDon;
 import com.park.themepark.model.KhachHang;
 import com.park.themepark.dao.NhanVienDAO;
+import com.park.themepark.dao.PhieuKhoDAO;
+import com.park.themepark.dao.SanPhamDAO;
 import com.park.themepark.dao.KhuVucDAO;
 import com.park.themepark.model.KhuTroChoi;
 import com.park.themepark.model.KhuVuc;
 import com.park.themepark.model.KhuyenMai;
 import com.park.themepark.model.NhanVien;
+import com.park.themepark.model.PhieuKho;
+import com.park.themepark.model.SanPham;
 import com.park.themepark.dao.SuKienDAO;
 import com.park.themepark.model.SuKien;
 import com.park.themepark.model.Ve;
@@ -54,6 +58,12 @@ public class DashboardController {
 
     @Autowired
     private KhuVucDAO khuVucDAO;
+
+    @Autowired
+    private SanPhamDAO sanPhamDAO;
+
+    @Autowired
+    private PhieuKhoDAO phieuKhoDAO;
 
     @Autowired
     private HoaDonDAO hoaDonDAO;
@@ -132,7 +142,6 @@ public class DashboardController {
     public String hienThiQLKhuyenMai(Model model) {
         List<KhuyenMai> list = khuyenMaiDAO.findAll();
         model.addAttribute("danhSachKhuyenMai", list);
-        System.out.println("Số khuyến mãi lấy được: " + list.size());
         return "e_ql_khuyenmai"; 
     }
 
@@ -160,7 +169,9 @@ public class DashboardController {
 
     @GetMapping("/ds_san_pham")
     public String hienThiDSSanPham(Model model) {
-        return "e_ds_san_pham"; 
+        List<SanPham> list = sanPhamDAO.findAll();
+        model.addAttribute("danhSachSP", list);
+        return "e_ds_sanpham"; 
     }
 
     @GetMapping("/luot_kh")
@@ -175,6 +186,9 @@ public class DashboardController {
 
     @GetMapping("/ql_nhap_xuat")
     public String hienThiDSQLNhap(Model model) {
+        List<PhieuKho> list = phieuKhoDAO.findAll();
+        model.addAttribute("danhSachPK", list);
+
         return "e_ql_nhap_xuat"; 
     }
 
