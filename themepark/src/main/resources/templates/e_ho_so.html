@@ -34,24 +34,6 @@
         </button>
       </form>
 
-      <!-- Nếu đã đăng nhập
-      <div class="dropdown ms-3" th:if="${khachHang != null}">
-        <a class="btn btn-light dropdown-toggle d-flex align-items-center" href="#" role="button" id="userDropdown"
-          data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://i.postimg.cc/fRNrFCSH/ava.jpg" class="rounded-circle me-2" width="32" height="32" alt="Avatar">
-          <span th:text="'Xin chào, ' + ${khachHang.hoten}">Tên KH</span>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-          <li><a class="dropdown-item text-danger" href="/dangxuat">Đăng xuất</a></li>
-        </ul>
-      </div>
-
-       Nếu chưa đăng nhập 
-      <div th:if="${khachHang == null}" class="ms-3">
-        <a class="btn btn-outline ms-2" href="/dangky">ĐĂNG KÝ</a>
-        <a class="btn btn-primary ms-2" href="/dangnhap">ĐĂNG NHẬP</a>
-      </div> -->
-
       <a class="btn btn-outline-danger ms-3" href="/dangxuat">Đăng xuất</a>
       
     </div>
@@ -163,8 +145,7 @@
           </a>
           <div class="collapse submenu" id="khoMenu" data-bs-parent="#accordionSidebar">
             <a class="nav-link" href="/ds_san_pham">Danh sách sản phẩm</a>
-            <a class="nav-link" href="/ql_nhap">Quản lý nhập</a>
-            <a class="nav-link" href="/ql_xuat">Quản lý xuất</a>
+            <a class="nav-link" href="/ql_nhap_xuat">Quản lý nhập/ xuất</a>
           </div>
         </li>
 

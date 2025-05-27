@@ -166,13 +166,9 @@ public class DashboardController {
         return "e_ql_hop_dong"; 
     }
 
-    @GetMapping("/ql_nhap")
+    @GetMapping("/ql_nhap_xuat")
     public String hienThiDSQLNhap(Model model) {
-        return "e_ql_nhap"; 
+        return "e_ql_nhap_xuat"; 
     }
 
-    @GetMapping("/ql_xuat")
-    public String hienThiDSQLXuat(Model model) {
-        return "e_ql_xuat"; 
-    }
 }
