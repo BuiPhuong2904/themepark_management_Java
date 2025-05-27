@@ -1,5 +1,6 @@
 package com.park.themepark.controller;
 
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -177,6 +178,33 @@ public class DashboardController {
 
     @GetMapping("/doanh_thu")
     public String hienThiDSDoanhThu(Model model) {
+        // Lấy số lượng khách hàng, hóa đơn, khu vực
+        int tongKhachHang = khachHangDAO.findAll().size();
+        int tongHoaDon = hoaDonDAO.findAll().size();
+        int tongKhuVuc = khuVucDAO.findAll().size();
+
+        model.addAttribute("tongKhachHang", tongKhachHang);
+        model.addAttribute("tongHoaDon", tongHoaDon);
+        model.addAttribute("tongKhuVuc", tongKhuVuc);
+
+        // Doanh thu theo tháng
+        List<HoaDon> danhSachHoaDon = hoaDonDAO.findAll();
+        double[] doanhThuTheoThang = new double[12]; // tháng 0-11
+
+        for (HoaDon hd : danhSachHoaDon) {
+            if (hd.getNgayLap() != null) {
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(hd.getNgayLap());
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH); // 0-11
+
+                if (year == 2025) {
+                    doanhThuTheoThang[month] += (hd.getTongTienSau() != null ? hd.getTongTienSau() : 0);
+                }
+            }
+        }
+
+        model.addAttribute("doanhThuThang", doanhThuTheoThang);
         return "e_doanhthu"; 
     }
 

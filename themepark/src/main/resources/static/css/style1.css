@@ -247,3 +247,56 @@ body {
 
 
 /*-----------------------------------------------------------------------------*/
+/* Thống kê */
+/* Định dạng khung thống kê tổng */
+.stat-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 30px auto;
+    max-width: 1000px;
+}
+
+.stat-box {
+    width: 30%;
+    min-width: 200px;
+    background-color: #e6f7ff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+    color: #007acc;
+    transition: transform 0.2s;
+}
+
+.stat-box:hover {
+    transform: scale(1.03);
+}
+
+.stat-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.stat-value {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.stat-label {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Biểu đồ */
+.chart-container {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+canvas {
+    width: 100% !important;
+    height: auto !important;
+}
