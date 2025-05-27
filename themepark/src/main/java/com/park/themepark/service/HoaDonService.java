@@ -24,6 +24,10 @@ public class HoaDonService {
     @Autowired
     private KhachHangDAO khachHangDAO;
 
+    public HoaDon findById(String maHD) {
+        return hoaDonDAO.findById(maHD);
+    }
+
     public HoaDon getHoaDonChiTiet(String maHD) {
         HoaDon hd = hoaDonDAO.findById(maHD);
         if (hd != null) {

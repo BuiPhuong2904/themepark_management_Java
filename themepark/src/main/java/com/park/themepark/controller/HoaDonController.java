@@ -1,16 +1,21 @@
 package com.park.themepark.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.park.themepark.dao.ChiTiet_HDDAO;
 import com.park.themepark.model.ChiTietHoaDonRequest;
 import com.park.themepark.model.ChiTiet_HD;
 import com.park.themepark.model.HoaDon;
@@ -23,6 +28,9 @@ public class HoaDonController {
     
     @Autowired
     private HoaDonService hoaDonService;
+
+    @Autowired
+    private ChiTiet_HDDAO chiTietHdDao;
 
     @PostMapping("/hoa-don")
     public ResponseEntity<?> themHoaDon(@RequestBody HoaDonRequest request) {
@@ -60,5 +68,21 @@ public class HoaDonController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Lỗi: " + e.getMessage());
         }
+    }
+
+    @GetMapping("/chi-tiet-hoa-don/{maHD}")
+    public ResponseEntity<?> getChiTietHoaDon(@PathVariable String maHD) {
+        HoaDon hd = hoaDonService.findById(maHD);
+        if (hd == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        List<ChiTiet_HD> dsChiTiet = chiTietHdDao.findByMaHD(maHD);
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("hoaDon", hd);
+        response.put("dsChiTiet", dsChiTiet);
+
+        return ResponseEntity.ok(response);
     }
 }
