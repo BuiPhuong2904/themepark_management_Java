@@ -52,23 +52,47 @@ BEGIN
 END;
 
 
--- Kho
+-- SANPHAM, PHIEUKHO 
 CREATE OR REPLACE TRIGGER trg_update_tonkho
 AFTER INSERT ON CT_PHIEUKHO
 FOR EACH ROW
 DECLARE
     v_loai_phieu VARCHAR2(10);
+    v_tongsl     NUMBER;
 BEGIN
+    -- Lấy loại phiếu từ bảng PHIEUKHO
     SELECT LOAIPHIEU INTO v_loai_phieu
-    FROM PHIEUKHO WHERE MAPHIEU = :NEW.MAPHIEU;
+    FROM PHIEUKHO 
+    WHERE MAPHIEU = :NEW.MAPHIEU;
 
+    -- Nếu phiếu nhập → cộng tồn kho
     IF v_loai_phieu = 'NHAP' THEN
         UPDATE SANPHAM
-        SET TONGSL = TONGSL + :NEW.SOLUONG
+        SET TONGSL = NVL(TONGSL, 0) + :NEW.SOLUONG
         WHERE MASP = :NEW.MASP;
+
+    -- Nếu phiếu xuất → kiểm tra trước khi trừ
     ELSIF v_loai_phieu = 'XUAT' THEN
-        UPDATE SANPHAM
-        SET TONGSL = TONGSL - :NEW.SOLUONG
+        -- Lấy số lượng tồn hiện tại
+        SELECT TONGSL INTO v_tongsl
+        FROM SANPHAM
         WHERE MASP = :NEW.MASP;
+
+        -- Kiểm tra nếu không đủ hàng thì báo lỗi
+        IF v_tongsl < :NEW.SOLUONG THEN
+            RAISE_APPLICATION_ERROR(-20010, 
+                'Không thể xuất hàng: tồn kho hiện tại (' || v_tongsl || ') < số lượng cần xuất (' || :NEW.SOLUONG || ').');
+        ELSE
+            -- Nếu đủ hàng thì cho phép trừ
+            UPDATE SANPHAM
+            SET TONGSL = TONGSL - :NEW.SOLUONG
+            WHERE MASP = :NEW.MASP;
+        END IF;
     END IF;
+
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Không tìm thấy phiếu kho hoặc sản phẩm.');
+    WHEN OTHERS THEN
+        RAISE_APPLICATION_ERROR(-20002, 'Lỗi trigger: ' || SQLERRM);
 END;
