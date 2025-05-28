@@ -239,9 +239,9 @@
             <tbody>
                 <tr th:each="hd  : ${danhSachHoaDon}">
                     <td th:text="${hd.maHD}"></td>
-                    <td th:text="${hd.tongTienTruoc}"></td>
-                    <td th:text="${hd.tienGiamGia}"></td>
-                    <td th:text="${hd.tongTienSau}"></td>
+                    <td th:text="${#numbers.formatDecimal(hd.tongTienTruoc, 1, 1)}"></td>
+                    <td th:text="${#numbers.formatDecimal(hd.tienGiamGia, 1, 1)}"></td>
+                    <td th:text="${#numbers.formatDecimal(hd.tongTienSau, 1, 1)}"></td>
                     <td th:text="${hd.hinhThucTT}"></td>
                     <td th:text="${#dates.format(hd.ngayLap, 'dd/MM/yyyy')}"></td>
                     <td th:text="${hd.maKM}"></td>

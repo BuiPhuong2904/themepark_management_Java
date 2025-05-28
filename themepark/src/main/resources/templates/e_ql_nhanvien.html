@@ -247,7 +247,7 @@
                   <td th:text="${nv.sdt}"></td>
                   <td th:text="${nv.ngayVaoLam}"></td>
                   <td th:text="${nv.chucVu}"></td>
-                  <td th:text="${nv.luong}"></td>
+                  <td th:text="${#numbers.formatDecimal(nv.luong, 1, 1)}"></td>
                   <td th:text="${nv.maQL}"></td>
                   <td class="text-center">
                       <a href="#" class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil-square"></i></a>
