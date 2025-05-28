@@ -224,7 +224,7 @@ public class DashboardController {
 
     @GetMapping("/luot_kh")
     public String hienThiDSLuotKH(Model model) {
-        return "e_luot_kh"; 
+        return "e_luotkh"; 
     }
 
     @GetMapping("/ql_hop_dong")
