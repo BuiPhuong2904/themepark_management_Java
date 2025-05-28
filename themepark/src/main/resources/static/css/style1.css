@@ -277,6 +277,23 @@ body {
   color: #007bff;
 }
 
+.save-btn {
+  background-color: #28a745; /* xanh lá */
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.save-btn:hover {
+  background-color: #218838;
+}
+
+
 
 /*-----------------------------------------------------------------------------*/
 /* Thống kê */
@@ -397,3 +414,25 @@ h2 {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     overflow-x: auto;
 }
+
+
+/*------------------------------------------------------------------------------*/
+/* chart-style.css*/
+
+.chart-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+#ticketPieChart {
+    max-width: 500px;
+    max-height: 500px;
+    margin-left: auto;
+    margin-right: auto; /* căn giữa ngang */
+    display: block;
+}
+
+/*------------------------------------------------------------------------------*/
+
+

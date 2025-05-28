@@ -223,35 +223,35 @@
             <div class="info-row">
               <label>Mã nhân viên</label>
               <div class="info-field">
-                <input type="text" placeholder="Mã nhân viên">
+                <input type="text" placeholder="NV001">
                 <i class="edit-icon">✎</i>
               </div>
             </div>
             <div class="info-row">
               <label>Họ và tên</label>
               <div class="info-field">
-                <input type="text" placeholder="Họ và tên">
+                <input type="text" placeholder="Nguyễn Văn An">
                 <i class="edit-icon">✎</i>
               </div>
             </div>
             <div class="info-row">
               <label>Ngày sinh</label>
               <div class="info-field">
-                <input type="text" placeholder="Ngày sinh">
+                <input type="text" placeholder="1990-05-15">
                 <i class="edit-icon">✎</i>
               </div>
             </div>
             <div class="info-row">
               <label>Giới tính</label>
               <div class="info-field">
-                <input type="text" placeholder="Giới tính">
+                <input type="text" placeholder="Nam">
                 <i class="edit-icon">✎</i>
               </div>
             </div>
             <div class="info-row">
               <label>Số điện thoại</label>
               <div class="info-field">
-                <input type="text" placeholder="Số điện thoại">
+                <input type="text" placeholder="0901000001">
                 <i class="edit-icon">✎</i>
               </div>
             </div>
@@ -262,21 +262,21 @@
             <div class="info-row">
               <label>Chức vụ</label>
               <div class="info-field">
-                <input type="text" placeholder="Chức vụ">
+                <input type="text" placeholder="Quản lý">
                 <i class="edit-icon">✎</i>
               </div>
             </div>
             <div class="info-row">
               <label>Lương</label>
               <div class="info-field">
-                <input type="text" placeholder="Lương">
+                <input type="text" placeholder="15000000.0">
                 <i class="edit-icon">✎</i>
               </div>
             </div>
             <div class="info-row">
               <label>Ngày vào làm</label>
               <div class="info-field">
-                <input type="text" placeholder="Ngày vào làm">
+                <input type="text" placeholder="2022-01-10">
                 <i class="edit-icon">✎</i>
               </div>
             </div>
@@ -290,7 +290,7 @@
             <div class="info-row">
               <label>Mã tài khoản</label>
               <div class="info-field">
-                <input type="text" placeholder="Mã tài khoản">
+                <input type="text" placeholder="TK089">
                 <i class="edit-icon">✎</i>
               </div>
             </div>
@@ -298,7 +298,13 @@
 
         </div>
       </div>
+
+      <!-- Nút lưu -->
+      <div class="save-button-container" style="text-align: center; margin-top: 20px;">
+        <button class="save-btn">💾 Lưu thông tin</button>
+      </div>
     </div>
+
 
     <script>
       document.getElementById('avatarInput').addEventListener('change', function (e) {
@@ -322,6 +328,12 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+<script>
+  document.querySelector('.save-btn').addEventListener('click', function () {
+    alert('Thông tin đã được lưu!');
+    // Hoặc gọi AJAX, hoặc gửi form ở đây
+  });
+</script>
 
 </script><script src="/js/slidebar.js"></script>
 </body>

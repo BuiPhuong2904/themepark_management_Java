@@ -224,6 +224,13 @@ public class DashboardController {
 
     @GetMapping("/luot_kh")
     public String hienThiDSLuotKH(Model model) {
+        int tongComboVe = comboVeDAO.findAll().size();
+        int tongVe = veDAO.findAll().size();
+        int tongKhuyenMai = khuyenMaiDAO.findAll().size();
+
+        model.addAttribute("tongComboVe", tongComboVe);
+        model.addAttribute("tongVe", tongVe);
+        model.addAttribute("tongKhuyenMai", tongKhuyenMai);
         return "e_luotkh"; 
     }
 
