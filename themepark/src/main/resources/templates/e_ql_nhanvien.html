@@ -214,8 +214,8 @@
             </p>
         </div>
 
-        <button class="btn btn-primary" style="font-size: 1rem; font-weight: 500; font-family: 'Itim', sans-serif;">
-            <i class="bi bi-plus-circle me-1"></i> Thêm nhân viên
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalThemNhanVien" style="font-size: 1rem; font-weight: 500; font-family: 'Itim', sans-serif;">
+          <i class="bi bi-plus-circle me-1"></i> Thêm nhân viên
         </button>
       </div>
 
@@ -257,7 +257,83 @@
           </tbody>
       </table>
 
-      
+      <!-- Modal Thêm Nhân Viên -->
+      <div class="modal fade" id="modalThemNhanVien" tabindex="-1" aria-labelledby="modalNhanVienLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <form id="formNhanVien" onsubmit="submitNhanVienForm(event)">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalNhanVienLabel">Thêm nhân viên mới</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+              </div>
+
+              <div class="modal-body row g-3 px-3">
+                <h6>Thông tin nhân viên</h6>
+                <div class="col-md-6">
+                  <label class="form-label">Họ tên</label>
+                  <input name="hoTen" class="form-control" required>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label">Ngày sinh</label>
+                  <input type="date" name="ngaySinh" class="form-control" required>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label">Giới tính</label>
+                  <select name="gioiTinh" class="form-select" required>
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">SĐT</label>
+                  <input name="sdt" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Ngày vào làm</label>
+                  <input type="date" name="ngayVaoLam" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Chức vụ</label>
+                  <input name="chucVu" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Lương</label>
+                  <input type="number" name="luong" class="form-control" step="1000" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Mã quản lý (nếu có)</label>
+                  <input name="maQL" class="form-control">
+                </div>
+
+                <hr class="mt-4">
+
+                <h6>Thông tin tài khoản</h6>
+                <div class="col-md-6">
+                  <label class="form-label">Email</label>
+                  <input name="email" type="email" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Mật khẩu</label>
+                  <input name="matKhau" type="password" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Loại tài khoản</label>
+                  <select name="loaiTK" class="form-select" required>
+                    <option value="Employee">Employee</option>
+                    <option value="Manager">Manager</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-success"><i class="bi bi-check-circle me-1"></i> Thêm</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
