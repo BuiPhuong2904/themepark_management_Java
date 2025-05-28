@@ -30,6 +30,11 @@ public class KhuVucDAO {
         return jdbcTemplate.query(sql, this::mapRow);
     }
 
+    public List<KhuVuc> findAllActive() {
+        String sql = "SELECT * FROM KHUVUC WHERE TRANGTHAI = 'Available'";
+        return jdbcTemplate.query(sql, this::mapRow);
+    }
+
     public KhuVuc findById(String maKV) {
         String sql = "SELECT * FROM KHUVUC WHERE MAKV = ?";
         return jdbcTemplate.queryForObject(sql, this::mapRow, maKV);

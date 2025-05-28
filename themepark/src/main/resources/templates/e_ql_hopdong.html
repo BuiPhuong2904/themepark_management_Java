@@ -213,7 +213,9 @@
                 </p>
             </div>
 
-            <button class="btn btn-primary" style="font-size: 1rem; font-weight: 500; font-family: 'Itim', sans-serif;">
+            <button class="btn btn-primary" 
+                    style="font-size: 1rem; font-weight: 500; font-family: 'Itim', sans-serif;"
+                    data-bs-toggle="modal" data-bs-target="#modalThemHopDong">
                 <i class="bi bi-plus-circle me-1"></i> Thêm hợp đồng
             </button>
         </div>
@@ -256,11 +258,103 @@
             </tbody>
         </table>
 
-      
+      <!-- Modal thêm hợp đồng -->
+      <div class="modal fade" id="modalThemHopDong" tabindex="-1" aria-labelledby="modalThemHopDongLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+
+            <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title" id="modalThemHopDongLabel">
+                <i class="bi bi-file-earmark-plus me-2"></i> Thêm hợp đồng
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+
+            <div class="modal-body">
+              <form id="formThemHopDong">
+
+                <!-- Thông tin hợp đồng -->
+                <h6 style="font-weight: 600; font-size: 1.25rem;">Thông tin hợp đồng</h6>
+                <div class="mb-3">
+                  <label for="maHDInput" class="form-label">Mã hợp đồng</label>
+                  <input type="text" class="form-control" id="maHDInput" required>
+                </div>
+
+                <div class="mb-3">
+                  <label for="tenHDInput" class="form-label">Tên hợp đồng</label>
+                  <input type="text" class="form-control" id="tenHDInput" required>
+                </div>
+
+                <div class="mb-3 row">
+                  <div class="col">
+                    <label for="ngayBDInput" class="form-label">Ngày bắt đầu</label>
+                    <input type="date" class="form-control" id="ngayBDInput" required>
+                  </div>
+                  <div class="col">
+                    <label for="ngayKTInput" class="form-label">Ngày kết thúc</label>
+                    <input type="date" class="form-control" id="ngayKTInput" required>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="tongTienInput" class="form-label">Tổng tiền</label>
+                  <input type="number" class="form-control" id="tongTienInput" step="0.01" required>
+                </div>
+
+                <!-- Chọn khu vực -->
+                <div class="mb-3">
+                  <label for="maKVInput" class="form-label">Chọn khu vực thuê</label>
+                  <select class="form-select" id="maKVInput" required>
+                    <!-- Options sẽ load bằng JS -->
+                  </select>
+                </div>
+
+                <hr>
+
+                <!-- Thông tin khách hàng -->
+                <h6 style="font-weight: 600; font-size: 1.25rem;">Thông tin khách hàng</h6>
+
+                <div class="mb-3">
+                  <label for="maKHInput" class="form-label">Mã khách hàng</label>
+                  <input type="text" class="form-control" id="maKHInput" placeholder="Nhập mã hoặc để trống nếu khách mới">
+                </div>
+
+                <div class="mb-3">
+                  <label for="tenKHInput" class="form-label">Tên khách hàng</label>
+                  <input type="text" class="form-control" id="tenKHInput" placeholder="Tên khách hàng mới">
+                </div>
+
+                <div class="mb-3">
+                  <label for="sdtKHInput" class="form-label">Số điện thoại</label>
+                  <input type="tel" class="form-control" id="sdtKHInput" placeholder="SĐT khách hàng mới">
+                </div>
+
+                <div class="mb-3">
+                  <label for="diaChiKHInput" class="form-label">Email</label>
+                  <input type="text" class="form-control" id="diaChiKHInput" placeholder="Địa chỉ email khách hàng mới">
+                </div>
+
+                <div class="form-text mb-3">
+                  Nếu mã khách hàng tồn tại, thông tin khách hàng mới sẽ bị bỏ qua.
+                </div>
+
+              </form>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" style="font-family: 'Itim';" data-bs-dismiss="modal">Hủy</button>
+              <button type="button" class="btn btn-primary" onclick="submitThemHopDong()">Lưu</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
 
+<script src="/js/e_ql_hopdong.js"></script>
 </body>
 
 <script>
@@ -271,6 +365,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="/js/slidebar.js"></script>
 </body>
 </html>

@@ -213,8 +213,11 @@
             </p>
         </div>
 
-        <button class="btn btn-primary" style="font-size: 1rem; font-weight: 500; font-family: 'Itim', sans-serif;">
-            <i class="bi bi-plus-circle me-1"></i> Thêm khách hàng
+        <button class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#modalThemKhachHang"
+                style="font-size: 1rem; font-weight: 500; font-family: 'Itim', sans-serif;">
+          <i class="bi bi-plus-circle me-1"></i> Thêm khách hàng
         </button>
     </div>
 
@@ -248,6 +251,76 @@
         </tbody>
     </table>
 
+    <!-- Modal Thêm Khách Hàng -->
+    <div class="modal fade" id="modalThemKhachHang" tabindex="-1" aria-labelledby="modalThemKhachHangLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title" id="modalThemKhachHangLabel">
+              <i class="bi bi-person-plus me-2"></i> Thêm khách hàng mới
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+          </div>
+
+          <div class="modal-body">
+            <form id="formThemKhachHang">
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="maKHInput" class="form-label">Mã khách hàng</label>
+                  <input type="text" class="form-control" id="maKHInput" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="hoTenKHInput" class="form-label">Họ tên</label>
+                  <input type="text" class="form-control" id="hoTenKHInput" required>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="ngaySinhKHInput" class="form-label">Ngày sinh</label>
+                  <input type="date" class="form-control" id="ngaySinhKHInput">
+                </div>
+                <div class="col-md-6">
+                  <label for="gioiTinhKHInput" class="form-label">Giới tính</label>
+                  <select class="form-select" id="gioiTinhKHInput">
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="sdtKHInput" class="form-label">Số điện thoại</label>
+                <input type="text" class="form-control" id="sdtKHInput" required>
+              </div>
+
+              <hr>
+
+              <h6 class="fw-bold">Tài khoản đăng nhập</h6>
+
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="emailKHInput" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="emailKHInput" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="matKhauKHInput" class="form-label">Mật khẩu</label>
+                  <input type="password" class="form-control" id="matKhauKHInput" required>
+                </div>
+              </div>
+
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" style="font-family: 'Itim';" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-primary" onclick="submitThemKhachHang()">Lưu</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
       
     </div>
   </div>

@@ -214,8 +214,11 @@
                 </p>
             </div>
 
-            <button class="btn btn-primary" style="font-size: 1rem; font-weight: 500; font-family: 'Itim', sans-serif;">
-                <i class="bi bi-plus-circle me-1"></i> Thêm sự kiện
+            <button class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalThemSuKien"
+                    style="font-size: 1rem; font-weight: 500; font-family: 'Itim', sans-serif;">
+              <i class="bi bi-plus-circle me-1"></i> Thêm sự kiện
             </button>
         </div>
 
@@ -252,6 +255,69 @@
                 </tr>
             </tbody>
         </table>
+
+      <!-- Modal Thêm Sự Kiện -->
+      <div class="modal fade" id="modalThemSuKien" tabindex="-1" aria-labelledby="modalThemSuKienLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            
+            <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title" id="modalThemSuKienLabel">
+                <i class="bi bi-calendar-event me-2"></i> Thêm sự kiện mới
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+
+            <div class="modal-body">
+              <form id="formThemSuKien">
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <label for="maSKInput" class="form-label">Mã sự kiện</label>
+                    <input type="text" class="form-control" id="maSKInput" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="tenSKInput" class="form-label">Tên sự kiện</label>
+                    <input type="text" class="form-control" id="tenSKInput" required>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <label for="loaiSKInput" class="form-label">Loại sự kiện</label>
+                    <input type="text" class="form-control" id="loaiSKInput">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="maNVInput" class="form-label">Mã nhân viên phụ trách</label>
+                    <input type="text" class="form-control" id="maNVInput">
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <label for="ngayBDInput" class="form-label">Ngày bắt đầu</label>
+                    <input type="date" class="form-control" id="ngayBDInput" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="ngayKTInput" class="form-label">Ngày kết thúc</label>
+                    <input type="date" class="form-control" id="ngayKTInput" required>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="moTaSKInput" class="form-label">Mô tả</label>
+                  <textarea class="form-control" id="moTaSKInput" rows="3"></textarea>
+                </div>
+              </form>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" style="font-family: 'Itim';" data-bs-dismiss="modal">Hủy</button>
+              <button type="button" class="btn btn-primary" onclick="submitThemSuKien()">Lưu</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
 
       
     </div>
