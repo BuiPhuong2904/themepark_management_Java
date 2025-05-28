@@ -75,29 +75,32 @@ public class AuthController {
             return "dangnhap";
         }
 
-        // Tìm khách hàng liên kết với tài khoản
-        KhachHang khachHang = khachHangService.timTheoTaiKhoanId(taiKhoan.getMaTK());
-        if (khachHang == null) {
-            model.addAttribute("error", "Tài khoản không liên kết với khách hàng");
-            return "dangnhap";
-        }
-
-        // Lưu vào session
+        // Lưu tài khoản vào session
         session.setAttribute("maTK", taiKhoan.getMaTK());
         session.setAttribute("user", taiKhoan);
-        session.setAttribute("khachHang", khachHang);
         session.setAttribute("taiKhoan", taiKhoan);
 
+        // Nếu là Customer → phải tìm khách hàng liên kết
+        if ("Customer".equalsIgnoreCase(taiKhoan.getLoaiTK())) {
+            KhachHang khachHang = khachHangService.timTheoTaiKhoanId(taiKhoan.getMaTK());
+            if (khachHang == null) {
+                model.addAttribute("error", "Tài khoản khách hàng không hợp lệ");
+                return "dangnhap";
+            }
+            session.setAttribute("khachHang", khachHang);
+        }
+
+        // Xử lý điều hướng nếu có URL chuyển hướng trước đó
         String backTo = (String) session.getAttribute("backTo");
         if (backTo != null) {
-            session.removeAttribute("backTo"); // Xóa khỏi session sau khi dùng
+            session.removeAttribute("backTo");
             return "redirect:" + backTo;
         }
 
-        // Chuyển hướng dựa trên vai trò
+        // Chuyển hướng dựa theo vai trò
         String vaiTro = taiKhoan.getLoaiTK();
         if ("Customer".equalsIgnoreCase(vaiTro)) {
-            return "redirect:/"; 
+            return "redirect:/";
         } else {
             return "redirect:/admin"; 
         }
